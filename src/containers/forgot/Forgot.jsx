@@ -1,13 +1,12 @@
-import { Input2 } from '../../components/input';
+import { useRouter } from "next/router";
 import { Button1 } from '../../components/button';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
-import { useLoginDispatcher } from '../../redux/reducers/login';
-
+import { useForgotDispatcher } from '../../redux/reducers/forgot';
 const validationSchema = Yup.object({
-  email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
-  password: Yup.string().required('diperlukan kata sandi').min(6, 'Kata sandi gunakan 6-10 karakter, tanpa spasi').max(10, 'Kata sandi gunakan 6-10 karakter, tanpa spasi').matches(/^\S+$/, 'Kata sandi gunakan 6-10 karakter, tanpa spasi'),
+  email: Yup.string().required().email(),
+  password: Yup.string().required(),
 });
 
 const initialValues = {
@@ -15,11 +14,12 @@ const initialValues = {
   password: '',
 };
 
-const LoginContainer = () => {
+const ForgotContainer = () => {
+  const {push}= useRouter();
   const {
-    login: { loading },
-    doLogin,
-  } = useLoginDispatcher();
+    forgot: { loading },
+    doForgot,
+  } = useForgotDispatcher();
 
   const onSubmit = async (values) => {
     try {
@@ -27,8 +27,8 @@ const LoginContainer = () => {
         identifier: values.email,
         password: values.password,
       };
-      await doLogin(payload);
-      window.location.href = '/';
+      await doForgot(payload);
+      push(`/sendOtp`);
     } catch (error) {
       alert(error);
     }
@@ -61,31 +61,23 @@ const LoginContainer = () => {
         {/* section kanan */}
         <div className="w-full h-full bg-white flex flex-col justify-center ">
           <div className="border border-gray-300 w-4/5 h-fit flex flex-col justify-center rounded-xl shadow-lg mx-auto ">
-            <form className="max-w-[500px] max-h-[640px] w-full mx-auto bg-white rounded-2xl p-[35px] pb-3 " onSubmit={handleSubmit}>
+            <form 
+            className="max-w-[511px] max-h-[462px] w-full mx-auto bg-white rounded-2xl p-[35px] pb-3 " 
+            onSubmit={handleSubmit}>
               <img src="Logo Header.svg" className=" px-2 pb-4 w-8/12 max-w-fit mx-auto"></img>
-              <h2 className="text-2xl text-[#27272E] font-bold text-center">Log In</h2>
+              <h2 className="text-2xl text-[#27272E] font-bold text-center">Forgot Password</h2>
               <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
                 <label>Email</label>
-                <input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} />
-                
+                <input 
+                className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" 
+                placeholder="Enter your email here.." 
+                onChange={handleChange} 
+                onBlur={handleBlur} />
               </div>
-              <div className="flex flex-col text-sm text-black font-semibold mt-3 pt-2 pb-4">
-                <label>Password</label>
-                <Input2 placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} />
-              
-              </div>
-              <div>
-                <a href="../forgot" className="text-[#00229B] text-sm">
-                  Forgot Password?
-                </a>
-              </div>
-              <Button1 type="submit" label={loading ? 'Please wait...' : 'Login'} />
-              <div className="flex justify-center text-base mt-2 pb-5">
-                <p>Don't have an account yet?</p>
-                <a href="../signup" className=" ml-2 text-base text-[#00229B]">
-                  Sign Up
-                </a>
-              </div>
+
+              <Button1 type="submit" label={loading ? 'Please wait...' : 'Send OTP'} />
+              <br />
+              <br />
             </form>
           </div>
         </div>
@@ -94,4 +86,4 @@ const LoginContainer = () => {
   );
 };
 
-export default LoginContainer;
+export default ForgotContainer;

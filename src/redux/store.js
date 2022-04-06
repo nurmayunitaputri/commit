@@ -2,8 +2,8 @@ import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 // reducers
 import login from './reducers/login';
-import registration from './reducers/registration';
-import signup from './reducers/signup';
+import forgot from './reducers/forgot';
+import sendOtp from './reducers/sendOtp';
 import home from './reducers/home';
 import upload from './reducers/upload';
 // rootReducer
@@ -11,8 +11,8 @@ const rootReducer = combineReducers({
   login,
   home,
   upload,
-  registration,
-  signup,
+  forgot,
+  sendOtp,
 });
 // store (main storage)
 const store = configureStore({
