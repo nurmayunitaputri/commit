@@ -4,6 +4,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import login from './reducers/login';
 import forgot from './reducers/forgot';
 import sendOtp from './reducers/sendOtp';
+import confirmOtp from './reducers/confirmOtp';
+import signup from './reducers/signup';
 import home from './reducers/home';
 import upload from './reducers/upload';
 // rootReducer
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
   upload,
   forgot,
   sendOtp,
+  confirmOtp,
+  signup,
 });
 // store (main storage)
 const store = configureStore({

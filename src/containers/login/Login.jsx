@@ -1,5 +1,6 @@
-import { Input2 } from '../../components/input';
+import { Input, Input2 } from '../../components/input';
 import { Button1 } from '../../components/button';
+import { ExclamationCircleIcon } from '@heroicons/react/outline';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
@@ -34,6 +35,21 @@ const LoginContainer = () => {
     }
   };
 
+  //   const submitLogin = await callAPI({
+  //     url: '/posts',
+  //     method: 'post',
+  //     data: payload,
+  //     headers: {
+  //       Authorization: Bearer ${getJwt()},
+  //     },
+  //   });
+  //   if (submitLogin.status === 200) {
+  //     setLoading(false);
+  //     alert('Create posts success!');
+  //     push('/Homepage');
+  //   }
+  // };
+
   const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
     initialValues,
     validationSchema,
@@ -61,21 +77,31 @@ const LoginContainer = () => {
         {/* section kanan */}
         <div className="w-full h-full bg-white flex flex-col justify-center ">
           <div className="border border-gray-300 w-4/5 h-fit flex flex-col justify-center rounded-xl shadow-lg mx-auto ">
-            <form className="max-w-[500px] max-h-[640px] w-full mx-auto bg-white rounded-2xl p-[35px] pb-3 " onSubmit={handleSubmit}>
+            <form className="my-16 max-w-[500px] max-h-[640px] w-full mx-auto bg-white rounded-2xl p-[35px] pb-3 " onSubmit={handleSubmit}>
               <img src="Logo Header.svg" className=" px-2 pb-4 w-8/12 max-w-fit mx-auto"></img>
               <h2 className="text-2xl text-[#27272E] font-bold text-center">Log In</h2>
               <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
-                <label>Email</label>
-                <input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} />
-                
+                Email
+                {/* {getIn(touched, 'email') && getIn(errors, 'email') && (
+                  <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-email">
+                    <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                    {getIn(errors, 'email')}
+                  </div>
+                )} */}
+                <Input type="text" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} dataTestId="input-email" />
               </div>
               <div className="flex flex-col text-sm text-black font-semibold mt-3 pt-2 pb-4">
-                <label>Password</label>
-                <Input2 placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} />
-              
+                Password
+                {/* {getIn(touched, 'password') && getIn(errors, 'password') && (
+                  <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-password">
+                    <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                    {getIn(errors, 'password')}
+                  </div>
+                )} */}
+                <Input2 placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-password" />
               </div>
-              <div>
-                <a href="../forgot" className="text-[#00229B] text-sm">
+              <div className="pb-8">
+                <a href="../forgot" className="text-[#00229B] text-sm ">
                   Forgot Password?
                 </a>
               </div>

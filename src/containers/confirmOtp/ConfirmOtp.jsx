@@ -1,5 +1,5 @@
 import { Button1 } from '../../components/button';
-import { Input} from '../../components/input';
+import { Input2 } from '../../components/input';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
@@ -52,8 +52,8 @@ const ForgotContainer = () => {
           <img src="Logo Header.svg" className=" px-20 py-20 w-12/12 max-w-fit flex justify-items-end "></img>
           <div className="px-20 text-5xl font-bold w-4/5 text-[#333333] items-center justify-center ">Welcome to your next growth opportunity.</div>
           <div className="px-20 text-sm w-3/4 mt-9 pb-9">Get connected with expert, freelance and professional jobs that are suited just for you and meet your prerequisite.</div>
-          <div className='flex justify-end items-end pr-40'>
-          <img src="png_signup login.png" className=" w-8/12 max-w-fit "></img>
+          <div className="flex justify-end items-end pr-40">
+            <img src="png_signup login.png" className=" w-8/12 max-w-fit "></img>
           </div>
         </div>
 
@@ -63,10 +63,26 @@ const ForgotContainer = () => {
             <form className="max-w-[511px] max-h-[462px] w-full mx-auto bg-white rounded-2xl p-[35px] pb-3 " onSubmit={handleSubmit}>
               <img src="Logo Header.svg" className=" px-2 pb-4 w-8/12 max-w-fit mx-auto"></img>
               <h2 className="text-2xl text-[#27272E] font-bold text-center">Forgot Password</h2>
-              <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
-                <label>OTP (Verification Code)</label>
-                <Input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your email here.."  onChange={handleChange} 
-                onBlur={handleBlur} />
+              <div className="flex flex-col text-sm text-black font-semibold mt-3 pt-2 pb-4">
+                New Password
+                {/* {getIn(touched, 'password') && getIn(errors, 'password') && (
+                  <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-password">
+                    <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                    {getIn(errors, 'password')}
+                  </div>
+                )} */}
+                <Input2 placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-password" />
+              </div>
+
+              <div className="flex flex-col text-sm text-black font-semibold mt-3 pt-2 pb-4">
+                Confirm Password
+                {/* {getIn(touched, 'password') && getIn(errors, 'password') && (
+                  <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-password">
+                    <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                    {getIn(errors, 'password')}
+                  </div>
+                )} */}
+                <Input2 placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-password" />
               </div>
 
               <Button1 type="submit" label={loading ? 'Please wait...' : 'Send OTP'} />

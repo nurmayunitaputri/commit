@@ -1,4 +1,5 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
+import { Input} from '../../components/input';
 import { Button1 } from '../../components/button';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
@@ -15,7 +16,7 @@ const initialValues = {
 };
 
 const ForgotContainer = () => {
-  const {push}= useRouter();
+  const { push } = useRouter();
   const {
     forgot: { loading },
     doForgot,
@@ -61,20 +62,13 @@ const ForgotContainer = () => {
         {/* section kanan */}
         <div className="w-full h-full bg-white flex flex-col justify-center ">
           <div className="border border-gray-300 w-4/5 h-fit flex flex-col justify-center rounded-xl shadow-lg mx-auto ">
-            <form 
-            className="max-w-[511px] max-h-[462px] w-full mx-auto bg-white rounded-2xl p-[35px] pb-3 " 
-            onSubmit={handleSubmit}>
+            <form className="max-w-[511px] max-h-[462px] w-full mx-auto bg-white rounded-2xl p-[35px] pb-3 " onSubmit={handleSubmit}>
               <img src="Logo Header.svg" className=" px-2 pb-4 w-8/12 max-w-fit mx-auto"></img>
               <h2 className="text-2xl text-[#27272E] font-bold text-center">Forgot Password</h2>
               <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
                 <label>Email</label>
-                <input 
-                className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" 
-                placeholder="Enter your email here.." 
-                onChange={handleChange} 
-                onBlur={handleBlur} />
+                <Input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} />
               </div>
-
               <Button1 type="submit" label={loading ? 'Please wait...' : 'Send OTP'} />
               <br />
               <br />

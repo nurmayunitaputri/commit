@@ -7,7 +7,7 @@ const Input2 = ({ label, name, type, onChange, onBlur, placeholder, dataTestId }
   return (
     <label htmlFor={name} className="block w-full mb--3">
       <div className="font-normal text-sm mb-1 ">{label}</div>
-      <div className="rounded-lg flex justify-between items-center max-h-11 mt-2 pr-4 border bg-white border-zinc-900 w-full ">
+      <div className="rounded-lg flex justify-between items-center max-h-11 pr-4 border bg-white border-zinc-900 w-full ">
         <input
           type={passwordShown ? 'text' : 'password'}
           name={name}

@@ -1,12 +1,12 @@
 import Head from 'next/head';
-import ForgotContainer from '../containers/sendOtp';
+import SendOtpContainer from '../containers/sendOtp';
 const SendOtpPage = () => {
   return (
     <>
       <Head>
         <title>Forgot Password</title>
       </Head>
-      <ForgotContainer />
+      <SendOtpContainer />
     </>
   );
 };

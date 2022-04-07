@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { callAPI } from '../../../helpers/network';
@@ -7,7 +6,7 @@ const initialState = {
 };
 const slices = createSlice({
   initialState,
-  name: 'login',
+  name: 'signup',
   reducers: {
     toggleLoading(state, action) {
       Object.assign(state, {
@@ -18,10 +17,10 @@ const slices = createSlice({
   },
 });
 const { toggleLoading } = slices.actions;
-export const useLoginDispatcher = () => {
-  const { login } = useSelector((state) => state);
+export const useSignupDispatcher = () => {
+  const { signup } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const doLogin = async (values) => {
+  const doSignup = async (values) => {
     dispatch(toggleLoading(true));
     const response = await callAPI({
       url: '/auth/local',
@@ -34,8 +33,8 @@ export const useLoginDispatcher = () => {
     dispatch(toggleLoading(false));
   };
   return {
-    login,
-    doLogin,
+    signup,
+    doSignup,
   };
 };
 export default slices.reducer;
