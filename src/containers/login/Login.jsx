@@ -8,7 +8,7 @@ import { useLoginDispatcher } from '../../redux/reducers/login';
 
 const validationSchema = Yup.object({
   email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
-  password: Yup.string().required('diperlukan kata sandi').min(6, 'Kata sandi gunakan 6-10 karakter, tanpa spasi').max(10, 'Kata sandi gunakan 6-10 karakter, tanpa spasi').matches(/^\S+$/, 'Kata sandi gunakan 6-10 karakter, tanpa spasi'),
+  password: Yup.string().required('diperlukan kata sandi').min(6, 'Kata sandi Min 6 Karakter, tanpa spasi').max(10, 'Kata sandi max 10 karakter, tanpa spasi').matches(/^\S+$/, 'Kata sandi gunakan 6-10 karakter, tanpa spasi'),
 });
 
 const initialValues = {
@@ -84,7 +84,7 @@ const LoginContainer = () => {
                 Email
                 {/* {getIn(touched, 'email') && getIn(errors, 'email') && (
                   <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-email">
-                    <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                    <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
                     {getIn(errors, 'email')}
                   </div>
                 )} */}
@@ -94,7 +94,7 @@ const LoginContainer = () => {
                 Password
                 {/* {getIn(touched, 'password') && getIn(errors, 'password') && (
                   <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-password">
-                    <ExclamationCircleIcon className="w-5 h-5 text-[#FF8181] pr-1" />
+                    <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
                     {getIn(errors, 'password')}
                   </div>
                 )} */}

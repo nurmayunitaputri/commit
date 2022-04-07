@@ -76,19 +76,19 @@ const SignupContainer = () => {
 
         {/* section kanan */}
         <div className="w-full h-full bg-white flex flex-col justify-center">
-          <form className="max-w-[400px] w-full mx-auto border bg-white rounded-2xl p-[20px]">
+          <form className="max-w-[400px] w-full mx-auto  bg-white rounded-2xl p-[20px]">
             <h2 className="text-2xl text-[#27272E] font-bold text-center">Create your account</h2>
             <p className="text-1xl text-[#27272E] text-center p-[10px]">its free and easy</p>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label>Full Name</label>
+              <label className="text-black text-sm font-semibold">Full Name</label>
               <Input type="text" placeholder="Enter your name here" />
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label>Email</label>
+              <label className='text-black text-sm font-semibold'>Email</label>
               <Input type="text" placeholder="Enter your email here" />
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label>Domicile</label>
+              <label className="text-black text-sm font-semibold">Domicile</label>
               <select className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none">
                 <option hidden>Domicile</option>
                 <option>Aceh</option>
@@ -104,7 +104,7 @@ const SignupContainer = () => {
               </select>
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label>Gender</label>
+              <label className="text-black text-sm font-semibold" >Gender</label>
               <select className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none">
                 <option hidden>Gender</option>
                 <option>Female</option>
@@ -113,11 +113,11 @@ const SignupContainer = () => {
               {/* <input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Select your option" /> */}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label>Phone Number</label>
+              <label className="text-black text-sm font-semibold">Phone Number</label>
               <Input type="text" placeholder="Select your option" />
             </div>
             <div className="flexflex-col text-[#4E4D4F] py-2">
-              <label>Password</label>
+              <label className="text-black text-sm font-semibold">Password</label>
               <Input2 className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your password" />
             </div>
             <div className="text-xs text-[#27272E]">
