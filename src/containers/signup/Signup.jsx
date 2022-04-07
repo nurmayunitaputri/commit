@@ -76,35 +76,59 @@ const SignupContainer = () => {
 
         {/* section kanan */}
         <div className="w-full h-full bg-white flex flex-col justify-center">
-          <form className="max-w-[400px] w-full mx-auto  bg-white rounded-2xl p-[20px]">
+          <form className="max-w-[400px] w-full mx-auto border bg-white rounded-2xl p-[20px]">
             <h2 className="text-2xl text-[#27272E] font-bold text-center">Create your account</h2>
             <p className="text-1xl text-[#27272E] text-center p-[10px]">its free and easy</p>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label className="text-black text-sm font-semibold">Full Name</label>
+              <label>Full Name</label>
               <Input type="text" placeholder="Enter your name here" />
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label className='text-black text-sm font-semibold'>Email</label>
+              <label>Email</label>
               <Input type="text" placeholder="Enter your email here" />
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label className="text-black text-sm font-semibold">Domicile</label>
+              <label>Domicile</label>
               <select className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none">
                 <option hidden>Domicile</option>
                 <option>Aceh</option>
-                <option>Bali</option>
-                <option>Bangka Belitung</option>
-                <option>Banten</option>
-                <option>Bengkulu</option>
+                <option>Sumatera Barat</option>
+                <option>Sumatera Utara</option>
+                <option>Sumatera Selatan</option>
+                <option>Lampung</option>
                 <option>Jawa Tengah</option>
-                <option>Kalimantan Tengah</option>
-                <option>Sulawesi Tengah</option>
+                <option>Riau</option>
+                <option>Kepulauan Riau</option>
+                <option>Jambi</option>
+                <option>Kepulauan Bangka Belitung</option>
+                <option>Bengkulu</option>
+                <option>DKI Jakarta</option>
+                <option>Banten</option>
+                <option>Jawa Barat</option>
+                <option>Jawa Tengah</option>
                 <option>Jawa Timur</option>
-                <option>Kalimantan Timur</option>
+                <option>DIY Yogyakarta</option>
+                <option>Bali</option>
+                <option>Nusa Tenggara Barat</option>
+                <option>Nusa Tenggara Timur</option>
+                <option>Kalimanta Barat</option>
+                <option>Kalimanta Selatan</option>
+                <option>Kalimanta Tengah</option>
+                <option>Kalimanta Timur</option>
+                <option>Sulawesi Barat</option>
+                <option>Sulawesi Tenggara</option>
+                <option>Sulawesi Selatan</option>
+                <option>Sulawesi Tengah</option>
+                <option>Sulawesi Utara</option>
+                <option>Gorontalo</option>
+                <option>Maluku</option>
+                <option>Maluku Utara</option>
+                <option>Papua</option>
+                <option>Papua Barat</option>
               </select>
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label className="text-black text-sm font-semibold" >Gender</label>
+              <label>Gender</label>
               <select className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none">
                 <option hidden>Gender</option>
                 <option>Female</option>
@@ -113,11 +137,11 @@ const SignupContainer = () => {
               {/* <input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Select your option" /> */}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label className="text-black text-sm font-semibold">Phone Number</label>
+              <label>Phone Number</label>
               <Input type="text" placeholder="Select your option" />
             </div>
             <div className="flexflex-col text-[#4E4D4F] py-2">
-              <label className="text-black text-sm font-semibold">Password</label>
+              <label>Password</label>
               <Input2 className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your password" />
             </div>
             <div className="text-xs text-[#27272E]">
