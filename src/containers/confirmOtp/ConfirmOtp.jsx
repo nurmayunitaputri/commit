@@ -85,7 +85,7 @@ const ForgotContainer = () => {
                 <Input2 placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-password" />
               </div>
 
-              <Button1 type="submit" label={loading ? 'Please wait...' : 'Send OTP'} />
+              <Button1 type="submit" label={loading ? 'Please wait...' : 'Confirm'} />
               <br />
               <br />
             </form>

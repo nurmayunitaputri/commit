@@ -1,6 +1,5 @@
-import { Input, Input2 } from '../../components/input';
+import { Input, Input2, Input3 } from '../../components/input';
 import { Button1 } from '../../components/button';
-import { ExclamationCircleIcon } from '@heroicons/react/outline';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
@@ -8,7 +7,7 @@ import { useLoginDispatcher } from '../../redux/reducers/login';
 
 const validationSchema = Yup.object({
   email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
-  password: Yup.string().required('diperlukan kata sandi').min(6, 'Kata sandi Min 6 Karakter, tanpa spasi').max(10, 'Kata sandi max 10 karakter, tanpa spasi').matches(/^\S+$/, 'Kata sandi gunakan 6-10 karakter, tanpa spasi'),
+  password: Yup.string().required('diperlukan kata sandi').min(6, 'Kata sandi Min 6-10 Karakter, tanpa spasi').max(10, 'Kata sandi max 6-10 karakter, tanpa spasi').matches(/^\S+$/, 'Kata sandi gunakan 6-10 karakter, tanpa spasi'),
 });
 
 const initialValues = {
@@ -82,23 +81,25 @@ const LoginContainer = () => {
               <h2 className="text-2xl text-[#27272E] font-bold text-center">Log In</h2>
               <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
                 Email
+                
+                <Input name="email" type="email" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} dataTestId="input-email" />
                 {/* {getIn(touched, 'email') && getIn(errors, 'email') && (
-                  <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-email">
+                  <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-email">
                     <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
                     {getIn(errors, 'email')}
                   </div>
                 )} */}
-                <Input type="text" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} dataTestId="input-email" />
+              
               </div>
               <div className="flex flex-col text-sm text-black font-semibold mt-3 pt-2 pb-4">
                 Password
+                <Input2 name="password" type="password" placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-password" />
                 {/* {getIn(touched, 'password') && getIn(errors, 'password') && (
-                  <div className="flex items-center justify-start text-xs text-white font-light" data-testid="error-password">
+                  <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-password">
                     <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
                     {getIn(errors, 'password')}
                   </div>
                 )} */}
-                <Input2 placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-password" />
               </div>
               <div className="pb-8">
                 <a href="../forgot" className="text-[#00229B] text-sm ">

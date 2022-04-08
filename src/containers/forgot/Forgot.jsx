@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { Input} from '../../components/input';
+import { Input } from '../../components/input';
 import { Button1 } from '../../components/button';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
@@ -7,12 +7,10 @@ import * as Yup from 'yup';
 import { useForgotDispatcher } from '../../redux/reducers/forgot';
 const validationSchema = Yup.object({
   email: Yup.string().required().email(),
-  password: Yup.string().required(),
 });
 
 const initialValues = {
   email: '',
-  password: '',
 };
 
 const ForgotContainer = () => {
@@ -23,10 +21,10 @@ const ForgotContainer = () => {
   } = useForgotDispatcher();
 
   const onSubmit = async (values) => {
+    console.log(values);
     try {
       const payload = {
         identifier: values.email,
-        password: values.password,
       };
       await doForgot(payload);
       push(`/sendOtp`);
@@ -67,7 +65,7 @@ const ForgotContainer = () => {
               <h2 className="text-2xl text-[#27272E] font-bold text-center">Forgot Password</h2>
               <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
                 <label>Email</label>
-                <Input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} />
+                <Input name="email" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="email" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} />
               </div>
               <Button1 type="submit" label={loading ? 'Please wait...' : 'Send OTP'} />
               <br />
