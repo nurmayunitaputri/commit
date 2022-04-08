@@ -1,4 +1,5 @@
-import { Input, Input2, Input3 } from '../../components/input';
+import { useRouter } from 'next/router';
+import { Input, Input2,  } from '../../components/input';
 import { Button1 } from '../../components/button';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
@@ -16,18 +17,21 @@ const initialValues = {
 };
 
 const LoginContainer = () => {
+  const { push } = useRouter();
   const {
     login: { loading },
     doLogin,
   } = useLoginDispatcher();
 
   const onSubmit = async (values) => {
+    console.log(values);
     try {
       const payload = {
         identifier: values.email,
         password: values.password,
       };
       await doLogin(payload);
+      push(`/homepage`);
       window.location.href = '/';
     } catch (error) {
       alert(error);
