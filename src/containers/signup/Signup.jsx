@@ -1,4 +1,4 @@
-import { Input, Input2 } from '../../components/input';
+import { Input, Input2, Input3} from '../../components/input';
 import { Button1 } from '../../components/button';
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
 import { NoAuthProvider } from '../../providers/auth';
@@ -17,18 +17,21 @@ const initialValues = {
 };
 
 const SignupContainer = () => {
+  // const { push } = useRouter();
   const {
     signup: { loading },
     doSignup,
   } = useSignupDispatcher();
 
   const onSubmit = async (values) => {
+    console.log(values);
     try {
       const payload = {
         identifier: values.email,
         password: values.password,
       };
       await doSignup(payload);
+      push(`/homepage`);
       window.location.href = '/';
     } catch (error) {
       alert(error);
@@ -76,16 +79,18 @@ const SignupContainer = () => {
 
         {/* section kanan */}
         <div className="w-full h-full bg-white flex flex-col justify-center">
-          <form className="max-w-[400px] w-full mx-auto border bg-white rounded-2xl p-[20px]">
+          <form className="max-w-[400px] w-full mx-auto border bg-white rounded-2xl p-[20px]" onSubmit={handleSubmit}>
             <h2 className="text-2xl text-[#27272E] font-bold text-center">Create your account</h2>
             <p className="text-1xl text-[#27272E] text-center p-[10px]">its free and easy</p>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label>Full Name</label>
-              <Input type="text" placeholder="Enter your name here" />
+              <Input3 name="full name" type="full name" placeholder="Enter your name here"
+              onChange={handleChange} onBlur={handleBlur} dataTestId="input-fullname" isValid={getIn(touched, 'full name') && !getIn(errors, 'full name')} />
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label>Email</label>
-              <Input type="text" placeholder="Enter your email here" />
+              <Input3 name="email" type="email" placeholder="Enter your email here"
+             onChange={handleChange} onBlur={handleBlur} dataTestId="input-email" isValid={getIn(touched, 'email') && !getIn(errors, 'email')} />
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label>Domicile</label>
@@ -142,7 +147,7 @@ const SignupContainer = () => {
             </div>
             <div className="flexflex-col text-[#4E4D4F] py-2">
               <label>Password</label>
-              <Input2 className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your password" />
+              <Input3 className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your password" />
             </div>
             <div className="text-xs text-[#27272E]">
               <p> Password must be at leat 6 characters and must contain number & letter.</p>

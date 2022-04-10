@@ -123,7 +123,7 @@ const InterestContainer = () => {
             <div className="pb-20">
             </div>
             <Button1 type="submit" label={loading ? 'Please wait...' : 'Next'} />
-            <div className="flex justify-center">
+            <div className="flex justify-center pb-8">
               <p> already have an account?</p>
               <a href="" className=" ml-2 text-[#00229B]">
                 Login
