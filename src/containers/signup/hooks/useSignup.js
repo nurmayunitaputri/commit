@@ -1,7 +1,7 @@
 import { useState } from "react"; 
 import { callAPI } from '../../../helpers/network'; 
  
-const useLogin = () => { 
+const useSignup = () => { 
     const [loading, setLoading] = useState(); 
     const submit = async (values) => { 
         const response = await callAPI({ 
@@ -23,4 +23,4 @@ const useLogin = () => {
     } 
 }; 
  
-export default useLogin;
+export default useSignup;

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import useLogin from "./useLogin";
+import useSignup from "./useSignup";
 const useForm = ({
     initialValues,
 }) => {
-    const { submit } = useLogin();
+    const { submit } = useSignup();
     const initValues = { ...initialValues };
     const initTouched = { ...initialValues, username: false, email: false, password: false };
     const [values, setValues] = useState(initValues);
