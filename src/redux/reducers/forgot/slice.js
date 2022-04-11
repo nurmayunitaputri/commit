@@ -23,13 +23,14 @@ export const useForgotDispatcher = () => {
   const doForgot = async (values) => {
     dispatch(toggleLoading(true));
     const response = await callAPI({
-      url: '/auth/local',
+      url: '/forget-password/send',
       method: 'POST',
       data: values,
     });
     const { data } = response;
-    localStorage.setItem('jwt', data.jwt);
-    localStorage.setItem('user', JSON.stringify(data.user));
+    console.log(data);
+    // localStorage.setItem('jwt', data.jwt);
+    // localStorage.setItem('user', JSON.stringify(data.user));
     dispatch(toggleLoading(false));
   };
   return {

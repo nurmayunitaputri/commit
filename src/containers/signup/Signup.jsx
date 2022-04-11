@@ -1,6 +1,5 @@
 import { Input, Input2, Input3} from '../../components/input';
 import { Button1 } from '../../components/button';
-import { ExclamationCircleIcon } from '@heroicons/react/outline';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
@@ -32,7 +31,6 @@ const SignupContainer = () => {
       };
       await doSignup(payload);
       push(`/homepage`);
-      window.location.href = '/';
     } catch (error) {
       alert(error);
     }
@@ -79,21 +77,21 @@ const SignupContainer = () => {
 
         {/* section kanan */}
         <div className="w-full h-full bg-white flex flex-col justify-center">
-          <form className="max-w-[400px] w-full mx-auto border bg-white rounded-2xl p-[20px]" onSubmit={handleSubmit}>
+          <form className="max-w-[400px] w-full mx-auto  bg-white rounded-2xl p-[20px]" onSubmit={handleSubmit}>
             <h2 className="text-2xl text-[#27272E] font-bold text-center">Create your account</h2>
             <p className="text-1xl text-[#27272E] text-center p-[10px]">its free and easy</p>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label>Full Name</label>
+              <label className='font-semibold text-black text-sm '>Full Name</label>
               <Input3 name="full name" type="full name" placeholder="Enter your name here"
               onChange={handleChange} onBlur={handleBlur} dataTestId="input-fullname" isValid={getIn(touched, 'full name') && !getIn(errors, 'full name')} />
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label>Email</label>
+              <label className='font-semibold text-black text-sm '>Email</label>
               <Input3 name="email" type="email" placeholder="Enter your email here"
              onChange={handleChange} onBlur={handleBlur} dataTestId="input-email" isValid={getIn(touched, 'email') && !getIn(errors, 'email')} />
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label>Domicile</label>
+              <label className='font-semibold text-black text-sm '>Domicile</label>
               <select className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none">
                 <option hidden>Domicile</option>
                 <option>Aceh</option>
@@ -133,7 +131,7 @@ const SignupContainer = () => {
               </select>
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label>Gender</label>
+              <label className='font-semibold text-black text-sm '>Gender</label>
               <select className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none">
                 <option hidden>Gender</option>
                 <option>Female</option>
@@ -142,11 +140,11 @@ const SignupContainer = () => {
               {/* <input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Select your option" /> */}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label>Phone Number</label>
+              <label className='font-semibold text-black text-sm '>Phone Number</label>
               <Input type="text" placeholder="Select your option" />
             </div>
             <div className="flexflex-col text-[#4E4D4F] py-2">
-              <label>Password</label>
+              <label className='font-semibold text-black text-sm '>Password</label>
               <Input3 className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your password" />
             </div>
             <div className="text-xs text-[#27272E]">

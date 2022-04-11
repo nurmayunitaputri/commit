@@ -1,14 +1,16 @@
 import { useRouter } from 'next/router';
-import { Input, Input2,  } from '../../components/input';
+import { Input, Input2 } from '../../components/input';
 import { Button1 } from '../../components/button';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
 import { useLoginDispatcher } from '../../redux/reducers/login';
 
+
 const validationSchema = Yup.object({
   email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
-  password: Yup.string().required('diperlukan kata sandi').min(6, 'Kata sandi Min 6-10 Karakter, tanpa spasi').max(10, 'Kata sandi max 6-10 karakter, tanpa spasi').matches(/^\S+$/, 'Kata sandi gunakan 6-10 karakter, tanpa spasi'),
+  password: Yup.string().required('diperlukan kata sandi').min(6, 'Kata sandi Min 6-10 Karakter, tanpa spasi').max(15, 'Kata sandi max 6-10 karakter, tanpa spasi').matches(/^\S+$/, 'Kata sandi gunakan 6-10 karakter, tanpa spasi'),
+  
 });
 
 const initialValues = {
@@ -23,41 +25,45 @@ const LoginContainer = () => {
     doLogin,
   } = useLoginDispatcher();
 
+  //   const submitLogin = await callAPI({
+  //     url: '/login/',
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsib2F1dGgyLXJlc291cmNlIl0sInVzZXJfbmFtZSI6Imhhc2FuaW5kcmE3MUBnbWFpbC5jb20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNjUwMzA1ODExLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiLCJST0xFX1JFQUQiLCJST0xFX1dSSVRFIl0sImp0aSI6IjU2ZWU2OGY0LWE2MGUtNDNkYy04ODkwLTI2MjhiNjIyMDk5ZiIsImNsaWVudF9pZCI6Im15LWNsaWVudC13ZWIifQ.d1gP4wotQGH8tzJHzsn3beppbLQX26OOE7jC5w4I5NY`,
+  //   })
+  //   console.log(submitLogin);
+  //   // if (submitLogin.status === 200) {
+  //   //   setLoading(false);
+  //   //   alert('Create posts success!');
+  //   //   push('/Homepage');
+  //   // }
+  // };
+
+  // useEffect(() => {
+  //   test();
+  // }, []);
+
   const onSubmit = async (values) => {
     console.log(values);
     try {
       const payload = {
-        identifier: values.email,
+        email: values.email,
         password: values.password,
       };
       await doLogin(payload);
-      push(`/homepage`);
-      window.location.href = '/';
+      // push(`/homepage`);
+      // window.location.href = '/';
     } catch (error) {
       alert(error);
     }
   };
-
-  //   const submitLogin = await callAPI({
-  //     url: '/posts',
-  //     method: 'post',
-  //     data: payload,
-  //     headers: {
-  //       Authorization: Bearer ${getJwt()},
-  //     },
-  //   });
-  //   if (submitLogin.status === 200) {
-  //     setLoading(false);
-  //     alert('Create posts success!');
-  //     push('/Homepage');
-  //   }
-  // };
 
   const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
     initialValues,
     validationSchema,
     onSubmit,
   });
+console.log(errors)
 
   return (
     <NoAuthProvider>
@@ -85,7 +91,6 @@ const LoginContainer = () => {
               <h2 className="text-2xl text-[#27272E] font-bold text-center">Log In</h2>
               <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
                 Email
-                
                 <Input name="email" type="email" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} dataTestId="input-email" />
                 {/* {getIn(touched, 'email') && getIn(errors, 'email') && (
                   <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-email">
@@ -93,7 +98,6 @@ const LoginContainer = () => {
                     {getIn(errors, 'email')}
                   </div>
                 )} */}
-              
               </div>
               <div className="flex flex-col text-sm text-black font-semibold mt-3 pt-2 pb-4">
                 Password

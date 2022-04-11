@@ -26,7 +26,7 @@ const useForm = ({
         e.preventDefault();
         if (isValid) {
             const payload = {
-                identifier: values.email,
+                email: values.email,
                 password: values.password,
             };
             try {

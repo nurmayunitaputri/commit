@@ -24,7 +24,7 @@ const ForgotContainer = () => {
     console.log(values);
     try {
       const payload = {
-        identifier: values.email,
+        email: values.email,
       };
       await doForgot(payload);
       push(`/sendOtp`);
