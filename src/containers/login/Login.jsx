@@ -10,7 +10,7 @@ import { useLoginDispatcher } from '../../redux/reducers/login';
 const validationSchema = Yup.object({
   email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
   password: Yup.string().required('diperlukan kata sandi').min(6, 'Kata sandi Min 6-10 Karakter, tanpa spasi').max(15, 'Kata sandi max 6-10 karakter, tanpa spasi').matches(/^\S+$/, 'Kata sandi gunakan 6-10 karakter, tanpa spasi'),
-  
+
 });
 
 const initialValues = {
@@ -24,24 +24,6 @@ const LoginContainer = () => {
     login: { loading },
     doLogin,
   } = useLoginDispatcher();
-
-  //   const submitLogin = await callAPI({
-  //     url: '/login/',
-  //     method: 'POST',
-  //     headers: {
-  //       Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsib2F1dGgyLXJlc291cmNlIl0sInVzZXJfbmFtZSI6Imhhc2FuaW5kcmE3MUBnbWFpbC5jb20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNjUwMzA1ODExLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiLCJST0xFX1JFQUQiLCJST0xFX1dSSVRFIl0sImp0aSI6IjU2ZWU2OGY0LWE2MGUtNDNkYy04ODkwLTI2MjhiNjIyMDk5ZiIsImNsaWVudF9pZCI6Im15LWNsaWVudC13ZWIifQ.d1gP4wotQGH8tzJHzsn3beppbLQX26OOE7jC5w4I5NY`,
-  //   })
-  //   console.log(submitLogin);
-  //   // if (submitLogin.status === 200) {
-  //   //   setLoading(false);
-  //   //   alert('Create posts success!');
-  //   //   push('/Homepage');
-  //   // }
-  // };
-
-  // useEffect(() => {
-  //   test();
-  // }, []);
 
   const onSubmit = async (values) => {
     console.log(values);

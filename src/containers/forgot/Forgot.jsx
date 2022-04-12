@@ -40,7 +40,7 @@ const ForgotContainer = () => {
   });
 
   return (
-    <NoAuthProvider>
+    // <NoAuthProvider>
       <main className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full ">
         {/* section kiri */}
         <div
@@ -74,7 +74,7 @@ const ForgotContainer = () => {
           </div>
         </div>
       </main>
-    </NoAuthProvider>
+    // </NoAuthProvider>
   );
 };
 

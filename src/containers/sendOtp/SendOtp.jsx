@@ -1,33 +1,35 @@
+import { useRouter } from 'next/router';
 import { Button1 } from '../../components/button';
 import { Input} from '../../components/input';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
-import { useForgotDispatcher } from '../../redux/reducers/forgot';
+import { useSendOtpDispatcher } from '../../redux/reducers/sendOtp';
 const validationSchema = Yup.object({
   email: Yup.string().required().email(),
-  password: Yup.string().required(),
+  otp: Yup.string().required(),
 });
 
 const initialValues = {
   email: '',
-  password: '',
+  otp: '',
 };
 
-const ForgotContainer = () => {
+const SendOtpContainer = () => {
+  const { push } = useRouter();
   const {
-    forgot: { loading },
-    doForgot,
-  } = useForgotDispatcher();
+    sendOtp: { loading },
+    doSendOtp,
+  } = useSendOtpDispatcher();
 
   const onSubmit = async (values) => {
     try {
       const payload = {
-        identifier: values.email,
-        password: values.password,
+        email: localStorage.getItem('email'),
+        otp: values.otp,
       };
-      await doForgot(payload);
-      window.location.href = '/';
+      await doSendOtp(payload);
+      push(`/confirmOtp`);
     } catch (error) {
       alert(error);
     }
@@ -65,7 +67,7 @@ const ForgotContainer = () => {
               <h2 className="text-2xl text-[#27272E] font-bold text-center">Forgot Password</h2>
               <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
                 <label>OTP (Verification Code)</label>
-                <Input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your email here.."  onChange={handleChange} 
+                <Input name="otp" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="otp" placeholder="Enter your email here.."  onChange={handleChange} 
                 onBlur={handleBlur} />
               </div>
 
@@ -80,4 +82,4 @@ const ForgotContainer = () => {
   );
 };
 
-export default ForgotContainer;
+export default SendOtpContainer;
