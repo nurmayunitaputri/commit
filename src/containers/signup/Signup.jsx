@@ -8,7 +8,7 @@ import { useSignupDispatcher } from '../../redux/reducers/signup';
 
 const validationSchema = Yup.object({
   email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
-  password: Yup.string().required('diperlukan kata sandi').min(6, 'Kata sandi gunakan 6-10 karakter, tanpa spasi').max(10, 'Kata sandi gunakan 6-10 karakter, tanpa spasi').matches(/^\S+$/, 'Kata sandi gunakan 6-10 karakter, tanpa spasi'),
+  password: Yup.string().required('diperlukan kata sandi').min(6),
   name: Yup.string().required(''),
   phone_number: Yup.string().required(''),
   domicile: Yup.string().required(''),
