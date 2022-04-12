@@ -150,7 +150,7 @@ const SignupContainer = () => {
               onChange={handleChange} onBlur={handleBlur} dataTestId="phone_number" isValid={getIn(touched, 'phone_number') && !getIn(errors, 'phone_number')}/>
             </div>
             <div className="flexflex-col text-[#4E4D4F] py-2">
-              <label className='font-semibold text-black text-sm '>Password</label>
+              <label className='font-semibold text-black text-sm'>Password</label>
               <Input2 name="password" type="password" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" placeholder="Enter your password" 
               onChange={handleChange} onBlur={handleBlur} dataTestId="password" isValid={getIn(touched, 'password') && !getIn(errors, 'passwrod')}/>
             </div>
