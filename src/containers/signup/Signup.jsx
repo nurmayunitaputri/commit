@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { Input, Input2, Input3} from '../../components/input';
 import { Button1 } from '../../components/button';
 import { NoAuthProvider } from '../../providers/auth';
@@ -8,15 +9,25 @@ import { useSignupDispatcher } from '../../redux/reducers/signup';
 const validationSchema = Yup.object({
   email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
   password: Yup.string().required('diperlukan kata sandi').min(6, 'Kata sandi gunakan 6-10 karakter, tanpa spasi').max(10, 'Kata sandi gunakan 6-10 karakter, tanpa spasi').matches(/^\S+$/, 'Kata sandi gunakan 6-10 karakter, tanpa spasi'),
+  name: Yup.string().required(''),
+  phone_number: Yup.string().required(''),
+  domicile: Yup.string().required(''),
+  gender: Yup.string().required(''),
+  // interest: Yup.string().required(''),
 });
 
 const initialValues = {
   email: '',
   password: '',
+  name: '',
+  phone_number: '',
+  domicile: '',
+  gender: '',
+  // interest: '',
 };
 
 const SignupContainer = () => {
-  // const { push } = useRouter();
+  const { push } = useRouter();
   const {
     signup: { loading },
     doSignup,
@@ -26,36 +37,28 @@ const SignupContainer = () => {
     console.log(values);
     try {
       const payload = {
-        identifier: values.email,
+        email: values.email,
         password: values.password,
+        name: values.name,
+        phone_number: values.phone_number,
+        domicile: values.domicile,
+        gender: values.gender,
+        // interest: values.interest,
       };
       await doSignup(payload);
-      push(`/homepage`);
+      push(`/interest`);
     } catch (error) {
       alert(error);
     }
   };
-
-  //   const submitLogin = await callAPI({
-  //     url: '/posts',
-  //     method: 'post',
-  //     data: payload,
-  //     headers: {
-  //       Authorization: Bearer ${getJwt()},
-  //     },
-  //   });
-  //   if (submitLogin.status === 200) {
-  //     setLoading(false);
-  //     alert('Create posts success!');
-  //     push('/Homepage');
-  //   }
-  // };
 
   const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
     initialValues,
     validationSchema,
     onSubmit,
   });
+  console.log(errors)
+
 
   return (
     <NoAuthProvider>
@@ -82,7 +85,7 @@ const SignupContainer = () => {
             <p className="text-1xl text-[#27272E] text-center p-[10px]">its free and easy</p>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className='font-semibold text-black text-sm '>Full Name</label>
-              <Input3 name="full name" type="full name" placeholder="Enter your name here"
+              <Input3 name="name" type="name" placeholder="Enter your name here"
               onChange={handleChange} onBlur={handleBlur} dataTestId="input-fullname" isValid={getIn(touched, 'full name') && !getIn(errors, 'full name')} />
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
@@ -92,60 +95,64 @@ const SignupContainer = () => {
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className='font-semibold text-black text-sm '>Domicile</label>
-              <select className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none">
+              <select name="domicile" type="domicile" placeholder="domicile" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none"
+                onChange={handleChange} onBlur={handleBlur} dataTestId="input-domicile" isValid={getIn(touched, 'full name') && !getIn(errors, 'full name')}>
                 <option hidden>Domicile</option>
-                <option>Aceh</option>
-                <option>Sumatera Barat</option>
-                <option>Sumatera Utara</option>
-                <option>Sumatera Selatan</option>
-                <option>Lampung</option>
-                <option>Jawa Tengah</option>
-                <option>Riau</option>
-                <option>Kepulauan Riau</option>
-                <option>Jambi</option>
-                <option>Kepulauan Bangka Belitung</option>
-                <option>Bengkulu</option>
-                <option>DKI Jakarta</option>
-                <option>Banten</option>
-                <option>Jawa Barat</option>
-                <option>Jawa Tengah</option>
-                <option>Jawa Timur</option>
-                <option>DIY Yogyakarta</option>
-                <option>Bali</option>
-                <option>Nusa Tenggara Barat</option>
-                <option>Nusa Tenggara Timur</option>
-                <option>Kalimanta Barat</option>
-                <option>Kalimanta Selatan</option>
-                <option>Kalimanta Tengah</option>
-                <option>Kalimanta Timur</option>
-                <option>Sulawesi Barat</option>
-                <option>Sulawesi Tenggara</option>
-                <option>Sulawesi Selatan</option>
-                <option>Sulawesi Tengah</option>
-                <option>Sulawesi Utara</option>
-                <option>Gorontalo</option>
-                <option>Maluku</option>
-                <option>Maluku Utara</option>
-                <option>Papua</option>
-                <option>Papua Barat</option>
+                <option value="Aceh">Aceh</option>
+                <option value="Barat">Sumatera Barat</option>
+                <option value="Sumatera Utara">Sumatera Utara</option>
+                <option value="Sumatera Selatan">Sumatera Selatan</option>
+                <option value="Lampung">Lampung</option>
+                <option value="Jawa Tengah">Jawa Tengah</option>
+                <option value="Riau">Riau</option>
+                <option value="Kepulauan Riau">Kepulauan Riau</option>
+                <option value="Jambi">Jambi</option>
+                <option value="Kepulauan Bangka">Kepulauan Bangka Belitung</option>
+                <option value="Bengkulu">Bengkulu</option>
+                <option value="DKI Jakarta">DKI Jakarta</option>
+                <option value="Banten">Banten</option>
+                <option value="Jawa Barta">Jawa Barat</option>
+                <option value="Jawa Tengah">Jawa Tengah</option>
+                <option value="Jawa Timur">Jawa Timur</option>
+                <option value="DIY Yogyakarta">DIY Yogyakarta</option>
+                <option value="Bali">Bali</option>
+                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                <option value="Nusa Tengggara Timur">Nusa Tenggara Timur</option>
+                <option value="Kalimantan Barat">Kalimanta Barat</option>
+                <option value="Kalimantan Selatan">Kalimanta Selatan</option>
+                <option value="Kalimantan Tengah">Kalimanta Tengah</option>
+                <option valye="Kalimantan Timur">Kalimanta Timur</option>
+                <option value="Sulawesi Barat">Sulawesi Barat</option>
+                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                <option value="Sulawesi Tegah">Sulawesi Tengah</option>
+                <option value="Sulawesi Utara">Sulawesi Utara</option>
+                <option value="Gorontolo">Gorontalo</option>
+                <option value="Maluku">Maluku</option>
+                <option value="Maluku Utara">Maluku Utara</option>
+                <option value="Papua">Papua</option>
+                <option value="Papua Barat">Papua Barat</option>
               </select>
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className='font-semibold text-black text-sm '>Gender</label>
-              <select className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none">
-                <option hidden>Gender</option>
-                <option>Female</option>
-                <option>Male</option>
+              <select name="gender" type="gender" placeholder="Domicile" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none " 
+              onChange={handleChange} onBlur={handleBlur} dataTestId="input-gender" isValid={getIn(touched, 'gender') && !getIn(errors, 'gender')}>
+                <option value="gender" hidden>Gender</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
               </select>
               {/* <input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Select your option" /> */}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className='font-semibold text-black text-sm '>Phone Number</label>
-              <Input type="text" placeholder="Select your option" />
+              <Input name="phone_number" type="phone_number" placeholder="Select your option" 
+              onChange={handleChange} onBlur={handleBlur} dataTestId="phone_number" isValid={getIn(touched, 'phone_number') && !getIn(errors, 'phone_number')}/>
             </div>
             <div className="flexflex-col text-[#4E4D4F] py-2">
               <label className='font-semibold text-black text-sm '>Password</label>
-              <Input3 className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Enter your password" />
+              <Input2 name="password" type="password" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" placeholder="Enter your password" 
+              onChange={handleChange} onBlur={handleBlur} dataTestId="password" isValid={getIn(touched, 'password') && !getIn(errors, 'passwrod')}/>
             </div>
             <div className="text-xs text-[#27272E]">
               <p> Password must be at leat 6 characters and must contain number & letter.</p>

@@ -80,28 +80,28 @@ const InterestContainer = () => {
           <div className='flex justify-center items-center pr-70'>
           <img src="svg_interest page.svg" className="w-8/12 max-w-fit"></img>
           </div>
-        <div class="grid grid-cols-3 gap-4 text-[#4E4D4F] items-center ">
-              <div class="flex flex-col font-bold  py-2 rounded-lg bg-[#E2EFFF] border border-zinc-100 items-center">
+        <div className="grid grid-cols-3 gap-4 text-[#4E4D4F] items-center ">
+              <div className="flex flex-col font-bold  py-2 rounded-lg bg-[#E2EFFF] border border-zinc-100 items-center">
               <a href="#" className=" text-[#00229B]">
                 UI/UX +
               </a>
               </div>
-              <div class="flex flex-col font-bold py-2 rounded-lg bg-[#E2EFFF] border border-zinc-100 items-center">
+              <div className="flex flex-col font-bold py-2 rounded-lg bg-[#E2EFFF] border border-zinc-100 items-center">
               <a href="#" className=" text-[#00229B]">
                 ANDROID+
               </a>
               </div>
-              <div class="flex flex-col font-bold  py-2 rounded-lg bg-[#E2EFFF] border border-zinc-100 items-center ">
+              <div className="flex flex-col font-bold  py-2 rounded-lg bg-[#E2EFFF] border border-zinc-100 items-center ">
               <a href="#" className=" text-[#00229B]">
                 FE- Front End+
               </a>
               </div>
-              <div class="flex flex-col font-bold  py-2 rounded-lg bg-[#E2EFFF] border border-zinc-100 items-center">
+              <div className="flex flex-col font-bold  py-2 rounded-lg bg-[#E2EFFF] border border-zinc-100 items-center">
               <a href="#" className=" text-[#00229B]">
                 BE- Back End+
               </a>
               </div>
-              <div class="flex flex-col font-bold  py-2 rounded-lg bg-[#E2EFFF] border border-zinc-100 items-center col-span-2">
+              <div className="flex flex-col font-bold  py-2 rounded-lg bg-[#E2EFFF] border border-zinc-100 items-center col-span-2">
               <a href="#" className=" text-[#00229B]">
                 QA- Quality Assurance+
               </a>
