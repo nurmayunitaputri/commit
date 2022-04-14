@@ -4,11 +4,12 @@ import { Button1 } from '../../components/button';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
+import { ExclamationCircleIcon } from '@heroicons/react/outline';
 import { useSignupDispatcher } from '../../redux/reducers/signup';
 
 const validationSchema = Yup.object({
   email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
-  password: Yup.string().required('diperlukan kata sandi').min(6),
+  password: Yup.string().required('diperlukan kata sandi').min(6, 'minimal 6 karakter'),
   name: Yup.string().required(''),
   phone_number: Yup.string().required(''),
   domicile: Yup.string().required(''),
@@ -92,6 +93,12 @@ const SignupContainer = () => {
               <label className='font-semibold text-black text-sm '>Email</label>
               <Input3 name="email" type="email" placeholder="Enter your email here"
              onChange={handleChange} onBlur={handleBlur} dataTestId="input-email" isValid={getIn(touched, 'email') && !getIn(errors, 'email')} />
+              {getIn(touched, 'email') && getIn(errors, 'email') && (
+                    <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-email">
+                      <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
+                      {getIn(errors, 'email')}
+                    </div>
+                  )}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className='font-semibold text-black text-sm '>Domicile</label>
@@ -153,6 +160,12 @@ const SignupContainer = () => {
               <label className='font-semibold text-black text-sm'>Password</label>
               <Input2 name="password" type="password" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" placeholder="Enter your password" 
               onChange={handleChange} onBlur={handleBlur} dataTestId="password" isValid={getIn(touched, 'password') && !getIn(errors, 'passwrod')}/>
+               {getIn(touched, 'password') && getIn(errors, 'password') && (
+                  <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-password">
+                    <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
+                    {getIn(errors, 'password')}
+                  </div>
+                )}
             </div>
             <div className="text-xs text-[#27272E]">
               <p> Password must be at leat 6 characters and must contain number & letter.</p>
@@ -162,7 +175,7 @@ const SignupContainer = () => {
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className="inLine-flex items-center">
-                <input type="checkbox" class="shadow checked:shadow-xl" />
+                <input type="checkbox" class="shadow checked:shadow-xl" onChange={(target) => {console.log ("hitcheckbox")}} />
                 <span className="text-xs text-[#00229B]"> By Creating an account means you agree to the our Privacy Policy</span>
               </label>
             </div>
