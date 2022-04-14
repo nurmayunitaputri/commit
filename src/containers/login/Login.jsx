@@ -13,7 +13,6 @@ const validationSchema = Yup.object({
   password: Yup.string().required('diperlukan kata sandi').min(6, "minimal 6 karakter"),
 
 });
-
 const initialValues = {
   email: '',
   password: '',
