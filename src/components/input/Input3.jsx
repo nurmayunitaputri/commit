@@ -21,7 +21,8 @@ const Input3 = ({ label, name, type, onChange, onBlur, placeholder, dataTestId, 
           </div>
         )}
       </div>
-      {/* <input  
+      
+      {/* <input 
       type={passwordShown ? "text" : "password"}   
       name={name}  
       className="py-2 focus:ring-0 focus:outline-none border-b text-black text-sm w-full p-4 rounded-lg"  
