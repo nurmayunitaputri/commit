@@ -6,15 +6,18 @@ import * as Yup from 'yup';
 import { useForgotDispatcher } from '../../redux/reducers/forgot';
 const validationSchema = Yup.object({
   email: Yup.string().required().email(),
-  password: Yup.string().required(),
+  newPassword: Yup.string().required(),
+  confirmNewPassword: Yup.string().required(),
 });
 
 const initialValues = {
   email: '',
-  password: '',
+  newPassword: '',
+  confirmNewPassword: '',
 };
 
 const ForgotContainer = () => {
+  const { push } = useRouter();
   const {
     forgot: { loading },
     doForgot,
@@ -23,11 +26,12 @@ const ForgotContainer = () => {
   const onSubmit = async (values) => {
     try {
       const payload = {
-        identifier: values.email,
-        password: values.password,
+        email: localStorage.getItem('email'),
+        newPassword: values.newPassword,
+        confirmNewPassword: values.confirmNewPassword,
       };
       await doForgot(payload);
-      window.location.href = '/';
+      push(`/login`);
     } catch (error) {
       alert(error);
     }
@@ -38,7 +42,7 @@ const ForgotContainer = () => {
     validationSchema,
     onSubmit,
   });
-
+  console.log(errors);
   return (
     <NoAuthProvider>
       <main className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full ">
@@ -71,7 +75,7 @@ const ForgotContainer = () => {
                     {getIn(errors, 'password')}
                   </div>
                 )} */}
-                <Input2 placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-password" />
+                <Input2 name="newPassword" type="newPassword" placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-newPassword" />
               </div>
 
               <div className="flex flex-col text-sm text-black font-semibold mt-3 pt-2 pb-4">
@@ -82,7 +86,7 @@ const ForgotContainer = () => {
                     {getIn(errors, 'password')}
                   </div>
                 )} */}
-                <Input2 placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-password" />
+                <Input2 name="confirmNewPassword" type="confirmNewPassword" placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-confirmNewPassword" />
               </div>
 
               <Button1 type="submit" label={loading ? 'Please wait...' : 'Confirm'} />

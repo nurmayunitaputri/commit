@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { Button1 } from '../../components/button';
-import { Input} from '../../components/input';
+import { Input } from '../../components/input';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
@@ -34,6 +34,7 @@ const SendOtpContainer = () => {
       alert(error);
     }
   };
+ 
 
   const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
     initialValues,
@@ -54,8 +55,8 @@ const SendOtpContainer = () => {
           <img src="Logo Header.svg" className=" px-20 py-20 w-12/12 max-w-fit flex justify-items-end "></img>
           <div className="px-20 text-5xl font-bold w-4/5 text-[#333333] items-center justify-center ">Welcome to your next growth opportunity.</div>
           <div className="px-20 text-sm w-3/4 mt-9 pb-9">Get connected with expert, freelance and professional jobs that are suited just for you and meet your prerequisite.</div>
-          <div className='flex justify-end items-end pr-40'>
-          <img src="png_signup login.png" className=" w-8/12 max-w-fit "></img>
+          <div className="flex justify-end items-end pr-40">
+            <img src="png_signup login.png" className=" w-8/12 max-w-fit "></img>
           </div>
         </div>
 
@@ -67,8 +68,7 @@ const SendOtpContainer = () => {
               <h2 className="text-2xl text-[#27272E] font-bold text-center">Forgot Password</h2>
               <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
                 <label>OTP (Verification Code)</label>
-                <Input name="otp" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="otp" placeholder="Enter your email here.."  onChange={handleChange} 
-                onBlur={handleBlur} />
+                <Input name="otp" type="otp"  className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} />
               </div>
 
               <Button1 type="submit" label={loading ? 'Please wait...' : 'Send OTP'} />
