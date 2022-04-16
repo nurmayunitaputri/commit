@@ -1,15 +1,15 @@
-import Navbar from "./elements/Navbar";
-import Footer from "./elements/Footer";
+import Navbarlanding from "./elements/Navbarlanding";
+// import Footerlanding from "./elements/Footerlanding";
 
 const MainLayout = ({ children }) => {
 
   return (
     <>
-      <Navbar />
-      <main className="min-h-screen max-w-md border mx-auto py-20">
+      <Navbarlanding />
+      <main className="">
         {children}
       </main>
-      <Footer />
+      {/* <Footerlanding /> */}
     </>
   );
 

@@ -7,11 +7,9 @@ import * as Yup from 'yup';
 import { useLoginDispatcher } from '../../redux/reducers/login';
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
 
-
 const validationSchema = Yup.object({
   email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
-  password: Yup.string().required('diperlukan kata sandi').min(6, "minimal 6 karakter"),
-
+  password: Yup.string().required('diperlukan kata sandi').min(6, 'minimal 6 karakter'),
 });
 
 const initialValues = {
@@ -46,7 +44,7 @@ const LoginContainer = () => {
     validationSchema,
     onSubmit,
   });
-console.log(errors)
+  console.log(errors);
 
   return (
     <NoAuthProvider>

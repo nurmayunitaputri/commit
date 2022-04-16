@@ -7,6 +7,7 @@ import sendOtp from './reducers/sendOtp';
 import confirmOtp from './reducers/confirmOtp';
 import signup from './reducers/signup';
 import interest from './reducers/interest';
+import landing from './reducers/landing';
 import home from './reducers/home';
 import upload from './reducers/upload';
 // rootReducer
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   confirmOtp,
   signup,
   interest,
+  landing,
 });
 // store (main storage)
 const store = configureStore({
