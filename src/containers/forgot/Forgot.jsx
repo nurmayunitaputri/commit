@@ -27,6 +27,7 @@ const ForgotContainer = () => {
         email: values.email,
       };
       await doForgot(payload);
+      localStorage.setItem('email', values.email);
       push(`/sendOtp`);
     } catch (error) {
       alert(error);

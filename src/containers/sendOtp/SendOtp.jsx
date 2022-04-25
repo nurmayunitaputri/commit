@@ -5,13 +5,12 @@ import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
 import { useSendOtpDispatcher } from '../../redux/reducers/sendOtp';
+
 const validationSchema = Yup.object({
-  email: Yup.string().required().email(),
   otp: Yup.string().required(),
 });
 
 const initialValues = {
-  email: '',
   otp: '',
 };
 
@@ -28,13 +27,13 @@ const SendOtpContainer = () => {
         email: localStorage.getItem('email'),
         otp: values.otp,
       };
+
       await doSendOtp(payload);
       push(`/confirmOtp`);
     } catch (error) {
       alert(error);
     }
   };
- 
 
   const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
     initialValues,
@@ -62,13 +61,14 @@ const SendOtpContainer = () => {
 
         {/* section kanan */}
         <div className="w-full h-full bg-white flex flex-col justify-center ">
+         
           <div className="border border-gray-300 w-4/5 h-fit flex flex-col justify-center rounded-xl shadow-lg mx-auto ">
             <form className="max-w-[511px] max-h-[462px] w-full mx-auto bg-white rounded-2xl p-[35px] pb-3 " onSubmit={handleSubmit}>
               <img src="Logo Header.svg" className=" px-2 pb-4 w-8/12 max-w-fit mx-auto"></img>
               <h2 className="text-2xl text-[#27272E] font-bold text-center">Forgot Password</h2>
               <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
                 <label>OTP (Verification Code)</label>
-                <Input name="otp" type="otp"  className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} />
+                <Input name="otp" type="otp" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} />
               </div>
 
               <Button1 type="submit" label={loading ? 'Please wait...' : 'Send OTP'} />
