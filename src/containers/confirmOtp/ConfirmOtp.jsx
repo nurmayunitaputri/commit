@@ -6,13 +6,11 @@ import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
 import { useForgotDispatcher } from '../../redux/reducers/forgot';
 const validationSchema = Yup.object({
-  email: Yup.string().required().email(),
   newPassword: Yup.string().required(),
   confirmNewPassword: Yup.string().required(),
 });
 
 const initialValues = {
-  email: '',
   newPassword: '',
   confirmNewPassword: '',
 };
