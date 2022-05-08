@@ -6,7 +6,7 @@ const initialState = {
 };
 const slices = createSlice({
   initialState,
-  name: 'login',
+  name: 'finishOtp',
   reducers: {
     toggleLoading(state, action) {
       Object.assign(state, {
@@ -17,30 +17,25 @@ const slices = createSlice({
   },
 });
 const { toggleLoading } = slices.actions;
-export const useLoginDispatcher = () => {
-  const { login } = useSelector((state) => state);
+export const useFinishOtpDispatcher = () => {
+  const { finishOtp } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const doLogin = async (values) => {
+  const doFinishOtp = async (values) => {
     dispatch(toggleLoading(true));
     const response = await callAPI({
-      url: '/login-user',
-      method: 'POST',
+      url: '',
+      method: '',
       data: values,
     });
     const { data } = response;
     console.log(data);
-    // if (!data.access_token) {
-    //   dispatch(toggleLoading(true));
-    //   console.log(`something wrong`);
-    //   return;
-    // }
-    // localStorage.setItem('jwt', data.jwt);
+    
     // localStorage.setItem('user', JSON.stringify(data.user));
     dispatch(toggleLoading(false));
   };
   return {
-    login,
-    doLogin,
+    finishOtp,
+    doFinishOtp,
   };
 };
 export default slices.reducer;

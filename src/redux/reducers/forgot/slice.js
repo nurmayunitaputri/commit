@@ -29,7 +29,7 @@ export const useForgotDispatcher = () => {
     });
     const { data } = response;
     console.log(data);
-    localStorage.setItem('email', data.jwt);
+    
     // localStorage.setItem('user', JSON.stringify(data.user));
     dispatch(toggleLoading(false));
   };

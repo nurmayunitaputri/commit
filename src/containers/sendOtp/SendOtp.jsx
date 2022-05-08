@@ -5,42 +5,72 @@ import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
 import { useSendOtpDispatcher } from '../../redux/reducers/sendOtp';
+import { useEffect, useState } from "react";
+
 const validationSchema = Yup.object({
-  email: Yup.string().required().email(),
   otp: Yup.string().required(),
 });
 
 const initialValues = {
-  email: '',
   otp: '',
 };
 
 const SendOtpContainer = () => {
+  let intervalCountDown;
+  const [counting, setCounting] = useState(59); // 60detik
+  const [startCounting, setStartCounting] = useState(false);
   const { push } = useRouter();
   const {
     sendOtp: { loading },
     doSendOtp,
+    resendOtp,
   } = useSendOtpDispatcher();
+  const isStop = false;
 
+  useEffect(() => {
+    let timer;
+    if (startCounting && counting > 0) {
+      timer = setInterval(() => {
+        setCounting(counting - 1);
+      }, 1000);
+    }
+
+    return () => {
+      clearInterval(timer);
+
+      if (counting === 1) {
+        setCounting(59);
+        setStartCounting(false);
+        resendOtp({
+          email: localStorage.getItem('email'),
+        });
+      }
+    };
+  }, [startCounting, counting]);
+
+  const handleCountDown = () => {
+    setStartCounting(true);
+  };
   const onSubmit = async (values) => {
     try {
       const payload = {
         email: localStorage.getItem('email'),
         otp: values.otp,
       };
+
       await doSendOtp(payload);
       push(`/confirmOtp`);
     } catch (error) {
       alert(error);
     }
   };
- 
 
   const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
     initialValues,
     validationSchema,
     onSubmit,
   });
+  
 
   return (
     <NoAuthProvider>
@@ -68,9 +98,19 @@ const SendOtpContainer = () => {
               <h2 className="text-2xl text-[#27272E] font-bold text-center">Forgot Password</h2>
               <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
                 <label>OTP (Verification Code)</label>
-                <Input name="otp" type="otp"  className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" placeholder="Enter your email here.." onChange={handleChange} onBlur={handleBlur} />
+                <Input name="otp" type="otp" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" placeholder="Enter your OTP here.." onChange={handleChange} onBlur={handleBlur} />
               </div>
-
+              <div className="flex justify-center items-center">
+                <div className='text-[#A8A8A8]'>Resend OTP in 0:{counting}s</div>
+                <button
+                  onClick={() => handleCountDown()}
+                  type="button"
+                  disabled={startCounting}
+                  className={`${startCounting ? 'bg-white hover:bg-white text-[#A8A8A8] underline' : 'bg-white hover:bg-white font-semibold text-blue-900 underline '}  text-white py-3 px-6 rounded-lg`}
+                >
+                  Send OTP
+                </button>
+              </div>
               <Button1 type="submit" label={loading ? 'Please wait...' : 'Send OTP'} />
               <br />
               <br />
