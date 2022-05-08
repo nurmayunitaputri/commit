@@ -23,9 +23,9 @@ const FinishOtpContainer = () => {
       <div className="w-full h-full bg-white flex flex-col justify-center ">
         <div className="border border-gray-300 w-4/5 h-fit flex flex-col justify-center rounded-xl shadow-lg mx-auto ">
           <form className="max-w-[511px] max-h-[462px] w-full mx-auto bg-white rounded-2xl px-20 pb-3 ">
-            <h2 className="text-2xl text-[#27272E] pt-[62px] font-bold text-center">Your password has been reseted succesfully</h2>
+            <h2 className="text-2xl text-[#27272E] pt-[30px] font-bold text-center">Your password has been reseted succesfully</h2>
             <div className="text-center text-[14px] pt-[11px] ">Now you can Log In with your new password.</div>
-            <img src="Logo Header.svg" className=" pt-[50px] px-2 pb-6 w-8/12 max-w-fit mx-auto"></img>
+            <img src="Group 383.png" className=" pt-[50px] px-2 pb-6 w-8/12 max-w-fit mx-auto"></img>
 
             <Link href="/login">
               <a className="inline-block px-6 text-center leading-none border  border-white lg:mt-0 mr-4 w-full py-3 mt-6 text-base bg-[#E2EFFF] text-[#00229B] hover:bg-[#00229B] hover:text-white font-semibold rounded-lg">
