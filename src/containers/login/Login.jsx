@@ -32,7 +32,7 @@ const LoginContainer = () => {
         password: values.password,
       };
       await doLogin(payload);
-      // push(`/homepage`);
+      push(`/halaman`);
       // window.location.href = '/';
     } catch (error) {
       alert(error);

@@ -30,7 +30,7 @@ const ForgotContainer = () => {
         confirmNewPassword: values.confirmNewPassword,
       };
       await doForgot(payload);
-      push(`/login`);
+      push(`/finishOtp`);
     } catch (error) {
       alert(error);
     }
@@ -88,7 +88,7 @@ const ForgotContainer = () => {
                 <Input2 name="confirmNewPassword" type="confirmNewPassword" placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-confirmNewPassword" />
               </div>
 
-              <Button1 type="submit" label={loading ? 'Please wait...' : 'Confirm'} />
+              <Button1 type="submit" label={loading ? 'Reset' : 'Confirm'} />
               <br />
               <br />
             </form>
