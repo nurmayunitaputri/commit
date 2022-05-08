@@ -11,7 +11,7 @@ const validationSchema = Yup.object({
   email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
   password: Yup.string().required('diperlukan kata sandi').min(6, 'minimal 6 karakter'),
   name: Yup.string().required(''),
-  phone_number: Yup.string().required(''),
+  phone_number: Yup.number('diperlukan phone number'),
   domicile: Yup.string().required(''),
   gender: Yup.string().required(''),
   // interest: Yup.string().required(''),
@@ -59,8 +59,7 @@ const SignupContainer = () => {
     onSubmit,
   });
   console.log(errors)
-
-
+  
   return (
     <NoAuthProvider>
       <main className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full ">
@@ -155,6 +154,12 @@ const SignupContainer = () => {
               <label className='font-semibold text-black text-sm '>Phone Number</label>
               <Input name="phone_number" type="phone_number" placeholder="Select your option" 
               onChange={handleChange} onBlur={handleBlur} dataTestId="phone_number" isValid={getIn(touched, 'phone_number') && !getIn(errors, 'phone_number')}/>
+               {getIn(touched, 'phone_number') && getIn(errors, 'phone_number') && (
+                  <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-phone_number">
+                    <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
+                    {getIn(errors, 'phone_number')}
+                  </div>
+                )}
             </div>
             <div className="flexflex-col text-[#4E4D4F] py-2">
               <label className='font-semibold text-black text-sm'>Password</label>
@@ -194,3 +199,5 @@ const SignupContainer = () => {
 };
 
 export default SignupContainer;
+
+

@@ -10,6 +10,7 @@ import interest from './reducers/interest';
 import landing from './reducers/landing';
 import home from './reducers/home';
 import upload from './reducers/upload';
+import halaman from './reducers/halaman';
 // rootReducer
 const rootReducer = combineReducers({
   login,
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   signup,
   interest,
   landing,
+  halaman,
 });
 // store (main storage)
 const store = configureStore({
