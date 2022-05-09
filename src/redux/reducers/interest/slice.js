@@ -23,8 +23,8 @@ export const useInterestDispatcher = () => {
   const doInterest = async (values) => {
     dispatch(toggleLoading(true));
     const response = await callAPI({
-      url: '',
-      method: '',
+      url: '/register',
+      method: 'post',
       data: values,
     });
     const { data } = response;
