@@ -10,9 +10,11 @@ const validationSchema = Yup.object({
   interests: Yup.array().max(2, 'Pilihan Interest maksimal 2'),
 });
 
-// const initialValues = {
-//   checkboxItem: '',
-// };
+const initialValues = {
+  // checkboxItem: '',
+  interest: '',
+
+};
 
 
 const InterestContainer = () => {
@@ -24,6 +26,12 @@ const InterestContainer = () => {
   const onSubmit = async (values) => {
     try {
       const payload = {
+        // localStorage.getItem('email')
+        // localStorage.getItem('password')
+        // localStorage.getItem('name')
+        // localStorage.getItem('phone_number')
+        // localStorage.getItem('emaildomicile')
+        // localStorage.getItem('gender')
         interest: values.interests
       };
       await doInterest(payload);
