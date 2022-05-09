@@ -34,8 +34,9 @@ const InterestContainer = () => {
         // localStorage.getItem('gender')
         interest: values.interests
       };
+      console.log(payload)
       await doInterest(payload);
-      window.location.href = '/login';
+      // window.location.href = '/login';
     } catch (error) {
       alert(error);
     }
