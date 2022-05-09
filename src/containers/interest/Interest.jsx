@@ -10,11 +10,11 @@ const validationSchema = Yup.object({
   interests: Yup.array().max(2, 'Pilihan Interest maksimal 2'),
 });
 
-const initialValues = {
-  // checkboxItem: '',
-  interest: '',
+// const initialValues = {
+//   // checkboxItem: '',
+//   interest: '',
 
-};
+// };
 
 
 const InterestContainer = () => {
@@ -35,16 +35,12 @@ const InterestContainer = () => {
         interest: values.interests
       };
       await doInterest(payload);
-      window.location.href = '/';
+      window.location.href = '/login';
     } catch (error) {
       alert(error);
     }
   };
-  // const ErrorHandling = () => {
-  //     const { interest: { loading, product, errMessage}, getProducts } = useInterestDispatcher();
-    
-  //   }
-    
+  
     const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik ({
       initialValues: {
         // checkboxItem: [],
@@ -53,27 +49,6 @@ const InterestContainer = () => {
       validationSchema,
       onSubmit
     });
-
-  //   const submitLogin = await callAPI({
-  //     url: '/posts',
-  //     method: 'post',
-  //     data: payload,
-  //     headers: {
-  //       Authorization: Bearer ${getJwt()},
-  //     },
-  //   });
-  //   if (submitLogin.status === 200) {
-  //     setLoading(false);
-  //     alert('Create posts success!');
-  //     push('/Homepage');
-  //   }
-  // };
-
-  // const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
-  //   initialValues,
-  //   validationSchema,
-  //   onSubmit,
-  // });
 
   return (
     <NoAuthProvider>
