@@ -47,6 +47,12 @@ const SignupContainer = () => {
         // interest: values.interest,
       };
       await doSignup(payload);
+      localStorage.setItem('email', values.email);
+      localStorage.setItem('password', values.password);
+      localStorage.setItem('name', values.name);
+      localStorage.setItem('phone_number', values.phone_number);
+      localStorage.setItem('domicile', values.domicile);
+      localStorage.setItem('gender', values.gender);
       push(`/interest`);
     } catch (error) {
       alert(error);

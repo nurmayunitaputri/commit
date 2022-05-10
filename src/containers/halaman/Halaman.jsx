@@ -174,7 +174,7 @@ const Halaman = () => {
                               <a href="#" className="text-[#00229B]">Backend</a>
                             </div>
                             <div className="flex flex-col text-[10px] font-bold py-2 col-span-2 rounded-full bg-white border border-[#00229B] items-center">
-                              <a href="#" className="text-[#97a3ce]">Quality Assurance</a>
+                              <a href="#" className="text-[#00229B]">Quality Assurance</a>
                             </div>
                           </div>
                    </form>
@@ -274,20 +274,8 @@ const Halaman = () => {
                       <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 ">
                         <img className="h-full w-full object-cover" src="kewren.jpg" alt="avatar"></img>           
                       </div>
-                      <label htmlFor="caption" className="block w-full mb-3">
-              <div className="font-bold mb-1">Caption</div>
-              <textarea
-                name="caption"
-                type="text"
-                className="py-2 focus:ring-0 focus:outline-none border-b w-full resize-none"
-                placeholder="Type your post caption"
-                rows={5}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                dataTestId="input-caption"
-              />
-              {touched && errors && touched.caption && errors.caption && <div className="text-xs text-red-500 pb-3" data-testid="error-caption">{errors.caption}</div>}
-            </label>
+                        <input type="Write something" className="text-clip overflow-hidden pr-20 pl-5 form-control relative min-w-0 items-center block w-full text-base font-normal bg-white bg-clip-padding  p-[20] transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        placeholder="Write something" aria-label="Write something" aria-describedby="button-addon2" />
                    </div>
                    <div className="flex flex-cols gap-[10%] bg-white items-start pt-[15%] rounded-lg ">
                 <a href="#" className="block focus:text-blue-700 text-[#a8b8f1] focus:outline-none ml-[15px]">
@@ -478,7 +466,7 @@ const Halaman = () => {
                       <div className="pb-7 ml-[450px]">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                      </svg
+                      </svg>
                     </div>
                   </div>
                    <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 ">

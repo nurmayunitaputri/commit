@@ -24,11 +24,11 @@ export const useInterestDispatcher = () => {
     dispatch(toggleLoading(true));
     const response = await callAPI({
       url: '/register',
-      method: 'POST',
+      method: 'post',
       data: values,
     });
-    // const { data } = response;
-  console.log(response)
+    const { data } = response;
+  console.log(data)
 
     dispatch(toggleLoading(false));
   };
