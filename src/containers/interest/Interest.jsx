@@ -26,12 +26,12 @@ const InterestContainer = () => {
   const onSubmit = async (values) => {
     try {
       const payload = {
-        // localStorage.getItem('email')
-        // localStorage.getItem('password')
-        // localStorage.getItem('name')
-        // localStorage.getItem('phone_number')
-        // localStorage.getItem('emaildomicile')
-        // localStorage.getItem('gender')
+        email: localStorage.getItem('email'),
+        password: localStorage.getItem('password'),
+        name: localStorage.getItem('name'),
+        phone_number: localStorage.getItem('phone_number'),
+        emaildomicile: localStorage.getItem('emaildomicile'),
+        gender: localStorage.getItem('gender'),
         interest: values.interests
       };
       await doInterest(payload);

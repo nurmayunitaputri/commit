@@ -8,8 +8,8 @@ import { useLoginDispatcher } from '../../redux/reducers/login';
 import { ExclamationCircleIcon } from '@heroicons/react/outline';
 
 const validationSchema = Yup.object({
-  email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
-  password: Yup.string().required('diperlukan kata sandi').min(6, 'minimal 6 karakter'),
+  email: Yup.string().required('email required').email('Invalid email'),
+  password: Yup.string().required('password required').min(6, 'minimum 6 characters'),
 });
 
 const initialValues = {

@@ -28,7 +28,7 @@ export const useInterestDispatcher = () => {
       data: values,
     });
     const { data } = response;
-  console.log(response)
+  console.log(data)
 
     dispatch(toggleLoading(false));
   };
