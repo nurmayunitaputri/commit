@@ -9,7 +9,7 @@ import { ExclamationCircleIcon } from '@heroicons/react/outline';
 
 const validationSchema = Yup.object({
   email: Yup.string().required('email required').email('Invalid email'),
-  password: Yup.string().required('password required').min(6, 'minimum 6 characters'),
+  password: Yup.string().required('password required'),
 });
 
 const initialValues = {

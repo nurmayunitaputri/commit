@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
+import { callAPI } from '../../../helpers/network';
 const initialState = {
-  posts: [],
   loading: false,
 };
 const slices = createSlice({
@@ -14,24 +14,28 @@ const slices = createSlice({
         loading: action.payload,
       });
     },
-    setPosts(state, action) {
-      Object.assign(state, {
-        ...state,
-        posts: action.payload,
-      });
-    },
   },
 });
-const { setPosts, toggleLoading } = slices.actions;
+const { toggleLoading } = slices.actions;
 export const useHomeDispatcher = () => {
   const { home } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const makeLoading = (loading) => dispatch(toggleLoading(loading));
-  const makePosts = (posts) => dispatch(setPosts(posts));
+  const doHome = async (values) => {
+    dispatch(toggleLoading(true));
+    const response = await callAPI({
+      url: '/register',
+      method: 'POST',
+      data: values,
+    });
+    const { data } = response;
+    console.log(data);
+    // localStorage.setItem('jwt', data.jwt);
+    // localStorage.setItem('user', JSON.stringify(data.user));
+    dispatch(toggleLoading(false));
+  };
   return {
     home,
-    makePosts,
-    makeLoading,
+    doHome,
   };
 };
 export default slices.reducer;

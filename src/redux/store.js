@@ -8,13 +8,11 @@ import confirmOtp from './reducers/confirmOtp';
 import signup from './reducers/signup';
 import interest from './reducers/interest';
 import landing from './reducers/landing';
-import home from './reducers/home';
 import upload from './reducers/upload';
-import halaman from './reducers/halaman';
+import home from './reducers/home';
 // rootReducer
 const rootReducer = combineReducers({
   login,
-  home,
   upload,
   forgot,
   sendOtp,
@@ -22,7 +20,7 @@ const rootReducer = combineReducers({
   signup,
   interest,
   landing,
-  halaman,
+  home,
 });
 // store (main storage)
 const store = configureStore({

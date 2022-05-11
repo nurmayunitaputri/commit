@@ -17,7 +17,7 @@ const Landing = () => {
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
-            <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-black mr-11 ">
+            <a href="./home" className="block mt-4 lg:inline-block lg:mt-0 text-black mr-11 ">
               Home
             </a>
             <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-black mr-11">
