@@ -8,12 +8,12 @@ import { ExclamationCircleIcon } from '@heroicons/react/outline';
 import { useSignupDispatcher } from '../../redux/reducers/signup';
 
 const validationSchema = Yup.object({
-  email: Yup.string().required('diperlukan Email').email('Email tidak valid'),
-  password: Yup.string().required('diperlukan kata sandi').min(6, 'minimal 6 karakter'),
-  name: Yup.string().required(''),
-  phone_number: Yup.number('diperlukan phone number'),
-  domicile: Yup.string().required(''),
-  gender: Yup.string().required(''),
+  email: Yup.string().required('There is something wrong with your email please check your email again').email('Email tidak valid'),
+  password: Yup.string().required('password must be at least 6 character and must contain number & letter ').min(6, 'password must be at least 6 character and must contain number & letter'),
+  name: Yup.string().required('Something is wrong. please check your name  '),
+  domicile: Yup.string().required('please choose a domicile'),
+  gender: Yup.string().required('please choose a gender'),
+  phone_number: Yup.number().required('there is something wrong with your number, please make sure your numbers starts with 0  ')
   // interest: Yup.string().required(''),
 });
 
@@ -92,7 +92,7 @@ const SignupContainer = () => {
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className='font-semibold text-black text-sm '>Full Name</label>
               <Input3 name="name" type="name" placeholder="Enter your name here"
-              onChange={handleChange} onBlur={handleBlur} dataTestId="input-fullname" isValid={getIn(touched, 'full name') && !getIn(errors, 'full name')} />
+              onChange={handleChange} onBlur={handleBlur} dataTestId="input-fullname" isValid={getIn(touched, 'name') && !getIn(errors, 'name')} />
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className='font-semibold text-black text-sm '>Email</label>
@@ -158,7 +158,7 @@ const SignupContainer = () => {
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className='font-semibold text-black text-sm '>Phone Number</label>
-              <Input name="phone_number" type="phone_number" placeholder="Select your option" 
+              <Input name="phone_number" type="phone_number" placeholder="Enter your number" 
               onChange={handleChange} onBlur={handleBlur} dataTestId="phone_number" isValid={getIn(touched, 'phone_number') && !getIn(errors, 'phone_number')}/>
                {getIn(touched, 'phone_number') && getIn(errors, 'phone_number') && (
                   <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-phone_number">
