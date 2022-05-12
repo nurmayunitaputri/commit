@@ -22,14 +22,15 @@
 // };
 // export default AuthProvider;
 
-import { useEffect, useState } from 'react';
-import { getJwt } from '../../helpers/auth';
-const AuthProvider = ({ children }) => {
+import { useEffect, useState } from "react";
+import { getJwt } from "../../helpers/auth";
+
+export const AuthProvider = ({ children }) => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     const jwt = getJwt();
     if (!jwt) {
-      window.location.href = '/login';
+      window.location.href = "/login";
     }
     setMounted(true);
   }, []);
@@ -38,4 +39,3 @@ const AuthProvider = ({ children }) => {
   }
   return <></>;
 };
-export default AuthProvider;

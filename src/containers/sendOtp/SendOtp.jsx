@@ -58,7 +58,12 @@ const SendOtpContainer = () => {
         otp: values.otp,
       };
 
-      await doSendOtp(payload);
+      const data = await doSendOtp(payload);
+      if (data.status === '404') {
+        alert(data.message);
+        return;
+      }
+
       push(`/confirmOtp`);
     } catch (error) {
       alert(error);
