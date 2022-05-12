@@ -31,7 +31,11 @@ const LoginContainer = () => {
         email: values.email,
         password: values.password,
       };
-      await doLogin(payload);
+      const data = await doLogin(payload);
+      if (data.status === '404') {
+        alert(data.message);
+        return;
+      }
       push(`/halaman`);
       // window.location.href = '/';
     } catch (error) {

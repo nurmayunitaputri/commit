@@ -29,14 +29,9 @@ export const useLoginDispatcher = () => {
     });
     const { data } = response;
     console.log(data);
-    // if (!data.access_token) {
-    //   dispatch(toggleLoading(true));
-    //   console.log(`something wrong`);
-    //   return;
-    // }
-    // localStorage.setItem('jwt', data.jwt);
-    // localStorage.setItem('user', JSON.stringify(data.user));
+
     dispatch(toggleLoading(false));
+    return data;
   };
   return {
     login,

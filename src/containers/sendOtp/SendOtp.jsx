@@ -5,7 +5,7 @@ import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
 import { useSendOtpDispatcher } from '../../redux/reducers/sendOtp';
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const validationSchema = Yup.object({
   otp: Yup.string().required(),
@@ -58,7 +58,12 @@ const SendOtpContainer = () => {
         otp: values.otp,
       };
 
-      await doSendOtp(payload);
+      const data = await doSendOtp(payload);
+      if (data.status === '404') {
+        alert(data.message);
+        return;
+      }
+
       push(`/confirmOtp`);
     } catch (error) {
       alert(error);
@@ -70,7 +75,6 @@ const SendOtpContainer = () => {
     validationSchema,
     onSubmit,
   });
-  
 
   return (
     <NoAuthProvider>
@@ -101,7 +105,7 @@ const SendOtpContainer = () => {
                 <Input name="otp" type="otp" className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" placeholder="Enter your OTP here.." onChange={handleChange} onBlur={handleBlur} />
               </div>
               <div className="flex justify-center items-center">
-                <div className='text-[#A8A8A8]'>Resend OTP in 0:{counting}s</div>
+                <div className="text-[#A8A8A8]">Resend OTP in 0:{counting}s</div>
                 <button
                   onClick={() => handleCountDown()}
                   type="button"
