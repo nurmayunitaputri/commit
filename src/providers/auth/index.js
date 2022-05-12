@@ -1,2 +1,2 @@
-export { default } from './AuthProvider';
-export { default as NoAuthProvider } from './NoAuthProvider';
+export * from "./AuthProvider";
+export * from "./NoAuthProvider";
