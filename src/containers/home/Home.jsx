@@ -118,7 +118,7 @@ const Home = () => {
                   {/* <div className="border-l-4 mr-2">
                             </div> */}
                 </div>
-                <div className="text-sm flex items-center pt-2 ">
+                <div className="text-sm flex items-center pt-2 pl-10">
                   <a
                     href="#responsive-header"
                     className="block mt-4 lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
@@ -180,7 +180,7 @@ const Home = () => {
                   {" "}
                   hallo, {name}
                 </div>
-                <div className="relative pt-2 mr-20">
+                <div className="relative pl-3">
                   <button className="block h-10 w-10 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white">
                     <img
                       className="h-full w-full object-cover"
@@ -190,7 +190,7 @@ const Home = () => {
                   </button>
                 </div>
                 <div
-                  className="relative pt-2 mr-20"
+                  className="relative pl-10"
                   onClick={handleOnLoggedOut}
                 >
                   <svg

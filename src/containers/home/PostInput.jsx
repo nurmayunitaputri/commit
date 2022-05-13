@@ -65,7 +65,7 @@ export const PostInput = () => {
   return (
     <form className="py-2 rounded-lg bg-white pl-2" onSubmit={handleOnSubmit}>
       <div className="flex flex-cols ml-2 items-center pt-2">
-        <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 ">
+        <div className="block h-11 w-11 rounded-full overflow-hidden border-2 ">
           <img
             className="h-full w-full object-cover"
             src="kewren.jpg"
@@ -77,7 +77,7 @@ export const PostInput = () => {
           value={status}
           onChange={(e) => setStatus(e.target.value)}
           type="Write something"
-          className="text-clip overflow-hidden pr-20 pl-5 form-control relative min-w-0 items-center block w-full text-base font-normal bg-white bg-clip-padding  p-[20] transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          className="text-clip overflow-hidden h-24 pr-20 pl-5 form-control relative min-w-0 items-center block w-full text-base font-normal bg-white bg-clip-padding  p-[20] transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
           placeholder="Write something"
           aria-label="Write something"
           aria-describedby="button-addon2"
@@ -90,7 +90,7 @@ export const PostInput = () => {
           onChange={handleOnChangedMedia}
         />
       </div>
-      <div className="flex flex-cols gap-[10%] items-start pt-[5%] rounded-lg ">
+      <div className="flex flex-cols gap-2 items-start rounded-lg ">
         <div
           onClick={handleSelectMedia}
           className="block focus:text-blue-700 text-[#a8b8f1] focus:outline-none ml-[15px]"
@@ -139,7 +139,7 @@ export const PostInput = () => {
             </p>
           </div>
         </a>
-        <button className="block overflow-hidden h-[35px] w-[50px] text-[12px] rounded-lg ml-[220px] bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-700">
+        <button className="block overflow-hidden h-[35px] w-[50px] text-[12px] rounded-lg ml-44 bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-700">
           Post
         </button>
       </div>
