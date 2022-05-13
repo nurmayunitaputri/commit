@@ -93,7 +93,7 @@ const Home = () => {
                 </button>
               </div>
               <div className="w-full block lg:flex ml-auto items-center ">
-                <div className="input-group responsive mr-20 text-black text-sm xl:w-80 flex items-center mx-px">
+                <div className="input-group responsive text-black text-sm xl:w-80 flex items-center">
                   <input
                     type="search"
                     className="pr-3 pl-10 form-control relative min-w-0 items-center block w-full px-3 py-1.5 text-base font-normal  bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg p-[20] transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
