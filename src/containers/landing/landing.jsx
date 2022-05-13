@@ -197,9 +197,7 @@ const Landing = () => {
               <li>
                 <a href="../" className=" text-[#00229B] text-lg ">Simpler</a>
               </li>
-              <li>
-                <a href="../" className="text-[#00229B] text-lg ">My Chance</a>
-              </li>
+              
             </nav>
           </div>
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
