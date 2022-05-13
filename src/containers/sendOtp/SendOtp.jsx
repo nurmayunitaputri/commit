@@ -59,7 +59,6 @@ const SendOtpContainer = () => {
       };
 
       const data = await doSendOtp(payload);
-      localStorage.setItem('email', values.email);
       if (data.status === '404') {
         alert(data.message);
         return;

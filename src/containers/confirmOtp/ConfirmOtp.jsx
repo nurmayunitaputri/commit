@@ -4,7 +4,7 @@ import { Input2 } from '../../components/input';
 import { NoAuthProvider } from '../../providers/auth';
 import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
-import { useForgotDispatcher } from '../../redux/reducers/forgot';
+import { useConfirmOtpDispatcher } from '../../redux/reducers/confirmOtp';
 const validationSchema = Yup.object({
   newPassword: Yup.string().required(),
   confirmNewPassword: Yup.string().required(),
@@ -18,9 +18,9 @@ const initialValues = {
 const ForgotContainer = () => {
   const { push } = useRouter();
   const {
-    forgot: { loading },
-    doForgot,
-  } = useForgotDispatcher();
+    confirmOtp: { loading },
+    doConfirmOtp,
+  } = useConfirmOtpDispatcher();
 
   const onSubmit = async (values) => {
     try {
@@ -29,8 +29,9 @@ const ForgotContainer = () => {
         newPassword: values.newPassword,
         confirmNewPassword: values.confirmNewPassword,
       };
-      await doForgot(payload);
+      await doConfirmOtp(payload);
       push(`/finishOtp`);
+      console.log(payload)
     } catch (error) {
       alert(error);
     }
