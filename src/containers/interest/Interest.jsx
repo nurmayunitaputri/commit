@@ -102,11 +102,11 @@ const InterestContainer = () => {
                 {errors.interests}
               </div>
             </div>
-            <Button1 type="submit" label={loading ? 'Please wait...' : 'Next'} />
+            <Button1 type="submit" label={loading ? 'Please wait...' : 'Sign Up'} />
             <div className="flex justify-center pb-8">
-              <p> already have an account?</p>
-              <a href="" className=" ml-2 text-[#00229B]">
-                Login
+              <p className='pt-2'> Already have an account?</p>
+              <a href="./login" className=" pt-2 ml-2 text-[#00229B]">
+                Log In
               </a>
             </div>
             {/* <div className="mt-5">
