@@ -73,7 +73,7 @@ export const PostInput = () => {
             alt="avatar"
           ></img>
         </div>
-      <div className=" ml-2 items-center pt-2">
+      <div className=" ml-2 items-center pt-2 flex-grow">
         <textarea
           value={status}
           onChange={(e) => setStatus(e.target.value)}
@@ -136,12 +136,12 @@ export const PostInput = () => {
                 d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <p className="ml-[5px] text-[12px] pt-[10px] font-semibold text-[#a8b8f1]">
+            <p className=" mx-1.5 text-[12px] font-semibold text-[#a8b8f1]">
               Public Post
             </p>
           </div>
         </a>
-        <button className="block overflow-hidden h-[35px] w-[50px] text-[12px] rounded-lg ml-44 bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-700">
+        <button className="block overflow-hidden h-[35px] w-[50px] text-[12px] rounded-lg ml-48 bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-700">
           Post
         </button>
       </div>

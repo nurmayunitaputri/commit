@@ -412,6 +412,9 @@ const Home = () => {
               <a href="#" className="text-blue-800 text-left text-semibold">
                 Premium
               </a>
+              <a href="https://g.co/kgs/sqLcsn" className="text-blue-800 text-left text-semibold">
+                Playstore
+              </a>
             </div>
           </div>
         </div>
