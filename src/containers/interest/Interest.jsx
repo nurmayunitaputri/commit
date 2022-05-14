@@ -75,24 +75,24 @@ const InterestContainer = () => {
           <img src="svg_interest page.svg" className="w-8/12 max-w-fit"></img>
           </div>
         <div className="grid grid-cols-3 gap-4 text-[#4E4D4F] items-center ">
-            <label className={`cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${values.interests.includes('frontend') ? 'bg-blue-700 text-white' : 'bg-transparent'}`}>
+            <label className={`text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${values.interests.includes('frontend') ? 'bg-blue-700 text-white' : 'bg-transparent'}`}>
               <input onChange={handleChange} onBlur={handleBlur} type="checkbox" name="interests" className="hidden" value="frontend" />
               Frontend +
             </label>
-            <label className={`cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${values.interests.includes('ui-ux') ? 'bg-blue-700 text-white' : 'bg-transparent'}`}>
+            <label className={`text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${values.interests.includes('ui-ux') ? 'bg-blue-700 text-white' : 'bg-transparent'}`}>
               <input onChange={handleChange} onBlur={handleBlur} type="checkbox" name="interests" className="hidden" value="ui-ux" />
               UI/UX +
             </label>
-            <label className={`cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${values.interests.includes('backend') ? 'bg-blue-700 text-white' : 'bg-transparent'}`}>
+            <label className={`text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${values.interests.includes('backend') ? 'bg-blue-700 text-white' : 'bg-transparent'}`}>
               <input onChange={handleChange} onBlur={handleBlur} type="checkbox" name="interests" className="hidden" value="backend" />
               Backend +
             </label>
-            <label className={`cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${values.interests.includes('Android') ? 'bg-blue-700 text-white' : 'bg-transparent'}`}>
+            <label className={`text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${values.interests.includes('Android') ? 'bg-blue-700 text-white' : 'bg-transparent'}`}>
               <input onChange={handleChange} onBlur={handleBlur} type="checkbox" name="interests" className="hidden" value="Android" />
               Android +
             </label>
-            <label className= {`cursor-pointer border border-zinc-200 p-3 col-span-2 rounded-lg text-[#00229B] items-center ${values.interests.includes('QualityAssurance') ? 'bg-blue-700 text-white' : 'bg-transparent'}`}>
-              <input onChange={handleChange} onBlur={handleBlur} type="checkbox" name="interests" className="hidden" value="QualityAssurance" />
+            <label className= {`cursor-pointer border border-zinc-200 p-3 col-span-2 rounded-lg text-[#00229B] text-center items-center ${values.interests.includes('QualityAssurance') ? 'bg-blue-700 text-white' : 'bg-transparent'}`}>
+              <input onChange={handleChange} onBlur={handleBlur} type="checkbox" name="interests" className="hidden" value="Quality Assurance" />
               QualityAssurance +
             </label>
         </div>
