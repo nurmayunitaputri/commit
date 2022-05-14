@@ -6,8 +6,8 @@ import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
 import { useConfirmOtpDispatcher } from '../../redux/reducers/confirmOtp';
 const validationSchema = Yup.object({
-  newPassword: Yup.string().required(),
-  confirmNewPassword: Yup.string().required(),
+  newPassword: Yup.string().required().min(6, "Password must be at least 6 characters and must contain number & character") .matches(/(?=.*[0-9])/, /(?=.*\d)/, "Password must be at least 6 characters and must contain number & character"),
+  confirmNewPassword: Yup.string().required().min(6, "Password must be at least 6 characters and must contain number & character") .matches(/(?=.*[0-9])/, /(?=.*\d)/, "Password must be at least 6 characters and must contain number & character"),
 });
 
 const initialValues = {
@@ -66,7 +66,7 @@ const ForgotContainer = () => {
           <div className="border border-gray-300 w-4/5 h-fit flex flex-col justify-center rounded-xl shadow-lg mx-auto ">
             <form className="max-w-[511px] max-h-[462px] w-full mx-auto bg-white rounded-2xl p-[35px] pb-3 " onSubmit={handleSubmit}>
               <img src="Logo Header.svg" className=" px-2 pb-4 w-8/12 max-w-fit mx-auto"></img>
-              <h2 className="text-2xl text-[#27272E] font-bold text-center">Forgot Password</h2>
+              <h2 className="text-2xl text-[#27272E] font-bold text-center">Reset Your Password</h2>
               <div className="flex flex-col text-sm text-black font-semibold mt-3 pt-2 pb-4">
                 New Password
                 {/* {getIn(touched, 'password') && getIn(errors, 'password') && (
@@ -75,7 +75,7 @@ const ForgotContainer = () => {
                     {getIn(errors, 'password')}
                   </div>
                 )} */}
-                <Input2 name="newPassword" type="newPassword" placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-newPassword" />
+                <Input2 name="newPassword" type="newPassword" placeholder="Create Your New Password" onChange={handleChange} onBlur={handleBlur} dataTestId="input-newPassword" />
               </div>
 
               <div className="flex flex-col text-sm text-black font-semibold mt-3 pt-2 pb-4">
@@ -86,10 +86,10 @@ const ForgotContainer = () => {
                     {getIn(errors, 'password')}
                   </div>
                 )} */}
-                <Input2 name="confirmNewPassword" type="confirmNewPassword" placeholder="Enter your password here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-confirmNewPassword" />
+                <Input2 name="confirmNewPassword" type="confirmNewPassword" placeholder="Confirm Your New Password Here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-confirmNewPassword" />
               </div>
 
-              <Button1 type="submit" label={loading ? 'Reset' : 'Confirm'} />
+              <Button1 type="submit" label={loading ? 'Reset' : 'Reset'} />
               <br />
               <br />
             </form>

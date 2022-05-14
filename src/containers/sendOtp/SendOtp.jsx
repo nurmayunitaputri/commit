@@ -112,10 +112,10 @@ const SendOtpContainer = () => {
                   disabled={startCounting}
                   className={`${startCounting ? 'bg-white hover:bg-white text-[#A8A8A8] underline' : 'bg-white hover:bg-white font-semibold text-blue-900 underline '}  text-white py-3 px-6 rounded-lg`}
                 >
-                  Send OTP
+                  Resend OTP
                 </button>
               </div>
-              <Button1 type="submit" label={loading ? 'Please wait...' : 'Send OTP'} />
+              <Button1 type="submit" label={loading ? 'Please wait...' : 'Next'} />
               <br />
               <br />
             </form>

@@ -8,8 +8,8 @@ import { useLoginDispatcher } from "../../redux/reducers/login";
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
 
 const validationSchema = Yup.object({
-  email: Yup.string().required("email required").email("Invalid email"),
-  password: Yup.string().required("password required"),
+  email: Yup.string().required().email("There's something wrong with your email,please check your email again "),
+  password: Yup.string().required().min(6, "Password must be at least 6 characters and must contain number & character") .matches(/(?=.*[0-9])/, /(?=.*\d)/, "Password must be at least 6 characters and must contain number & character"), 
 });
 
 const initialValues = {
@@ -144,7 +144,7 @@ const LoginContainer = () => {
               </div>
               <Button1
                 type="submit"
-                label={loading ? "Please wait..." : "Login"}
+                label={loading ? "Please wait..." : "Log In"}
               />
               <div className="flex justify-center text-base mt-2 pb-5">
                 <p>Don't have an account yet?</p>
