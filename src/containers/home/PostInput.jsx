@@ -64,15 +64,16 @@ export const PostInput = () => {
 
   return (
     <form className="py-2 rounded-lg bg-white pl-2" onSubmit={handleOnSubmit}>
-      <div className="flex flex-cols ml-2 items-center pt-2">
-        <div className="block h-11 w-11 rounded-full overflow-hidden border-2 ">
+      
+      <div className="flex justify-start">
+      <div className="block h-11 w-11 rounded-full overflow-hidden border-2 ">
           <img
             className="h-full w-full object-cover"
             src="kewren.jpg"
             alt="avatar"
           ></img>
         </div>
-
+      <div className=" ml-2 items-center pt-2">
         <textarea
           value={status}
           onChange={(e) => setStatus(e.target.value)}
@@ -89,6 +90,7 @@ export const PostInput = () => {
           style={{ display: "none" }}
           onChange={handleOnChangedMedia}
         />
+      </div>
       </div>
       <div className="flex flex-cols gap-2 items-start rounded-lg ">
         <div
