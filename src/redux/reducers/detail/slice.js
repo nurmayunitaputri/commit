@@ -1,8 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { callAPI } from "../../../helpers/network";
+
+const initialCommentActionState = {
+  loading: false,
+};
+
 const initialState = {
   loading: false,
+  data: null,
+  error: false,
+  commentAction: initialCommentActionState,
 };
 const slices = createSlice({
   initialState,
@@ -14,51 +22,109 @@ const slices = createSlice({
         loading: action.payload,
       });
     },
+    toggleError(state, action) {
+      Object.assign(state, {
+        ...state,
+        error: action.payload,
+      });
+    },
+    setData(state, action) {
+      Object.assign(state, {
+        ...state,
+        data: action.payload,
+        loading: false,
+        error: false,
+      });
+    },
+    toggleLoadingComment(state, action) {
+      Object.assign(state, {
+        ...state,
+        commentAction: {
+          ...state.commentAction,
+          loading: action.payload,
+        },
+      });
+    },
   },
 });
-const { toggleLoading } = slices.actions;
+const { toggleLoading, toggleError, setData, toggleLoadingComment } =
+  slices.actions;
+
 export const useDetailDispatcher = () => {
   const { detail } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const doDetail = async (values) => {
+
+  const fetchDetail = async (postId) => {
     dispatch(toggleLoading(true));
     try {
       const response = await callAPI({
-        url: "",
-        method: "POST",
-        data: values,
+        url: `/post/detail/${postId}`,
+        method: "GET",
       });
-      const { data } = response;
-      console.log({ data });
 
-      if (data.status != 200) {
-        dispatch(toggleLoading(false));
-        throw data.message || "Something went wrong";
-      } else {
-        localStorage.setItem("jwt", data.data.access_token);
-        localStorage.setItem("user", JSON.stringify(data.data.user));
-        dispatch(toggleLoading(false));
+      if (response.data) {
+        if (response.data.status == "404") {
+          dispatch(toggleError(true));
+          dispatch(toggleLoading(false));
+          return;
+        } else {
+          dispatch(setData(response.data.data));
+        }
       }
-
-      // if (!data.data.access_token) {
-      //   console.log(`something wrong`);
-      //   dispatch(toggleLoading(false));
-      //   throw data.message || "Something went wrong";
-      // } else {
-      //   localStorage.setItem("jwt", data.data.access_token);
-      //   localStorage.setItem("user", JSON.stringify(data.data.user));
-      //   dispatch(toggleLoading(false));
-      // }
-
-      return data;
-    } catch (e) {
+    } catch (error) {
+      dispatch(toggleError(true));
       dispatch(toggleLoading(false));
-      throw e;
     }
   };
+
+  const refreshDetail = async (postId) => {
+    try {
+      const response = await callAPI({
+        url: `/post/detail/${postId}`,
+        method: "GET",
+      });
+
+      if (response.data) {
+        if (response.data.status == "404") {
+          return;
+        } else {
+          dispatch(setData(response.data.data));
+        }
+      }
+    } catch (error) {}
+  };
+
+  const postComment = async ({ postId, comment }) => {
+    const formData = new FormData();
+    formData.append("isiKomentar", comment);
+
+    dispatch(toggleLoadingComment(true));
+    try {
+      const response = await callAPI({
+        url: `/komentar/insert/${postId}`,
+        method: "POST",
+        data: formData,
+      });
+
+      if (response.data) {
+        if (response.data.status != "200") {
+          dispatch(toggleLoadingComment(false));
+          throw "Failed to add comment";
+        } else {
+          dispatch(toggleLoadingComment(false));
+        }
+      }
+    } catch (error) {
+      dispatch(toggleLoadingComment(false));
+      throw error;
+    }
+  };
+
   return {
     detail,
-    doDetail,
+    fetchDetail,
+    refreshDetail,
+    postComment,
   };
 };
 export default slices.reducer;

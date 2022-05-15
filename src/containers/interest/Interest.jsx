@@ -165,13 +165,8 @@ const InterestContainer = () => {
                 Android +
               </label>
               <label
-<<<<<<< HEAD
                 className={`col-span-2 text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${
                   values.interests.includes("Quality-Assurance")
-=======
-                className={`cursor-pointer border border-zinc-200 p-3 col-span-2 rounded-lg text-[#00229B] text-center items-center ${
-                  values.interests.includes("QualityAssurance")
->>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
                     ? "bg-blue-700 text-white"
                     : "bg-transparent"
                 }`}
@@ -182,15 +177,9 @@ const InterestContainer = () => {
                   type="checkbox"
                   name="interests"
                   className="hidden"
-<<<<<<< HEAD
                   value="Quality-Assurance"
                 />
                 Quality Assurance +
-=======
-                  value="Quality Assurance"
-                />
-                QualityAssurance +
->>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
               </label>
             </div>
 

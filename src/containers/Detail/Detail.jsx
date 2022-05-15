@@ -1,181 +1,69 @@
+import { NavBar } from "../../components/navbar/Navbar";
+import { PostCard } from "../../components/postcard";
+import { AuthProvider } from "../../providers/auth";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import { CommentCard } from "../../components/commentcard";
+import { CommentInput } from "./CommentInput";
+import { useDetailDispatcher } from "../../redux/reducers/detail/slice";
 import { useRouter } from "next/router";
-import { Input, Input2 } from "../../components/input";
-import { Button1 } from "../../components/button";
-import { NoAuthProvider } from "../../providers/auth";
-import { useFormik, getIn } from "formik";
-import * as Yup from "yup";
-import { useDetailDispatcher } from "../../redux/reducers/detail";
-import { ExclamationCircleIcon } from "@heroicons/react/outline";
-import { toast } from "react-toastify";
-
-const validationSchema = Yup.object({
-  email: Yup.string()
-    .required()
-    .email(
-      "There's something wrong with your email,please check your email again "
-    ),
-  password: Yup.string()
-    .required()
-    .min(
-      6,
-      "Password must be at least 6 characters and must contain number & character"
-    )
-    .matches(
-      /(?=.*[0-9])/,
-      /(?=.*\d)/,
-      "Password must be at least 6 characters and must contain number & character"
-    ),
-});
-
-const initialValues = {
-  email: "",
-  password: "",
-};
+import { useEffect } from "react";
+dayjs.extend(relativeTime);
 
 const DetailContainer = () => {
-  const { push } = useRouter();
-  const {
-    detail: { loading },
-    doDetail,
-  } = useDetailDispatcher();
+  const { detail, fetchDetail } = useDetailDispatcher();
+  const { postId } = useRouter().query;
+  const { loading, error, data } = detail;
 
-  const onSubmit = async (values) => {
-    console.log(values);
-    try {
-      const payload = {
-        email: values.email,
-        password: values.password,
-      };
-      await doDetail(payload);
-      push(`/home`);
-      const data = await doDetail(payload);
-      if (data.status === "404") {
-        toast(data.message);
-        return;
-      }
-      push(`/home`);
-      // window.location.href = '/';
-    } catch (error) {
-      toast(error, {
-        autoClose: 2000,
-        closeButton: true,
-        closeOnClick: true,
-      });
-    }
-  };
+  useEffect(() => {
+    fetchDetail(postId);
+  }, []);
 
-  const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik(
-    {
-      initialValues,
-      validationSchema,
-      onSubmit,
-    }
-  );
-  console.log(errors);
+  if (error) {
+    <p>error</p>;
+  }
+
+  if (loading) {
+    <p>Loading...</p>;
+  }
 
   return (
-    <NoAuthProvider>
-      <main className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full ">
-        {/* section kiri */}
-        <div
-          className="w-full h-full bg-blue-200 flex flex-col justify-center bg-cover bg-left "
-          style={{
-            backgroundImage: `url('Background Login Sign Up.svg')`,
-          }}
-        >
-          <img
-            src="Logo Header.svg"
-            className=" px-20 py-20 w-12/12 max-w-fit flex justify-items-end "
-          ></img>
-          <div className="px-20 text-5xl font-bold w-4/5 text-[#333333] items-center justify-center ">
-            Welcome to your next growth opportunity.
-          </div>
-          <div className="px-20 text-sm w-3/4 mt-9 pb-9">
-            Get connected with expert, freelance and professional jobs that are
-            suited just for you and meet your prerequisite.
-          </div>
-          <div className="flex justify-end items-end pr-40">
-            <img
-              src="png_signup login.png"
-              className=" w-8/12 max-w-fit "
-            ></img>
-          </div>
-        </div>
-
-        {/* section kanan */}
-        <div className="w-full h-full bg-white flex flex-col justify-center ">
-          <div className="border border-gray-300 w-4/5 h-fit flex flex-col justify-center rounded-xl shadow-lg mx-auto ">
-            <form
-              className="my-16 max-w-[500px] max-h-[640px] w-full mx-auto bg-white rounded-2xl p-[35px] pb-3 "
-              onSubmit={handleSubmit}
-            >
-              <img
-                src="Logo Header.svg"
-                className=" px-2 pb-4 w-8/12 max-w-fit mx-auto"
-              ></img>
-              <h2 className="text-2xl text-[#27272E] font-bold text-center">
-                Log In
-              </h2>
-              <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
-                Email
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="Enter your email here.."
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  dataTestId="input-email"
-                />
-                {getIn(touched, "email") && getIn(errors, "email") && (
-                  <div
-                    className="flex items-center justify-start text-xs text-red-500 font-light"
-                    data-testid="error-email"
-                  >
-                    <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
-                    {getIn(errors, "email")}
-                  </div>
-                )}
-              </div>
-              <div className="flex flex-col text-sm text-black font-semibold mt-3 pt-2 pb-4">
-                Password
-                <Input2
-                  name="password"
-                  type="password"
-                  placeholder="Enter your password here"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  dataTestId="input-password"
-                />
-                {getIn(touched, "password") && getIn(errors, "password") && (
-                  <div
-                    className="flex items-center justify-start text-xs text-red-500 font-light"
-                    data-testid="error-password"
-                  >
-                    <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
-                    {getIn(errors, "password")}
-                  </div>
-                )}
-              </div>
-              <div className="pb-8">
-                <a href="../forgot" className="text-[#00229B] text-sm ">
-                  Forgot Password?
-                </a>
-              </div>
-              <Button1
-                type="submit"
-                label={loading ? "Please wait..." : "Log In"}
+    <AuthProvider>
+      <div className="bg-blue-200 min-h-screen">
+        <NavBar />
+        <div className="w-full h-[30%] lg:w-[50%] mx-auto space-y-3 pt-20 bg-white">
+          <div className="border-transparent  rounded-lg ">
+            {data && (
+              <PostCard
+                name={data.detail_post.user.username}
+                desc={data.detail_post.post_desc}
+                createdDate={data.detail_post.created_date}
+                filePosts={data.detail_post.filePosts}
+                tags={[data.detail_post.user.passion]}
+                totalComment={data.detail_post.total_komentar}
+                totalLike={data.detail_post.total_like}
+                avatar="https://img.tek.id/img/content/2019/10/04/21135/begini-gambaran-proses-syuting-avatar-2-OUv6EI6mLH.jpg"
               />
-              <div className="flex justify-center text-base mt-2 pb-5">
-                <p>Don't have an account yet?</p>
-                <a href="../signup" className=" ml-2 text-base text-[#00229B]">
-                  Sign Up
-                </a>
-              </div>
-            </form>
+            )}
+
+            {/* Comment */}
+            {data &&
+              data.komentar_post &&
+              data.komentar_post.map((comment) => (
+                <CommentCard
+                  name={comment.id_user.fullname}
+                  avatar="https://img.tek.id/img/content/2019/10/04/21135/begini-gambaran-proses-syuting-avatar-2-OUv6EI6mLH.jpg"
+                  interest={[comment.id_user.passion]}
+                  createdDate={comment.created_date}
+                  desc={comment.isiKomentar}
+                />
+              ))}
+
+            <CommentInput postId={postId} />
           </div>
         </div>
-      </main>
-    </NoAuthProvider>
+      </div>
+    </AuthProvider>
   );
 };
 
