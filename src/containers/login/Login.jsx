@@ -21,9 +21,8 @@ const validationSchema = Yup.object({
       "Password must be at least 6 characters and must contain number & character"
     )
     .matches(
-
-      /(?=.*[0-6])/, "Password must be at least 6 characters and must contain number & character",
-      /(?=.*[0-9])/,
+      /(?=.*[0-6])/,
+      "Password must be at least 6 characters and must contain number & character",
       /(?=.*\d)/,
       "Password must be at least 6 characters and must contain number & character"
     ),

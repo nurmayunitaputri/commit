@@ -1,14 +1,13 @@
-import { useRouter } from "next/router";
-import { Input, Input2, Input3 } from "../../components/input";
-import { Button1 } from "../../components/button";
-import { NoAuthProvider } from "../../providers/auth";
-import { useFormik, getIn } from "formik";
-import * as Yup from "yup";
-import { ExclamationCircleIcon } from "@heroicons/react/outline";
-import { useSignupDispatcher } from "../../redux/reducers/signup";
+import { useRouter } from 'next/router';
+import { Input, Input2, Input3 } from '../../components/input';
+import { Button1 } from '../../components/button';
+import { NoAuthProvider } from '../../providers/auth';
+import { useFormik, getIn } from 'formik';
+import * as Yup from 'yup';
+import { ExclamationCircleIcon } from '@heroicons/react/outline';
+import { useSignupDispatcher } from '../../redux/reducers/signup';
 
 const validationSchema = Yup.object({
-<<<<<<< HEAD
   email: Yup.string().required('There is something wrong with your email please check your email again').email('Email tidak valid'),
   password: Yup.string().required('password must be at least 6 character and must contain number & letter ').min(6, 'password must be at least 6 character and must contain number & letter'),
   name: Yup.string().required('Something is wrong. please check your name'),
@@ -16,50 +15,16 @@ const validationSchema = Yup.object({
   gender: Yup.string().required('please choose a gender'),
   phone_number: Yup.number().required('there is something wrong with your number, please make sure your numbers starts with 0  '),
   privacyPolicy: Yup.bool().oneOf([true], 'Please agree to our privacy policy before continue'),
-=======
-  email: Yup.string()
-    .required(
-      "There is something wrong with your email please check your email again"
-    )
-    .email("Email tidak valid"),
-  password: Yup.string()
-    .required(
-      "password must be at least 6 character and must contain number & letter "
-    )
-    .min(
-      6,
-      "password must be at least 6 character and must contain number & letter"
-    ),
-  name: Yup.string().required("Something is wrong. please check your name"),
-  domicile: Yup.string().required("please choose a domicile"),
-  gender: Yup.string().required("please choose a gender"),
-  phone_number: Yup.number().required(
-    "there is something wrong with your number, please make sure your numbers starts with 0  "
-  ),
-  privacyPolicy: Yup.bool().oneOf(
-    [true],
-    "Please agree to our privacy policy before continue"
-  ),
->>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
   // interest: Yup.string().required(''),
 });
 
 const initialValues = {
-<<<<<<< HEAD
   email: '',
   password: '',
   name: '',
   phone_number: '',
   domicile: '',
   gender: '',
-=======
-  email: "",
-  password: "",
-  name: "",
-  phone_number: "",
-  domicile: "",
-  gender: "",
->>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
   privacyPolicy: false,
   // interest: '',
 };
@@ -84,32 +49,23 @@ const SignupContainer = () => {
         // interest: values.interest,
       };
       await doSignup(payload);
-      localStorage.setItem("email", values.email);
-      localStorage.setItem("password", values.password);
-      localStorage.setItem("name", values.name);
-      localStorage.setItem("phone_number", values.phone_number);
-      localStorage.setItem("domicile", values.domicile);
-      localStorage.setItem("gender", values.gender);
+      localStorage.setItem('email', values.email);
+      localStorage.setItem('password', values.password);
+      localStorage.setItem('name', values.name);
+      localStorage.setItem('phone_number', values.phone_number);
+      localStorage.setItem('domicile', values.domicile);
+      localStorage.setItem('gender', values.gender);
       push(`/interest`);
     } catch (error) {
       alert(error);
     }
   };
 
-<<<<<<< HEAD
   const { handleChange, handleBlur, handleSubmit, errors, touched, values } = useFormik({
     initialValues,
     validationSchema,
     onSubmit,
   });
-=======
-  const { handleChange, handleBlur, handleSubmit, errors, touched, values } =
-    useFormik({
-      initialValues,
-      validationSchema,
-      onSubmit,
-    });
->>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
   console.log(errors);
 
   return (
@@ -122,85 +78,41 @@ const SignupContainer = () => {
             backgroundImage: `url('Background Login Sign Up.svg')`,
           }}
         >
-          <img
-            src="Logo Header.svg"
-            className=" px-20 py-20 w-12/12 max-w-fit flex justify-items-end "
-          ></img>
-          <div className="px-20 text-5xl font-bold w-4/5 text-[#333333] items-center justify-center ">
-            Welcome to your next growth opportunity.
-          </div>
-          <div className="px-20 text-sm w-3/4 mt-9 pb-9">
-            Get connected with expert, freelance and professional jobs that are
-            suited just for you and meet your prerequisite.
-          </div>
+          <img src="Logo Header.svg" className=" px-20 py-20 w-12/12 max-w-fit flex justify-items-end "></img>
+          <div className="px-20 text-5xl font-bold w-4/5 text-[#333333] items-center justify-center ">Welcome to your next growth opportunity.</div>
+          <div className="px-20 text-sm w-3/4 mt-9 pb-9">Get connected with expert, freelance and professional jobs that are suited just for you and meet your prerequisite.</div>
           <div className="flex justify-end items-end pr-40">
-            <img
-              src="png_signup login.png"
-              className=" w-8/12 max-w-fit "
-            ></img>
+            <img src="png_signup login.png" className=" w-8/12 max-w-fit "></img>
           </div>
         </div>
 
         {/* section kanan */}
         <div className="w-full h-full bg-white flex flex-col justify-center">
-          <form
-            className="max-w-[400px] w-full mx-auto  bg-white rounded-2xl p-[20px]"
-            onSubmit={handleSubmit}
-          >
-            <h2 className="text-2xl text-[#27272E] font-bold text-center">
-              Create your account
-            </h2>
-            <p className="text-1xl text-[#27272E] text-center p-[10px]">
-              its free and easy
-            </p>
+          <form className="max-w-[400px] w-full mx-auto  bg-white rounded-2xl p-[20px]" onSubmit={handleSubmit}>
+            <h2 className="text-2xl text-[#27272E] font-bold text-center">Create your account</h2>
+            <p className="text-1xl text-[#27272E] text-center p-[10px]">its free and easy</p>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label className="font-semibold text-black text-sm ">
-                Full Name
-              </label>
-              <Input3
-                name="name"
-                type="name"
-                placeholder="Enter your name here"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                dataTestId="input-fullname"
-                isValid={getIn(touched, "name") && !getIn(errors, "name")}
-              />
-              {getIn(touched, "name") && getIn(errors, "name") && (
-                <div
-                  className="flex items-center justify-start text-xs text-red-500 font-light"
-                  data-testid="error-name"
-                >
+              <label className="font-semibold text-black text-sm ">Full Name</label>
+              <Input3 name="name" type="name" placeholder="Enter your name here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-fullname" isValid={getIn(touched, 'name') && !getIn(errors, 'name')} />
+              {getIn(touched, 'name') && getIn(errors, 'name') && (
+                <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-name">
                   <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
-                  {getIn(errors, "name")}
+                  {getIn(errors, 'name')}
                 </div>
               )}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className="font-semibold text-black text-sm ">Email</label>
-              <Input3
-                name="email"
-                type="email"
-                placeholder="Enter your email here"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                dataTestId="input-email"
-                isValid={getIn(touched, "email") && !getIn(errors, "email")}
-              />
-              {getIn(touched, "email") && getIn(errors, "email") && (
-                <div
-                  className="flex items-center justify-start text-xs text-red-500 font-light"
-                  data-testid="error-email"
-                >
+              <Input3 name="email" type="email" placeholder="Enter your email here" onChange={handleChange} onBlur={handleBlur} dataTestId="input-email" isValid={getIn(touched, 'email') && !getIn(errors, 'email')} />
+              {getIn(touched, 'email') && getIn(errors, 'email') && (
+                <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-email">
                   <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
-                  {getIn(errors, "email")}
+                  {getIn(errors, 'email')}
                 </div>
               )}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label className="font-semibold text-black text-sm ">
-                Domicile
-              </label>
+              <label className="font-semibold text-black text-sm ">Domicile</label>
               <select
                 name="domicile"
                 type="domicile"
@@ -209,9 +121,7 @@ const SignupContainer = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 dataTestId="input-domicile"
-                isValid={
-                  getIn(touched, "full name") && !getIn(errors, "full name")
-                }
+                isValid={getIn(touched, 'full name') && !getIn(errors, 'full name')}
               >
                 <option hidden>Domicile</option>
                 <option value="Aceh">Aceh</option>
@@ -223,9 +133,7 @@ const SignupContainer = () => {
                 <option value="Riau">Riau</option>
                 <option value="Kepulauan Riau">Kepulauan Riau</option>
                 <option value="Jambi">Jambi</option>
-                <option value="Kepulauan Bangka">
-                  Kepulauan Bangka Belitung
-                </option>
+                <option value="Kepulauan Bangka">Kepulauan Bangka Belitung</option>
                 <option value="Bengkulu">Bengkulu</option>
                 <option value="DKI Jakarta">DKI Jakarta</option>
                 <option value="Banten">Banten</option>
@@ -235,9 +143,7 @@ const SignupContainer = () => {
                 <option value="DIY Yogyakarta">DIY Yogyakarta</option>
                 <option value="Bali">Bali</option>
                 <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
-                <option value="Nusa Tengggara Timur">
-                  Nusa Tenggara Timur
-                </option>
+                <option value="Nusa Tengggara Timur">Nusa Tenggara Timur</option>
                 <option value="Kalimantan Barat">Kalimanta Barat</option>
                 <option value="Kalimantan Selatan">Kalimanta Selatan</option>
                 <option value="Kalimantan Tengah">Kalimanta Tengah</option>
@@ -253,27 +159,15 @@ const SignupContainer = () => {
                 <option value="Papua">Papua</option>
                 <option value="Papua Barat">Papua Barat</option>
               </select>
-<<<<<<< HEAD
               {getIn(touched, 'domicile') && getIn(errors, 'domicile') && (
                 <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-domicile">
                   <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
                   {getIn(errors, 'domicile')}
-=======
-              {getIn(touched, "domicile") && getIn(errors, "domicile") && (
-                <div
-                  className="flex items-center justify-start text-xs text-red-500 font-light"
-                  data-testid="error-domicile"
-                >
-                  <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
-                  {getIn(errors, "domicile")}
->>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
                 </div>
               )}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label className="font-semibold text-black text-sm ">
-                Gender
-              </label>
+              <label className="font-semibold text-black text-sm ">Gender</label>
               <select
                 name="gender"
                 type="gender"
@@ -282,7 +176,7 @@ const SignupContainer = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 dataTestId="input-gender"
-                isValid={getIn(touched, "gender") && !getIn(errors, "gender")}
+                isValid={getIn(touched, 'gender') && !getIn(errors, 'gender')}
               >
                 <option value="gender" hidden>
                   Gender
@@ -290,53 +184,25 @@ const SignupContainer = () => {
                 <option value="female">Female</option>
                 <option value="male">Male</option>
               </select>
-<<<<<<< HEAD
               {getIn(touched, 'gender') && getIn(errors, 'gender') && (
                 <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-gender">
                   <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
                   {getIn(errors, 'gender')}
-=======
-              {getIn(touched, "gender") && getIn(errors, "gender") && (
-                <div
-                  className="flex items-center justify-start text-xs text-red-500 font-light"
-                  data-testid="error-gender"
-                >
-                  <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
-                  {getIn(errors, "gender")}
->>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
                 </div>
               )}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
-              <label className="font-semibold text-black text-sm ">
-                Phone Number
-              </label>
-              <Input
-                name="phone_number"
-                type="phone_number"
-                placeholder="Enter your number"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                dataTestId="phone_number"
-                isValid={
-                  getIn(touched, "phone_number") &&
-                  !getIn(errors, "phone_number")
-                }
-              />
-              {getIn(touched, "phone_number") && getIn(errors, "phone_number") && (
-                <div
-                  className="flex items-center justify-start text-xs text-red-500 font-light"
-                  data-testid="error-phone_number"
-                >
+              <label className="font-semibold text-black text-sm ">Phone Number</label>
+              <Input name="phone_number" type="phone_number" placeholder="Enter your number" onChange={handleChange} onBlur={handleBlur} dataTestId="phone_number" isValid={getIn(touched, 'phone_number') && !getIn(errors, 'phone_number')} />
+              {getIn(touched, 'phone_number') && getIn(errors, 'phone_number') && (
+                <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-phone_number">
                   <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
-                  {getIn(errors, "phone_number")}
+                  {getIn(errors, 'phone_number')}
                 </div>
               )}
             </div>
             <div className="flexflex-col text-[#4E4D4F] py-2">
-              <label className="font-semibold text-black text-sm">
-                Password
-              </label>
+              <label className="font-semibold text-black text-sm">Password</label>
               <Input2
                 name="password"
                 type="password"
@@ -345,33 +211,23 @@ const SignupContainer = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 dataTestId="password"
-                isValid={
-                  getIn(touched, "password") && !getIn(errors, "passwrod")
-                }
+                isValid={getIn(touched, 'password') && !getIn(errors, 'passwrod')}
               />
-              {getIn(touched, "password") && getIn(errors, "password") && (
-                <div
-                  className="flex items-center justify-start text-xs text-red-500 font-light"
-                  data-testid="error-password"
-                >
+              {getIn(touched, 'password') && getIn(errors, 'password') && (
+                <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-password">
                   <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
-                  {getIn(errors, "password")}
+                  {getIn(errors, 'password')}
                 </div>
               )}
             </div>
             <div className="text-xs text-[#27272E]">
-              <p>
-                {" "}
-                Password must be at leat 6 characters and must contain number &
-                letter.
-              </p>
+              <p> Password must be at leat 6 characters and must contain number & letter.</p>
               {/* <a href="../registration" className="text-[#00229B]"> 
                 Forgot Password? 
               </a> */}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className="inLine-flex items-center">
-<<<<<<< HEAD
                 <input type="checkbox" class="shadow checked:shadow-xl" onChange={handleChange('privacyPolicy')} value={values.privacyPolicy} />
                 <span className="text-xs text-[#00229B]"> By Creating an account means you agree to the our Privacy Policy</span>
               </label>
@@ -381,35 +237,8 @@ const SignupContainer = () => {
                   {getIn(errors, 'privacyPolicy')}
                 </div>
               )}
-=======
-                <input
-                  type="checkbox"
-                  class="shadow checked:shadow-xl"
-                  onChange={handleChange("privacyPolicy")}
-                  value={values.privacyPolicy}
-                />
-                <span className="text-xs text-[#00229B]">
-                  {" "}
-                  By Creating an account means you agree to the our Privacy
-                  Policy
-                </span>
-              </label>
-              {getIn(touched, "privacyPolicy") &&
-                getIn(errors, "privacyPolicy") && (
-                  <div
-                    className="flex items-center justify-start text-xs text-red-500 font-light"
-                    data-testid="error-privacyPolicy"
-                  >
-                    <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
-                    {getIn(errors, "privacyPolicy")}
-                  </div>
-                )}
->>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
             </div>
-            <Button1
-              type="submit"
-              label={loading ? "Please wait..." : "Sign Up"}
-            />
+            <Button1 type="submit" label={loading ? 'Please wait...' : 'Sign Up'} />
             <div className="flex justify-center pt-3">
               <p> already have account?</p>
               <a href="../login" className=" ml-2 text-[#00229B]">
