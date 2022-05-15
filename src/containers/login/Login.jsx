@@ -6,10 +6,25 @@ import { useFormik, getIn } from "formik";
 import * as Yup from "yup";
 import { useLoginDispatcher } from "../../redux/reducers/login";
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
+import { toast } from "react-toastify";
 
 const validationSchema = Yup.object({
-  email: Yup.string().required().email("There's something wrong with your email,please check your email again "),
-  password: Yup.string().required().min(6, "Password must be at least 6 characters and must contain number & character") .matches(/(?=.*[0-9])/, /(?=.*\d)/, "Password must be at least 6 characters and must contain number & character"), 
+  email: Yup.string()
+    .required()
+    .email(
+      "There's something wrong with your email,please check your email again "
+    ),
+  password: Yup.string()
+    .required()
+    .min(
+      6,
+      "Password must be at least 6 characters and must contain number & character"
+    )
+    .matches(
+      /(?=.*[0-9])/,
+      /(?=.*\d)/,
+      "Password must be at least 6 characters and must contain number & character"
+    ),
 });
 
 const initialValues = {
@@ -34,14 +49,18 @@ const LoginContainer = () => {
       await doLogin(payload);
       push(`/home`);
       const data = await doLogin(payload);
-      if (data.status === '404') {
-        alert(data.message);
+      if (data.status === "404") {
+        toast(data.message);
         return;
       }
       push(`/home`);
       // window.location.href = '/';
     } catch (error) {
-      alert(error);
+      toast(error, {
+        autoClose: 2000,
+        closeButton: true,
+        closeOnClick: true,
+      });
     }
   };
 

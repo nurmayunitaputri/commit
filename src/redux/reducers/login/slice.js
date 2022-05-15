@@ -22,25 +22,39 @@ export const useLoginDispatcher = () => {
   const dispatch = useDispatch();
   const doLogin = async (values) => {
     dispatch(toggleLoading(true));
-    const response = await callAPI({
-      url: "/login-user",
-      method: "POST",
-      data: values,
-    });
-    const { data } = response;
-    console.log({ data: data.data });
+    try {
+      const response = await callAPI({
+        url: "/login-user",
+        method: "POST",
+        data: values,
+      });
+      const { data } = response;
+      console.log({ data });
 
-    if (!data.data.access_token) {
-      console.log(`something wrong`);
+      if (data.status != 200) {
+        dispatch(toggleLoading(false));
+        throw data.message || "Something went wrong";
+      } else {
+        localStorage.setItem("jwt", data.data.access_token);
+        localStorage.setItem("user", JSON.stringify(data.data.user));
+        dispatch(toggleLoading(false));
+      }
+
+      // if (!data.data.access_token) {
+      //   console.log(`something wrong`);
+      //   dispatch(toggleLoading(false));
+      //   throw data.message || "Something went wrong";
+      // } else {
+      //   localStorage.setItem("jwt", data.data.access_token);
+      //   localStorage.setItem("user", JSON.stringify(data.data.user));
+      //   dispatch(toggleLoading(false));
+      // }
+
+      return data;
+    } catch (e) {
       dispatch(toggleLoading(false));
-      throw data.message || "Something went wrong";
+      throw e;
     }
-    localStorage.setItem("jwt", data.data.access_token);
-    localStorage.setItem("user", JSON.stringify(data.data.user));
-    console.log(data);
-
-    dispatch(toggleLoading(false));
-    return data;
   };
   return {
     login,
