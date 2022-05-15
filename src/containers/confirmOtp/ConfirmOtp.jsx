@@ -6,8 +6,8 @@ import { useFormik, getIn } from 'formik';
 import * as Yup from 'yup';
 import { useConfirmOtpDispatcher } from '../../redux/reducers/confirmOtp';
 const validationSchema = Yup.object({
-  newPassword: Yup.string().required().min(6, "Password must be at least 6 characters and must contain number & character") .matches(/(?=.*[0-9])/, /(?=.*\d)/, "Password must be at least 6 characters and must contain number & character"),
-  confirmNewPassword: Yup.string().required().min(6, "Password must be at least 6 characters and must contain number & character") .matches(/(?=.*[0-9])/, /(?=.*\d)/, "Password must be at least 6 characters and must contain number & character"),
+  newPassword: Yup.string().required().min(6, "Password must be at least 6 characters and must contain number & character") .matches(/(?=.*[0-6])/, "Password must be at least 6 characters and must contain number & character", /(?=.*\d)/, "Password must be at least 6 characters and must contain number & character"),
+  confirmNewPassword: Yup.string().required().min(6, "Password must be at least 6 characters and must contain number & character") .matches(/(?=.*[0-6])/, "Password must be at least 6 characters and must contain number & character", /(?=.*\d)/, "Password must be at least 6 characters and must contain number & character"),
 });
 
 const initialValues = {

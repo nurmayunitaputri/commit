@@ -6,7 +6,7 @@ const initialState = {
 };
 const slices = createSlice({
   initialState,
-  name: "login",
+  name: "detail",
   reducers: {
     toggleLoading(state, action) {
       Object.assign(state, {
@@ -17,14 +17,14 @@ const slices = createSlice({
   },
 });
 const { toggleLoading } = slices.actions;
-export const useLoginDispatcher = () => {
-  const { login } = useSelector((state) => state);
+export const useDetailDispatcher = () => {
+  const { detail } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const doLogin = async (values) => {
+  const doDetail = async (values) => {
     dispatch(toggleLoading(true));
     try {
       const response = await callAPI({
-        url: "/login-user",
+        url: "",
         method: "POST",
         data: values,
       });
@@ -57,8 +57,8 @@ export const useLoginDispatcher = () => {
     }
   };
   return {
-    login,
-    doLogin,
+    detail,
+    doDetail,
   };
 };
 export default slices.reducer;

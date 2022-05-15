@@ -7,6 +7,8 @@ import { MenuIcon } from "@heroicons/react/outline";
 import { useHomeDispatcher } from "../../redux/reducers/home";
 import { useEffect, useState } from "react";
 import { PostInput } from "./PostInput";
+import { PostsList } from "./PostsList";
+import { Profile } from "./Profile";
 
 const validationSchema = Yup.object({
   email: Yup.string().required("diperlukan Email").email("Email tidak valid"),
@@ -35,6 +37,9 @@ const Home = () => {
     doHome,
   } = useHomeDispatcher();
   const [name, setName] = useState("");
+  const [interest, setInterest] = useState("");
+  const [region, setRegion] = useState("");
+  const [bio, setBio] = useState("");
 
   const onSubmit = async (values) => {
     console.log(values);
@@ -70,9 +75,15 @@ const Home = () => {
   console.log(errors);
 
   useEffect(() => {
-    const { fullname } = JSON.parse(localStorage.getItem("user"));
+    const { fullname, passion, region, bio } = JSON.parse(
+      localStorage.getItem("user")
+    );
     setName(fullname);
-    console.log("render");
+    setInterest(passion);
+    setRegion(region);
+    if (bio != null) {
+      setBio(bio);
+    }
   }, []);
 
   return (
@@ -189,10 +200,7 @@ const Home = () => {
                     ></img>
                   </button>
                 </div>
-                <div
-                  className="relative pl-10"
-                  onClick={handleOnLoggedOut}
-                >
+                <div className="relative pl-10" onClick={handleOnLoggedOut}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-6 w-6"
@@ -215,43 +223,7 @@ const Home = () => {
 
         {/* Container atas kiri */}
         <div className="fixed rounded-lg left-0 h-max w-[20%] ml-[3.2rem] border-transparent text-center invisible lg:visible pt-[80px]">
-          <div className="flex flex-col justify-between items-stretch py-2 rounded-lg">
-            <form className="py-2 rounded-tr-lg rounded-tl-lg bg-white">
-              <button className=" h-20 w-20 rounded-full overflow-hidden border-2 text-center">
-                <img
-                  className="h-full w-full object-cover"
-                  src="kewren.jpg"
-                  alt="avatar"
-                ></img>
-              </button>
-              <h4 className="text-1xl font-bold text-[#333333] p-[10px] flex justify-center">
-              {" "}
-                  {name}
-              </h4>
-              <div className="flex justify-center text-sm">
-                <p className="px-[2%] py-[2%] text-[10px] rounded  bg-[#708beb] text-white">
-                  UI/UX
-                </p>
-                <p className="text-gray-400 pl-3 px-[5px] py-[5px]">
-                  {" "}
-                  DKI Jakarta{" "}
-                </p>
-              </div>
-              <div className="text-center text-[14px] text-black py-[8px]">
-                Follow Your Dream!
-              </div>
-              <div className="flex justify-center border-t-4 pt-2">
-                <div className="text-black text-center px-5 rounded-lg">
-                  Followers
-                  <p className="text-black text-center">3543</p>
-                </div>
-                <div className="text-black text-center px-5">
-                  Following
-                  <p className="text-black text-center">321</p>
-                </div>
-              </div>
-            </form>
-          </div>
+          <Profile />
 
           {/* Container bawah kiri  */}
           <div className="fixed rounded-lg left-0 w-[20%] ml-[3.2rem] border-transparent text-center invisible lg:visible pt-7">
@@ -337,8 +309,8 @@ const Home = () => {
                   <img
                     className="h-full w-full object-cover"
                     src="cewe.jpg"
-                    alt="avatar">
-                    </img>
+                    alt="avatar"
+                  ></img>
                 </button>
                 <p className="ml-[5px] text-[12px] font-bold pr-[3px]">
                   Keylie Smith
@@ -352,7 +324,8 @@ const Home = () => {
                   <path
                     fill-rule="evenodd"
                     d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"/>
+                    clip-rule="evenodd"
+                  />
                 </svg>
                 <button className="block overflow-hidden px-[3%] py-[2%] text-[12px] rounded-lg ml-5 bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-600">
                   Follow
@@ -363,8 +336,8 @@ const Home = () => {
                   <img
                     className="h-full w-full object-cover"
                     src="cowo.jpg"
-                    alt="avatar">
-                    </img>
+                    alt="avatar"
+                  ></img>
                 </button>
                 <p className="ml-[5px] text-[12px] font-bold pr-[3px]">
                   Lebron James
@@ -412,7 +385,10 @@ const Home = () => {
               <a href="#" className="text-blue-800 text-left text-semibold">
                 Premium
               </a>
-              <a href="https://g.co/kgs/sqLcsn" className="text-blue-800 text-left text-semibold">
+              <a
+                href="https://g.co/kgs/sqLcsn"
+                className="text-blue-800 text-left text-semibold"
+              >
                 Playstore
               </a>
             </div>
@@ -427,421 +403,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Postingan 2 */}
-          <div className="border-transparent  rounded-lg ">
-            <div className="min-h-[15rem] text-white rounded-lg p-2">
-              <form className="py-2 rounded-lg bg-white pl-2">
-                <div className="flex flex-cols ml-2 items-center pt-2">
-                  <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 ">
-                    <img
-                      className="h-full w-full object-cover"
-                      src="kewren.jpg"
-                      alt="avatar"
-                    ></img>
-                  </div>
-                  <h4 className="text-[15px] font-bold text-[#333333] p-[5px] pb-[20px] flex justify-center">
-                    {" "}
-                    Angga Yunanda{" "}
-                  </h4>
-                  <div className="pb-7 ml-[400px]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-gray-900"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                {/* <div className="flex justify-start">
-                        <p className="text-gray-400 text-[12px] ml-[60px] ">
-                              UI/UX
-                        </p>
-                        <p className="text-gray-400 text-[12px] ml-[10px]">  4hr ago  </p>
-                        <div className="ml-2 pb-[12px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        </div>
-                  </div> */}
-                <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 ">
-                  [Under standing User Experience [UI/UX]]
-                  <br />
-                  User Experience [UI] is the process of designing a product
-                  trought a user approach . With this approach, you can create a
-                  product that fits the needs and desires of users.
-                  <br />A product with a good UX design will create a pleasant
-                  experience for user when using your product. Users become easy
-                  and comfortable when using the product
-                </div>
-                <p className="text-gray-400 text-[12px] ml-2 pt-5">
-                  See more ...
-                </p>
-                <div className="flex flex-cols gap-[5%] bg-white items-start pt-[5%] rounded-lg ">
-                  <a
-                    href="#"
-                    className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[10px]"
-                  >
-                    <div className="flex items-start text-sm">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        />
-                      </svg>
-                      <p className="ml-[5px] text-[12px] pt-[8px] font-semibold text-gray-500">
-                        88
-                      </p>
-                    </div>
-                  </a>
-                  <a
-                    href="#"
-                    className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[2px]"
-                  >
-                    <div className="flex items-start text-sm">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                        />
-                      </svg>
-                      <p className="ml-[5px] text-[12px] pt-[8px] font-semibold text-gray-500">
-                        12
-                      </p>
-                    </div>
-                  </a>
-                  <a
-                    href="#"
-                    className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[63%]"
-                  >
-                    <div className="flex items-start text-sm">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                        />
-                      </svg>
-                    </div>
-                  </a>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          {/* Postinga 3 */}
-          <div className="border-transparent  rounded-lg ">
-            <div className="min-h-[15rem] text-white rounded-lg p-2">
-              <form className="py-2 rounded-lg bg-white pl-2">
-                <div className="flex flex-cols ml-2 items-center pt-2">
-                  <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 ">
-                    <img
-                      className="h-full w-full object-cover"
-                      src="Commit.jpg"
-                      alt="avatar"
-                    ></img>
-                  </div>
-                  <h4 className="text-[15px] font-bold text-[#333333] p-[5px] pb-[20px] flex justify-center">
-                    {" "}
-                    Commit{" "}
-                  </h4>
-                  <div className="pb-4 ml-[5px]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-blue-600"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div className="pb-7 ml-[440px]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-gray-900"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                {/* <div className="flex justify-start">
-                        <p className="text-gray-400 text-[12px] ml-[60px] ">
-                              UI/UX
-                        </p>
-                        <p className="text-gray-400 text-[12px] ml-[10px]">  4hr ago  </p>
-                        <div className="ml-2 pb-[12px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        </div>
-                  </div> */}
-                <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 ">
-                  [Front-End Developer]
-                  <br />A front-end developer is required to be able to master
-                  programming languages such as HTML, CSS, and JavaScript in
-                  order to produce a good, attractive, and interactive wb layout
-                  that allows visitors to have an interesting. experience when
-                  visiting the website, starting from design, selection. font,
-                  colors, dropdown menus, to sliders and other components that
-                  stimulate interaction with site visitors.
-                </div>
-                <p className="text-gray-400 text-[12px] ml-2 pt-5">
-                  See more ...
-                </p>
-                <div className="block h-[50%] w-[90%] ml-7 pt-5">
-                  <img
-                    className="h-full w-full object-cover"
-                    src="frontend.png"
-                    alt="avatar"
-                  ></img>
-                </div>
-                <div className="flex flex-cols gap-[5%] bg-white items-start pt-[5%] rounded-lg ">
-                  <a
-                    href="#"
-                    className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[10px]"
-                  >
-                    <div className="flex items-start text-sm">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        />
-                      </svg>
-                      <p className="ml-[5px] text-[12px] pt-[8px] font-semibold text-gray-500">
-                        2
-                      </p>
-                    </div>
-                  </a>
-                  <a
-                    href="#"
-                    className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[2px]"
-                  >
-                    <div className="flex items-start text-sm">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                        />
-                      </svg>
-                      <p className="ml-[5px] text-[12px] pt-[8px] font-semibold text-gray-500">
-                        5
-                      </p>
-                    </div>
-                  </a>
-                  <a
-                    href="#"
-                    className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[65%]"
-                  >
-                    <div className="flex items-start text-sm">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                        />
-                      </svg>
-                    </div>
-                  </a>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          {/* Postingaan 4 */}
-          <div className="border-transparent  rounded-lg ">
-            <div className="min-h-[15rem] text-white rounded-lg p-2">
-              <form className="py-2 rounded-lg bg-white pl-2">
-                <div className="flex flex-cols ml-2 items-center pt-2">
-                  <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 ">
-                    <img
-                      className="h-full w-full object-cover"
-                      src="cewek.jpg"
-                      alt="avatar"
-                    ></img>
-                  </div>
-                  <h4 className="text-[15px] font-bold text-[#333333] p-[5px] pb-[20px] flex justify-center">
-                    {" "}
-                    Jen Conor{" "}
-                  </h4>
-                  <div className="pb-7 ml-[450px]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-gray-900"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 ">
-                  [Develop Android UI By Jen Conor]
-                </div>
-                <p className="text-gray-400 text-[12px] ml-2 pt-5">
-                  See more ...
-                </p>
-                <div className="block h-[50%] w-[90%] ml-7 pt-5">
-                  <img
-                    className="h-full w-full object-cover"
-                    src="Android.png"
-                    alt="avatar"
-                  ></img>
-                </div>
-                {/* <div
-                        class="embed-responsive embed-responsive-21by9 relative w-full overflow-hidden"
-                        style="padding-top: 42.857143%">
-                        <iframe
-                          class="embed-responsive-item absolute top-0 right-0 bottom-0 left-0 w-full h-full"
-                          src="https://youtu.be/ysEN5RaKOlA"
-                          allowfullscreen=""
-                          data-gtm-yt-inspected-2340190_699="true"
-                          id="240632615"></iframe>
-                      </div> */}
-                <div className="flex flex-cols gap-[5%] bg-white items-start pt-[5%] rounded-lg ">
-                  <a
-                    href="#"
-                    className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[10px]"
-                  >
-                    <div className="flex items-start text-sm">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        />
-                      </svg>
-                      <p className="ml-[5px] text-[12px] pt-[8px] font-semibold text-gray-500">
-                        121
-                      </p>
-                    </div>
-                  </a>
-                  <a
-                    href="#"
-                    className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[2px]"
-                  >
-                    <div className="flex items-start text-sm">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                        />
-                      </svg>
-                      <p className="ml-[5px] text-[12px] pt-[8px] font-semibold text-gray-500">
-                        100
-                      </p>
-                    </div>
-                  </a>
-                  <a
-                    href="#"
-                    className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[63%]"
-                  >
-                    <div className="flex items-start text-sm">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                        />
-                      </svg>
-                    </div>
-                  </a>
-                </div>
-              </form>
-            </div>
-          </div>
+          <PostsList />
         </div>
       </div>
     </AuthProvider>
@@ -849,108 +411,3 @@ const Home = () => {
 };
 
 export default Home;
-
-//
-
-//                   <div className="fixed rounded-lg left-0 w-[18%] ml-[3.2rem] border text-center invisible lg:visible pt-[25%]">
-//                       <div className="flex flex-col rounded-lg justify-between">
-//                           <form className="w-full mx-auto bg-white pb-[10px] rounded-lg items-center">
-//                             <h4 className="text-1xl font-bold text-[#333333] pt-[7px] flex justify-start ml-[20px]">
-//                               Filter
-//                             </h4>
-//                             <p className="text-sm text-gray flex justify-start ml-[20px] pb-[7px]">Filter Your Post by Tags</p>
-//                               <div className="grid grid-cols-2 gap-4 items-center px-2 ">
-//                                   <div className="flex flex-col text-[14px] font-bold py-2 rounded-full bg-white border border-[#00229B] items-center">
-//                                     <a href="#" className="text-[#00229B]">UI/UX</a>
-//                                   </div>
-//                                   <div className="flex flex-col text-[14px] font-bold py-2 rounded-full bg-white  border border-[#00229B] items-center">
-//                                     <a href="#" className="text-[#00229B]">Android</a>
-//                                   </div>
-//                                   <div className="flex flex-col text-[14px] font-bold py-2 rounded-full bg-white  border border-[#00229B] items-center">
-//                                     <a href="#" className="text-[#00229B]">Frontend</a>
-//                                   </div>
-//                                   <div className="flex flex-col text-[14px] font-bold py-2 rounded-full bg-white  border border-[#00229B] items-center">
-//                                     <a href="#" className="text-[#00229B]">Backend</a>
-//                                   </div>
-//                                   <div className="flex flex-col text-[14px] font-bold py-2 col-span-2 rounded-full bg-white border border-[#00229B] items-center">
-//                                     <a href="#" className="text-[#00229B]">Quality Assurance</a>
-//                                   </div>
-//                               </div>
-//                            </form>
-//                       </div>
-//                   </div>
-//                 </div>
-//               </div>
-
-//         {/* List Post */}
-//           <div className="w-full lg:w-[50%] mx-auto space-y-3 bg-blue-100">
-//             <div className="border rounded-2xl pt-20">
-//               <div className="p-3 font-bold">Post Title</div>
-//               <div className="min-h-[15rem] bg-white text-black rounded-br-2xl rounded-bl-2xl p-3">
-//                   <div className="relative">
-//                     <button className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white">
-//                       <img className="h-full w-full object-cover" src="blur.jpg" alt="avatar"></img>
-//                     </button>
-//                   </div>
-//               </div>
-//             </div>
-//             <div className="border rounded-2xl">
-//               <div className="p-3 font-bold">Post Title</div>
-//               <div className="min-h-[15rem] bg-blue-300 text-white rounded-br-2xl rounded-bl-2xl p-3">
-//                 Content Here
-//               </div>
-//             </div>
-//             <div className="border rounded-2xl">
-//               <div className="p-3 font-bold">Post Title</div>
-//               <div className="min-h-[15rem] bg-blue-300 text-white rounded-br-2xl rounded-bl-2xl p-3">
-//                 Content Here
-//               </div>
-//             </div>
-//             <div className="border rounded-2xl">
-//               <div className="p-3 font-bold">Post Title</div>
-//               <div className="min-h-[15rem] bg-blue-300 text-white rounded-br-2xl rounded-bl-2xl p-3">
-//                 Content Here
-//               </div>
-//             </div>
-//           </div>
-
-//       {/* SubContentBottomLeft */}
-
-//           {/* <div className="fixed bg-red-100 bottom-0 left-0 h-10 w-[20%] ml-[3.2rem] border text-center mb-16 invisible lg:visible">
-//             bottom left
-//           </div> */}
-
-//       {/* SubContentBottomRight */}
-
-//           <div className="fixed bg-red-100 bottom-0 right-0 h-10 w-[20%] mr-[3.2rem] border text-center mb-16 invisible lg:visible">
-//           <form className=" max-w-[260px] w-full mx-auto bg-white rounded-2xl ml-10 items-center">
-//                 <div className="">
-//                 <h4 className="text-1xl font-bold text-[#333333] p-[10px] flex justify-start ml-[8px]">
-//                    Filter
-//                 </h4>
-//                 <p className="text-sm text-gray p-[10px] flex justify-start ml-[8px]">Filter Your Post by Tags</p>
-
-//                   <div className="grid grid-cols-2 gap-4 items-center px-2 ">
-//                       <div className="flex flex-col font-bold py-2 rounded-full bg-[#E2EFFF] border border-zinc-100 items-center">
-//                         <a href="#" className="text-[#00229B]">UI/UX</a>
-//                       </div>
-//                       <div className="flex flex-col font-bold py-2 rounded-full bg-[#E2EFFF] border border-zinc-100 items-center">
-//                         <a href="#" className="text-[#00229B]">Android</a>
-//                       </div>
-//                       <div className="flex flex-col font-bold py-2 rounded-full bg-[#E2EFFF] border border-zinc-100 items-center">
-//                         <a href="#" className="text-[#00229B]">Feontend</a>
-//                       </div>
-//                       <div className="flex flex-col font-bold py-2 rounded-full bg-[#E2EFFF] border border-zinc-100 items-center">
-//                         <a href="#" className="text-[#00229B]">Backend</a>
-//                       </div>
-//                       <div className="flex flex-col font-bold py-2 col-span-2 rounded-full bg-[#E2EFFF] border border-zinc-100 items-center">
-//                         <a href="#" className="text-[#00229B]">Quality Assurance</a>
-//                       </div>
-//                   </div>
-//                 </div>
-//               </form>
-//           </div>
-
-//       {/* Content */}
-
-//         </div>

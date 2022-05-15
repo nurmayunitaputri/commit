@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { useDispatch, useSelector } from 'react-redux';
-import { callAPI } from '../../../helpers/network';
+import { createSlice } from "@reduxjs/toolkit";
+import { useDispatch, useSelector } from "react-redux";
+import { callAPI } from "../../../helpers/network";
 const initialState = {
   loading: false,
 };
 const slices = createSlice({
   initialState,
-  name: 'interest',
+  name: "interest",
   reducers: {
     toggleLoading(state, action) {
       Object.assign(state, {
@@ -22,15 +22,23 @@ export const useInterestDispatcher = () => {
   const dispatch = useDispatch();
   const doInterest = async (values) => {
     dispatch(toggleLoading(true));
-    const response = await callAPI({
-      url: '/register',
-      method: 'post',
-      data: values,
-    });
-    const { data } = response;
-  console.log(data)
 
-    dispatch(toggleLoading(false));
+    try {
+      const response = await callAPI({
+        url: "/register",
+        method: "POST",
+        data: values,
+      });
+
+      if (response.data.status >= 400) {
+        throw response.data.message;
+      }
+
+      dispatch(toggleLoading(false));
+    } catch (e) {
+      dispatch(toggleLoading(false));
+      throw e;
+    }
   };
   return {
     interest,

@@ -14,6 +14,7 @@ const validationSchema = Yup.object({
   domicile: Yup.string().required('please choose a domicile'),
   gender: Yup.string().required('please choose a gender'),
   phone_number: Yup.number().required('there is something wrong with your number, please make sure your numbers starts with 0  '),
+  privacyPolicy: Yup.bool().oneOf([true], 'Please agree to our privacy policy before continue'),
   // interest: Yup.string().required(''),
 });
 
@@ -24,6 +25,7 @@ const initialValues = {
   phone_number: '',
   domicile: '',
   gender: '',
+  privacyPolicy: false,
   // interest: '',
 };
 
@@ -59,7 +61,7 @@ const SignupContainer = () => {
     }
   };
 
-  const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
+  const { handleChange, handleBlur, handleSubmit, errors, touched, values } = useFormik({
     initialValues,
     validationSchema,
     onSubmit,
@@ -157,6 +159,12 @@ const SignupContainer = () => {
                 <option value="Papua">Papua</option>
                 <option value="Papua Barat">Papua Barat</option>
               </select>
+              {getIn(touched, 'domicile') && getIn(errors, 'domicile') && (
+                <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-domicile">
+                  <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
+                  {getIn(errors, 'domicile')}
+                </div>
+              )}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className="font-semibold text-black text-sm ">Gender</label>
@@ -176,7 +184,12 @@ const SignupContainer = () => {
                 <option value="female">Female</option>
                 <option value="male">Male</option>
               </select>
-              {/* <input className="rounded-lg mt-2 p-2 text-sm border max-h-11 border-zinc-900 focus:outline-none" type="text" placeholder="Select your option" /> */}
+              {getIn(touched, 'gender') && getIn(errors, 'gender') && (
+                <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-gender">
+                  <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
+                  {getIn(errors, 'gender')}
+                </div>
+              )}
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className="font-semibold text-black text-sm ">Phone Number</label>
@@ -215,15 +228,15 @@ const SignupContainer = () => {
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className="inLine-flex items-center">
-                <input
-                  type="checkbox"
-                  class="shadow checked:shadow-xl"
-                  onChange={(target) => {
-                    console.log('hitcheckbox');
-                  }}
-                />
+                <input type="checkbox" class="shadow checked:shadow-xl" onChange={handleChange('privacyPolicy')} value={values.privacyPolicy} />
                 <span className="text-xs text-[#00229B]"> By Creating an account means you agree to the our Privacy Policy</span>
               </label>
+              {getIn(touched, 'privacyPolicy') && getIn(errors, 'privacyPolicy') && (
+                <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-privacyPolicy">
+                  <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
+                  {getIn(errors, 'privacyPolicy')}
+                </div>
+              )}
             </div>
             <Button1 type="submit" label={loading ? 'Please wait...' : 'Sign Up'} />
             <div className="flex justify-center pt-3">
