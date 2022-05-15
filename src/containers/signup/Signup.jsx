@@ -8,6 +8,15 @@ import { ExclamationCircleIcon } from "@heroicons/react/outline";
 import { useSignupDispatcher } from "../../redux/reducers/signup";
 
 const validationSchema = Yup.object({
+<<<<<<< HEAD
+  email: Yup.string().required('There is something wrong with your email please check your email again').email('Email tidak valid'),
+  password: Yup.string().required('password must be at least 6 character and must contain number & letter ').min(6, 'password must be at least 6 character and must contain number & letter'),
+  name: Yup.string().required('Something is wrong. please check your name'),
+  domicile: Yup.string().required('please choose a domicile'),
+  gender: Yup.string().required('please choose a gender'),
+  phone_number: Yup.number().required('there is something wrong with your number, please make sure your numbers starts with 0  '),
+  privacyPolicy: Yup.bool().oneOf([true], 'Please agree to our privacy policy before continue'),
+=======
   email: Yup.string()
     .required(
       "There is something wrong with your email please check your email again"
@@ -31,16 +40,26 @@ const validationSchema = Yup.object({
     [true],
     "Please agree to our privacy policy before continue"
   ),
+>>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
   // interest: Yup.string().required(''),
 });
 
 const initialValues = {
+<<<<<<< HEAD
+  email: '',
+  password: '',
+  name: '',
+  phone_number: '',
+  domicile: '',
+  gender: '',
+=======
   email: "",
   password: "",
   name: "",
   phone_number: "",
   domicile: "",
   gender: "",
+>>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
   privacyPolicy: false,
   // interest: '',
 };
@@ -77,12 +96,20 @@ const SignupContainer = () => {
     }
   };
 
+<<<<<<< HEAD
+  const { handleChange, handleBlur, handleSubmit, errors, touched, values } = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
+  });
+=======
   const { handleChange, handleBlur, handleSubmit, errors, touched, values } =
     useFormik({
       initialValues,
       validationSchema,
       onSubmit,
     });
+>>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
   console.log(errors);
 
   return (
@@ -226,6 +253,12 @@ const SignupContainer = () => {
                 <option value="Papua">Papua</option>
                 <option value="Papua Barat">Papua Barat</option>
               </select>
+<<<<<<< HEAD
+              {getIn(touched, 'domicile') && getIn(errors, 'domicile') && (
+                <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-domicile">
+                  <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
+                  {getIn(errors, 'domicile')}
+=======
               {getIn(touched, "domicile") && getIn(errors, "domicile") && (
                 <div
                   className="flex items-center justify-start text-xs text-red-500 font-light"
@@ -233,6 +266,7 @@ const SignupContainer = () => {
                 >
                   <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
                   {getIn(errors, "domicile")}
+>>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
                 </div>
               )}
             </div>
@@ -256,6 +290,12 @@ const SignupContainer = () => {
                 <option value="female">Female</option>
                 <option value="male">Male</option>
               </select>
+<<<<<<< HEAD
+              {getIn(touched, 'gender') && getIn(errors, 'gender') && (
+                <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-gender">
+                  <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
+                  {getIn(errors, 'gender')}
+=======
               {getIn(touched, "gender") && getIn(errors, "gender") && (
                 <div
                   className="flex items-center justify-start text-xs text-red-500 font-light"
@@ -263,6 +303,7 @@ const SignupContainer = () => {
                 >
                   <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
                   {getIn(errors, "gender")}
+>>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
                 </div>
               )}
             </div>
@@ -330,6 +371,17 @@ const SignupContainer = () => {
             </div>
             <div className="flex flex-col text-[#4E4D4F] py-2">
               <label className="inLine-flex items-center">
+<<<<<<< HEAD
+                <input type="checkbox" class="shadow checked:shadow-xl" onChange={handleChange('privacyPolicy')} value={values.privacyPolicy} />
+                <span className="text-xs text-[#00229B]"> By Creating an account means you agree to the our Privacy Policy</span>
+              </label>
+              {getIn(touched, 'privacyPolicy') && getIn(errors, 'privacyPolicy') && (
+                <div className="flex items-center justify-start text-xs text-red-500 font-light" data-testid="error-privacyPolicy">
+                  <ExclamationCircleIcon className="w-5 h-5 text-red pr-1" />
+                  {getIn(errors, 'privacyPolicy')}
+                </div>
+              )}
+=======
                 <input
                   type="checkbox"
                   class="shadow checked:shadow-xl"
@@ -352,6 +404,7 @@ const SignupContainer = () => {
                     {getIn(errors, "privacyPolicy")}
                   </div>
                 )}
+>>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
             </div>
             <Button1
               type="submit"

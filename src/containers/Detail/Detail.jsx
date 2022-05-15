@@ -4,7 +4,7 @@ import { Button1 } from "../../components/button";
 import { NoAuthProvider } from "../../providers/auth";
 import { useFormik, getIn } from "formik";
 import * as Yup from "yup";
-import { useLoginDispatcher } from "../../redux/reducers/login";
+import { useDetailDispatcher } from "../../redux/reducers/detail";
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
 import { toast } from "react-toastify";
 
@@ -21,11 +21,7 @@ const validationSchema = Yup.object({
       "Password must be at least 6 characters and must contain number & character"
     )
     .matches(
-<<<<<<< HEAD
-      /(?=.*[0-6])/, "Password must be at least 6 characters and must contain number & character",
-=======
       /(?=.*[0-9])/,
->>>>>>> ff060e2035c5cbd9b740512a94ea3b00d156c02d
       /(?=.*\d)/,
       "Password must be at least 6 characters and must contain number & character"
     ),
@@ -36,12 +32,12 @@ const initialValues = {
   password: "",
 };
 
-const LoginContainer = () => {
+const DetailContainer = () => {
   const { push } = useRouter();
   const {
-    login: { loading },
-    doLogin,
-  } = useLoginDispatcher();
+    detail: { loading },
+    doDetail,
+  } = useDetailDispatcher();
 
   const onSubmit = async (values) => {
     console.log(values);
@@ -50,9 +46,9 @@ const LoginContainer = () => {
         email: values.email,
         password: values.password,
       };
-      await doLogin(payload);
+      await doDetail(payload);
       push(`/home`);
-      const data = await doLogin(payload);
+      const data = await doDetail(payload);
       if (data.status === "404") {
         toast(data.message);
         return;
@@ -183,4 +179,4 @@ const LoginContainer = () => {
   );
 };
 
-export default LoginContainer;
+export default DetailContainer;
