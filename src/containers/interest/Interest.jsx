@@ -38,8 +38,7 @@ const InterestContainer = () => {
       await doInterest(payload);
       window.location.href = "/login";
     } catch (error) {
-      // @TODO
-      toast(error);
+      alert(error);
     }
   };
 

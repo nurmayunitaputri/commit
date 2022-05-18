@@ -185,7 +185,7 @@ const Home = () => {
                   <button className="block h-10 w-10 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white">
                     <img
                       className="h-full w-full object-cover"
-                      src="kewren.jpg"
+                      src="no_profile.png"
                       alt="avatar"
                     ></img>
                   </button>
@@ -349,6 +349,19 @@ const Home = () => {
                 </button>
               </div>
             </form>
+          </div>
+
+          {/* container tengah kanan */}
+          <div className="fixed rounded-lg right-0 h-max w-[20%] mr-[3.2rem] border-transparent text-center invisible lg:visible pt-2">
+            <div className="flex flex-col rounded-lg justify-between">
+              <form className="w-full mx-auto bg-white pb-[10px] rounded-lg items-center">
+                <img
+                  className="h-full w-full object-cover"
+                  src="Image_Upgrade Premium.png"
+                  alt="avatar"
+                ></img>
+              </form>
+            </div>
           </div>
 
           {/* Container bawah kanan */}

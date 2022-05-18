@@ -31,7 +31,7 @@ const ForgotContainer = () => {
       localStorage.setItem("email", values.email);
       push(`/sendOtp`);
     } catch (error) {
-      toast(error);
+      alert(error);
     }
   };
 

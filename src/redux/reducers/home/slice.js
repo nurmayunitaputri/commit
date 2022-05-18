@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { callAPI } from "../../../helpers/network";
 
 const initialStatePosts = {
@@ -78,6 +79,18 @@ const slices = createSlice({
         },
       });
     },
+    toggleLike(state, action) {
+      Object.assign(state, {
+        ...state,
+        posts: state.posts.data.map((post) => ({
+          ...post,
+          liked:
+            action.payload.postId === post.post_id
+              ? action.payload.value
+              : post.liked,
+        })),
+      });
+    },
   },
 });
 
@@ -87,6 +100,7 @@ const {
   toggleLoadingPosts,
   setProfile,
   toggleLoadingProfile,
+  toggleLike,
 } = slices.actions;
 export const useHomeDispatcher = () => {
   const { home } = useSelector((state) => state);
@@ -104,7 +118,7 @@ export const useHomeDispatcher = () => {
     dispatch(toggleLoading(false));
   };
 
-  const fetchPosts = async (values) => {
+  const fetchPosts = async () => {
     try {
       toggleLoadingPosts(true);
       const response = await callAPI({
@@ -122,7 +136,21 @@ export const useHomeDispatcher = () => {
     }
   };
 
-  const fetchProfile = async (values) => {
+  const refreshPosts = async () => {
+    try {
+      const response = await callAPI({
+        url: "/post/list",
+        method: "GET",
+      });
+
+      const { data } = response;
+      if (data.data) {
+        dispatch(setPosts(data.data.reverse()));
+      }
+    } catch (error) {}
+  };
+
+  const fetchProfile = async () => {
     try {
       toggleLoadingProfile(true);
       const response = await callAPI({
@@ -140,11 +168,51 @@ export const useHomeDispatcher = () => {
     }
   };
 
+  const likeAction = async ({ postId, status }) => {
+    const url = `/post/${status}/${postId}`;
+    try {
+      const response = await callAPI({
+        url,
+        method: "POST",
+      });
+
+      if (response.data.status === "404") {
+        alert(`Failed to ${status} post`);
+        return;
+      }
+      refreshPosts();
+      // dispatch(
+      //   toggleLike({ postId, status: status === "like" ? true : false })
+      // );
+    } catch (error) {
+      alert(`Failed to ${status} post`);
+    }
+  };
+
+  const deletePost = async ({ postId }) => {
+    try {
+      const response = await callAPI({
+        url: `/post/delete/${postId}`,
+        method: "DELETE",
+      });
+
+      if (response.data.status === "404") {
+        // toast("Failed to delete post");
+        return;
+      }
+      refreshPosts();
+    } catch (error) {
+      // toast("Failed to delete post");
+    }
+  };
+
   return {
     home,
     doHome,
     fetchPosts,
     fetchProfile,
+    likeAction,
+    deletePost,
   };
 };
 export default slices.reducer;

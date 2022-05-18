@@ -22,11 +22,11 @@ export const NavBar = () => {
       <div className="container mx-auto py-3 px-3 lg:px-0">
         <div className="flex justify-between items-start">
           <div className="flex text-white ">
-            <img
-              src="Logo Header.svg"
-              className=" w-11/12 max-w-fit mx-auto pr-10"
-            />
-          </div>
+                <img
+                  src="Logo Header.svg"
+                  className=" w-11/12 max-w-fit mx-auto pr-10"
+                ></img>
+            </div>
           <div className="visible lg:invisible transition-all">
             <button type="button" className="border rounded-lg p-2">
               <MenuIcon className="h-5 w-5" />
@@ -60,7 +60,7 @@ export const NavBar = () => {
             </div>
             <div className="text-sm flex items-center pt-2 pl-10">
               <a
-                href="#responsive-header"
+                href="#"
                 className="block mt-4 lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
               >
                 <svg
@@ -118,7 +118,7 @@ export const NavBar = () => {
               <button className="block h-10 w-10 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white">
                 <img
                   className="h-full w-full object-cover"
-                  src="https://img.tek.id/img/content/2019/10/04/21135/begini-gambaran-proses-syuting-avatar-2-OUv6EI6mLH.jpg"
+                  src="https://www.rumahsehatterpadu.or.id/po-content/uploads/no_profile.png"
                   alt="avatar"
                 ></img>
               </button>

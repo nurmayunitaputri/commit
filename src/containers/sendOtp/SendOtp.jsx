@@ -61,13 +61,13 @@ const SendOtpContainer = () => {
 
       const data = await doSendOtp(payload);
       if (data.status === "404") {
-        toast(data.message);
+        alert(data.message);
         return;
       }
 
       push(`/confirmOtp`);
     } catch (error) {
-      toast(error);
+      alert(error);
     }
   };
 

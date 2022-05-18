@@ -19,7 +19,7 @@ export const CommentInput = ({ postId }) => {
       setComment("");
       refreshDetail(postId);
     } catch (e) {
-      toast(e);
+      alert("Failed to add comment");
     }
   };
 
@@ -27,7 +27,7 @@ export const CommentInput = ({ postId }) => {
     <div className="flex flex-row py-3 px-3 space-x-3">
       <img
         src="https://img.tek.id/img/content/2019/10/04/21135/begini-gambaran-proses-syuting-avatar-2-OUv6EI6mLH.jpg"
-        className="w-10 h-10 rounded-full"
+        className="w-10 h-10 rounded-full object-cover"
       />
       <input
         value={comment}
