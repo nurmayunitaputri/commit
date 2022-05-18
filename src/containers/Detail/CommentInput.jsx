@@ -26,7 +26,7 @@ export const CommentInput = ({ postId }) => {
   return (
     <div className="flex flex-row py-3 px-3 space-x-3">
       <img
-        src="https://img.tek.id/img/content/2019/10/04/21135/begini-gambaran-proses-syuting-avatar-2-OUv6EI6mLH.jpg"
+        src="/no_profile.png"
         className="w-10 h-10 rounded-full object-cover"
       />
       <input
