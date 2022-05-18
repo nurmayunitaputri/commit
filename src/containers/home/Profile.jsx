@@ -25,7 +25,7 @@ export const Profile = () => {
         <button className=" h-20 w-20 rounded-full overflow-hidden border-2 text-center">
           <img
             className="h-full w-full object-cover"
-            src="kewren.jpg"
+            src="no_profile.png"
             alt="avatar"
           ></img>
         </button>

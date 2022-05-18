@@ -185,7 +185,7 @@ const Home = () => {
                   <button className="block h-10 w-10 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white">
                     <img
                       className="h-full w-full object-cover"
-                      src="kewren.jpg"
+                      src="no_profile.png"
                       alt="avatar"
                     ></img>
                   </button>

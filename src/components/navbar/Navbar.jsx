@@ -118,7 +118,7 @@ export const NavBar = () => {
               <button className="block h-10 w-10 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white">
                 <img
                   className="h-full w-full object-cover"
-                  src="https://img.tek.id/img/content/2019/10/04/21135/begini-gambaran-proses-syuting-avatar-2-OUv6EI6mLH.jpg"
+                  src="https://www.rumahsehatterpadu.or.id/po-content/uploads/no_profile.png"
                   alt="avatar"
                 ></img>
               </button>
