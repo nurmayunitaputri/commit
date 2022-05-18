@@ -59,7 +59,7 @@ const DetailContainer = () => {
                 tags={[data.detail_post.user.passion]}
                 totalComment={data.detail_post.total_komentar}
                 totalLike={data.detail_post.total_like}
-                avatar="https://img.tek.id/img/content/2019/10/04/21135/begini-gambaran-proses-syuting-avatar-2-OUv6EI6mLH.jpg"
+                avatar="/no_profile.png"
                 isLiked={data.detail_post.liked}
                 status={data.detail_post.status}
                 onLikePress={() => handleOnLike(data.detail_post.id_post)}
@@ -74,7 +74,7 @@ const DetailContainer = () => {
               data.komentar_post.map((comment) => (
                 <CommentCard
                   name={comment.id_user.fullname}
-                  avatar="https://img.tek.id/img/content/2019/10/04/21135/begini-gambaran-proses-syuting-avatar-2-OUv6EI6mLH.jpg"
+                  avatar="/no_profile.png"
                   interest={[comment.id_user.passion]}
                   createdDate={comment.created_date}
                   desc={comment.isiKomentar}

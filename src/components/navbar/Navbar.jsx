@@ -23,7 +23,7 @@ export const NavBar = () => {
         <div className="flex justify-between items-start">
           <div className="flex text-white ">
                 <img
-                  src="Logo Header.svg"
+                  src="/Logo Header.svg"
                   className=" w-11/12 max-w-fit mx-auto pr-10"
                 ></img>
             </div>
@@ -118,7 +118,7 @@ export const NavBar = () => {
               <button className="block h-10 w-10 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white">
                 <img
                   className="h-full w-full object-cover"
-                  src="https://www.rumahsehatterpadu.or.id/po-content/uploads/no_profile.png"
+                  src="/no_profile.png"
                   alt="avatar"
                 ></img>
               </button>
