@@ -45,7 +45,7 @@ export const PostsList = () => {
             <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 ">
               <img
                 className="h-full w-full object-cover"
-                src="/no_profile.png"
+                src="Commit.jpg"
                 alt="avatar"
               ></img>
             </div>
@@ -167,7 +167,7 @@ export const PostsList = () => {
             </div>
           </div>
           <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 ">
-            {/* [Front-End Developer] */}
+            [Front-End Developer]
             <br /> {post.post_desc}
           </div>
           <p
