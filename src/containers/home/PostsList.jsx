@@ -45,7 +45,7 @@ export const PostsList = () => {
             <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 ">
               <img
                 className="h-full w-full object-cover"
-                src="Commit.jpg"
+                src="/no_profile.png"
                 alt="avatar"
               ></img>
             </div>

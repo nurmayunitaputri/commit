@@ -22,11 +22,11 @@ export const NavBar = () => {
       <div className="container mx-auto py-3 px-3 lg:px-0">
         <div className="flex justify-between items-start">
           <div className="flex text-white ">
-                <img
-                  src="/Logo Header.svg"
-                  className=" w-11/12 max-w-fit mx-auto pr-10"
-                ></img>
-            </div>
+            <img
+              src="/Logo Header.svg"
+              className=" w-11/12 max-w-fit mx-auto pr-10"
+            ></img>
+          </div>
           <div className="visible lg:invisible transition-all">
             <button type="button" className="border rounded-lg p-2">
               <MenuIcon className="h-5 w-5" />
