@@ -19,7 +19,7 @@ export const CommentInput = ({ postId }) => {
       setComment("");
       refreshDetail(postId);
     } catch (e) {
-      toast(e);
+      alert("Failed to add comment");
     }
   };
 

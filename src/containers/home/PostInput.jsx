@@ -1,6 +1,5 @@
 import { useState, useRef, Fragment, useCallback } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { TrashIcon } from "@heroicons/react/solid";
 
 import { callAPI } from "../../helpers/network";
 import { useHomeDispatcher } from "../../redux/reducers/home";
@@ -227,7 +226,6 @@ export default function PublicPost({ status, onChanged }) {
               )}
             </Menu.Item>
           </div>
-          
         </Menu.Items>
       </Transition>
     </Menu>

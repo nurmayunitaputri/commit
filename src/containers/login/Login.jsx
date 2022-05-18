@@ -51,17 +51,13 @@ const LoginContainer = () => {
       push(`/home`);
       const data = await doLogin(payload);
       if (data.status === "404") {
-        toast(data.message);
+        alert(data.message);
         return;
       }
       push(`/home`);
       // window.location.href = '/';
     } catch (error) {
-      toast(error, {
-        autoClose: 2000,
-        closeButton: true,
-        closeOnClick: true,
-      });
+      alert(error);
     }
   };
 
