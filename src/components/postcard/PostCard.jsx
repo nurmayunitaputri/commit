@@ -47,6 +47,7 @@ export const PostCard = ({
               ></img>
             </div>
             <h4 className="text-[15px] font-bold text-[#333333]  pb-2 flex justify-center">
+            
               {name}
             </h4>
             <div className="pb-3 ml-[5px]">

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { MenuIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
+import Link from 'next/link';
 
 export const NavBar = () => {
   const { push } = useRouter();
@@ -59,8 +60,9 @@ export const NavBar = () => {
                             </div> */}
             </div>
             <div className="text-sm flex items-center pt-2 pl-10">
+            <Link href="/home">
               <a
-                href="#"
+                href="/home"
                 className="block mt-4 lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
               >
                 <svg
@@ -79,6 +81,7 @@ export const NavBar = () => {
                 </svg>
                 <p className="text-grey-700 flex items-center ml-1"> Home </p>
               </a>
+              </Link>
               <a
                 href="#responsive-header"
                 className="block mt-4 lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
