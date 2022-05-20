@@ -11,6 +11,8 @@ import landing from './reducers/landing';
 import upload from './reducers/upload';
 import home from './reducers/home';
 import detail from './reducers/detail';
+import profile from './reducers/profile';
+import simpler from './reducers/simpler';
 // rootReducer
 const rootReducer = combineReducers({
   login,
@@ -23,6 +25,8 @@ const rootReducer = combineReducers({
   landing,
   home,
   detail,
+  profile,
+  simpler,
 });
 // store (main storage)
 const store = configureStore({
