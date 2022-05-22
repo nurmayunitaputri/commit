@@ -73,10 +73,10 @@ const PeopleItem = ({ people }) => {
   return (
     <div className="flex items-start ml-3 pt-3 px-2 text-sm justify-between">
       <div className="flex">
-        <div className="block h-10 w-10 rounded-full overflow-hidden border-2 border-gray-600 focus:outline-none focus:border-white">
+        <div className="block h-10 w-10 rounded-full overflow-hidden border-2 focus:outline-none focus:border-white">
           <img
             className="h-full w-full object-cover"
-            src="cewek.jpg"
+            src="no_profile.png"
             alt="avatar"
           />
         </div>

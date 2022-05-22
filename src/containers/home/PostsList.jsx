@@ -182,8 +182,8 @@ export const PostsList = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 ">
-            [Front-End Developer]
+          <div className="flex flex-cols gap-2 bg-white items-start pt-1 rounded-lg text-gray-700 text-[12px] ml-2 ">
+            {/* [Front-End Developer] */}
             <br /> {post.post_desc}
           </div>
           <p

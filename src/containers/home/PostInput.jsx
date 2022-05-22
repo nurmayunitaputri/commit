@@ -163,7 +163,7 @@ export const PostInput = () => {
           </div>
           <PublicPost status={status} onChanged={setStatus} />
         </div>
-        <button className="block overflow-hidden h-[35px] w-[50px] text-[12px] rounded-lg  bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-700">
+        <button className="block overflow-hidden h-[35px] text-[12px] rounded-lg w-20 bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-700">
           {loading ? "Posting..." : "Post"}
         </button>
       </div>

@@ -60,7 +60,7 @@ const Landing = () => {
         </div>
       </div>
 
-      {/* section 2 */}
+      {/* section 2
       <div className="text-gray-600 body-font bg-[#E2EFFF] w-full">
         <div className="flex justify-center items-center ">
           <div className="pt-20 text-5xl font-bold title-font text-[#272D4E] ">It's Your Chance ! </div>
@@ -98,10 +98,10 @@ const Landing = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* section 3 */}
-      <div className="text-gray-600 body-font bg-white w-full">
+      <div className="text-gray-600 body-font bg-[#E2EFFF]  w-full">
         <div className="flex justify-center items-center ">
           <div className="w-7/12 pt-20 text-5xl font-bold title-font text-center text-black ">One Community to Increase Your Knowledge </div>
         </div>
@@ -113,7 +113,7 @@ const Landing = () => {
       </div>
 
       {/* section3 :jumlah gambar 3 */}
-      <div className="text-gray-600 body-font bg-white w-full">
+      <div className="text-gray-600 body-font bg-[#E2EFFF]  w-full">
         <div className="container mx-auto flex px-5 pb-24 pt-10  flex-col items-center">
           <div className="flex flex-wrap justify-center sm:-m-4 -mx-4 -mb-10 -mt-4">
             <div className="p-4 md:w-1/3 sm:mb-0 mb-6 ">
@@ -139,7 +139,7 @@ const Landing = () => {
       </div>
 
       {/* section 3: jumlah gambar 2 */}
-      <div className="text-gray-600 body-font bg-white w-full">
+      <div className="text-gray-600 body-font bg-[#E2EFFF]  w-full">
         <div className="container mx-auto px-5 pb-24 pt-5 flex-col ">
           <div className="flex flex-wrap justify-center sm:-m-4 -mx-4 -mb-10 -mt-4">
             <div className="p-4 md:w-1/3 sm:mb-0 mb-6 ">
@@ -159,7 +159,7 @@ const Landing = () => {
       </div>
 
       {/* section 4 */}
-      <div className="text-gray-600 body-font bg-[#E2EFFF] w-full">
+      <div className="text-gray-600 body-font bg-white w-full">
         <div className="flex justify-center items-center ">
           <div className="pt-20 text-5xl font-bold title-font text-[#272D4E] mt-5">Get Matched to Your Opportunity </div>
         </div>
@@ -182,53 +182,60 @@ const Landing = () => {
         </div>
       </div>
 
-      <footer className="text-gray-600  ">
-      <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div></div>
-        <div className="w-[389px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-          <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <img src="Logo Header.svg" className="  w-full pl-3"></img>
-          </a>
+      <footer className="text-gray-600 bg-[#E2EFFF]  ">
+        <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+          <div></div>
+          <div className="w-[389px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+            <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+              <img src="Logo Header.svg" className="  w-full pl-3"></img>
+            </a>
+          </div>
+          <div className="flex-grow flex justify-between flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="title-font font-semibold tracking-widest text-[#00229B] text-xl mb-3">FEATURES</h2>
+              <nav className="list-none mb-10">
+                <li>
+                  <a href="../simpler" className=" text-[#00229B] text-lg ">
+                    Simpler
+                  </a>
+                </li>
+              </nav>
+            </div>
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="title-font   tracking-widest text-[#00229B] text-xl font-semibold mb-3">COMMUNITY</h2>
+              <nav className="list-none mb-10">
+                <li>
+                  <a href="../about" className="text-[#00229B] text-lg ">
+                    About Us
+                  </a>
+                </li>
+              </nav>
+            </div>
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 className="title-font  tracking-widest  text-[#00229B] text-xl font-semibold mb-3">SUPPORT</h2>
+              <nav className="list-none mb-10">
+                <li>
+                  <a href="../privacy" className="text-[#00229B] text-lg ">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="../contact" className="text-[#00229B] text-lg ">
+                    Contact Us
+                  </a>
+                </li>
+              </nav>
+            </div>
+          </div>
         </div>
-        <div className="flex-grow flex justify-between flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font font-semibold tracking-widest text-[#00229B] text-xl mb-3">FEATURES</h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a href="../" className=" text-[#00229B] text-lg ">Simpler</a>
-              </li>
-              
-            </nav>
-          </div>
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font   tracking-widest text-[#00229B] text-xl font-semibold mb-3">COMMUNITY</h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a href="../" className="text-[#00229B] text-lg ">About Us</a>
-              </li>
-            </nav>
-          </div>
-          <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 className="title-font  tracking-widest  text-[#00229B] text-xl font-semibold mb-3">SUPPORT</h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a href="../" className="text-[#00229B] text-lg ">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="../" className="text-[#00229B] text-lg ">Contact Us</a>
-              </li>
-            </nav>
-          </div>
+        <div className="bg-[#E2EFFF] pt-10 pb-16  flex items-center text-center justify-center ">
+          <p className=" text-sm text-center sm:text-left">
+            <a href="#" rel="noopener noreferrer" className=" text-xl font-bold ml-1 text-[#00229B]  text-center">
+              © 2022 - Commit. All Rights Reserved
+            </a>
+          </p>
         </div>
-      </div>
-      <div className="bg-white pt-10 pb-16  flex items-center text-center justify-center ">
-        <p className=" text-sm text-center sm:text-left">
-          <a href="#" rel="noopener noreferrer" className=" text-xl font-bold ml-1 text-[#00229B]  text-center">
-            © 2022 - Commit. All Rights Reserved
-          </a>
-        </p>
-      </div>
-    </footer>
+      </footer>
     </div>
   );
 };
