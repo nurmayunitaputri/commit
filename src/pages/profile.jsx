@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import ProfileContainer from '../containers/signup';
+import Head from "next/head";
+import ProfileContainer from "../containers/profile";
 const ProfilePage = () => {
   return (
     <>

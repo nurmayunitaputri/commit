@@ -80,7 +80,7 @@ const PeopleItem = ({ people }) => {
             alt="avatar"
           />
         </div>
-        <p className="ml-[5px] text-[12px] font-bold pr-[3px]">
+        <p className="ml-[5px] text-[12px] font-bold pr-[3px] text-left">
           {people.fullname.length > 20
             ? `${people.fullname.substring(0, 20)}...`
             : people.fullname}

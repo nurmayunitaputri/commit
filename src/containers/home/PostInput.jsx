@@ -19,7 +19,7 @@ export const PostInput = () => {
 
   const handleOnChangedMedia = (e) => {
     const { files } = e.target;
-    console.log(files);
+
     if (files) {
       setMedia(files);
       setMediaPreview(
@@ -35,6 +35,11 @@ export const PostInput = () => {
     // validasi desc
     if (desc.length === 0) {
       alert("Status is cannot be empty");
+      return;
+    }
+
+    if (desc.length >= 1000) {
+      alert("Status cannot be more than 1000 character");
       return;
     }
 
