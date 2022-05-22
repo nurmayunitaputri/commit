@@ -163,7 +163,7 @@ const Home = () => {
         {/* Postingan */}
         <div className="w-full h-[30%] lg:w-[50%] mx-auto space-y-3 pt-20">
           <div className="border-transparent  rounded-lg ">
-            <div className="min-h-[15rem] text-black rounded-lg p-2">
+            <div className="min-h-[5rem] text-black rounded-lg p-2">
               <PostInput />
             </div>
           </div>
