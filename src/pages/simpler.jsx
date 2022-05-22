@@ -4,7 +4,7 @@ const SimplerPage = () => {
   return (
     <>
       <Head>
-        <title>Simpler</title>
+        <title>Simpler </title>
       </Head>
       <SimplerContainer />
     </>

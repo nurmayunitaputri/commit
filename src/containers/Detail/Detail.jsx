@@ -52,7 +52,7 @@ const DetailContainer = () => {
             {data && (
               <PostCard
                 userId={data.detail_post.user.id}
-                name={data.detail_post.user.username}
+                name={data.detail_post.user.fullname}
                 desc={data.detail_post.post_desc}
                 createdDate={data.detail_post.created_date}
                 filePosts={data.detail_post.filePosts}

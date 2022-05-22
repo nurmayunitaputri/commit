@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MenuIcon } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
-import Link from 'next/link';
+import Link from "next/link";
 
 export const NavBar = () => {
   const { push } = useRouter();
@@ -60,27 +60,27 @@ export const NavBar = () => {
                             </div> */}
             </div>
             <div className="text-sm flex items-center pt-2 pl-10">
-            <Link href="/home">
-              <a
-                href="/home"
-                className="block mt-4 lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 ml-3 "
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
+              <Link href="/home">
+                <div
+                  href="/home"
+                  className="block mt-4 lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
-                <p className="text-grey-700 flex items-center ml-1"> Home </p>
-              </a>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 ml-3 "
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    />
+                  </svg>
+                  <p className="text-grey-700 flex items-center ml-1"> Home </p>
+                </div>
               </Link>
               <a
                 href="#responsive-header"
