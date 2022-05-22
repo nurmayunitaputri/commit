@@ -213,6 +213,7 @@ export const useHomeDispatcher = () => {
     fetchProfile,
     likeAction,
     deletePost,
+    refreshPosts,
   };
 };
 export default slices.reducer;

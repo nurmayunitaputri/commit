@@ -13,6 +13,7 @@ import { HeartIcon as HeartIconSolid } from "@heroicons/react/solid";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { isCurrentUser } from "../../helpers/isCurrentUser";
+import { ImagePost } from "../imagespost/ImagePost";
 dayjs.extend(relativeTime);
 
 function classNames(...classes) {
@@ -170,13 +171,7 @@ export const PostCard = ({
           </div>
 
           <div className="block h-[50%] w-[90%] ml-7 pt-5">
-            {filePosts.map(({ url }) =>
-              url.split(".").pop() == "mp4" ? (
-                <ReactPlayer url={url} controls={true} />
-              ) : (
-                <img className="h-50 w-full object-cover " src={url} />
-              )
-            )}
+            <ImagePost files={filePosts} />
           </div>
           <div className="flex flex-cols gap-[5%] bg-white items-start pt-[5%] rounded-lg ">
             <div className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[10px]">

@@ -8,21 +8,23 @@ export const PostInput = () => {
   const { fetchPosts } = useHomeDispatcher();
   const [status, setStatus] = useState("Public Post");
   const [desc, setDesc] = useState("");
-  const [media, setMedia] = useState(null);
+  const [media, setMedia] = useState({});
+  const [mediaPreview, setMediaPreview] = useState([]);
   const [loading, setLoading] = useState(false);
   const inputFile = useRef(null);
-
-  const [mediaPreview, setMediaPreview] = useState();
 
   const handleSelectMedia = () => {
     inputFile.current.click();
   };
 
   const handleOnChangedMedia = (e) => {
-    const files = e.target.files;
-    if (files && files.length > 0) {
-      setMediaPreview(URL.createObjectURL(files[0]));
-      setMedia(files[0]);
+    const { files } = e.target;
+    console.log(files);
+    if (files) {
+      setMedia(files);
+      setMediaPreview(
+        Object.keys(files).map((key) => URL.createObjectURL(files[key]))
+      );
     }
   };
 
@@ -37,10 +39,10 @@ export const PostInput = () => {
     }
 
     // validasi media / file upload
-    if (!media) {
-      alert("Media is cannot be empty");
-      return;
-    }
+    // if (!media) {
+    //   alert("Media is cannot be empty");
+    //   return;
+    // }
 
     /// inisialiasi form data untuk di post ke API
     const formData = new FormData();
@@ -48,7 +50,9 @@ export const PostInput = () => {
     formData.append("tags", "");
     formData.append("status", statusValue);
     formData.append("desc", desc);
-    formData.append("file", media);
+    Object.keys(media).forEach((value) => {
+      formData.append("file", media[value]);
+    });
 
     try {
       const { data } = await callAPI({
@@ -62,8 +66,8 @@ export const PostInput = () => {
 
       setStatus("Public Post");
       setDesc("");
-      setMedia(null);
-      setMediaPreview(null);
+      setMedia({});
+      setMediaPreview([]);
       fetchPosts();
       setLoading(false);
       // setMediaPreview(null);
@@ -93,21 +97,38 @@ export const PostInput = () => {
             aria-label="Write something"
             aria-describedby="button-addon2"
           />
-          {mediaPreview && (
+          {/* {mediaPreview && (
             <div>
               <img
                 src={mediaPreview}
                 className="object-fill h-20 w-17"
                 onClick={() => {
-                  setMedia(null);
-                  setMediaPreview(null);
+                  setMedia(undefined);
+                  setMediaPreview(undefined);
+                  inputFile.current.files = null;
                 }}
               />
             </div>
-          )}
+          )} */}
+          <div className="flex space-x-3">
+            {mediaPreview.map((preview, index) => (
+              <img
+                src={preview}
+                className="object-fill h-20 w-17"
+                onClick={() => {
+                  let newMedia = Array.from(media);
+                  newMedia = newMedia.filter((file) => file != newMedia[index]);
+                  setMedia(Object.assign({}, newMedia));
+                  setMediaPreview(mediaPreview.filter((p) => p != preview));
+                  inputFile.current.files = null;
+                }}
+              />
+            ))}
+          </div>
           <input
             type="file"
             id="file"
+            multiple
             ref={inputFile}
             style={{ display: "none" }}
             onChange={handleOnChangedMedia}
@@ -142,7 +163,7 @@ export const PostInput = () => {
           </div>
           <PublicPost status={status} onChanged={setStatus} />
         </div>
-        <button className="block overflow-hidden h-[35px] w-[50px] text-[12px] rounded-lg  bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-700">
+        <button className="block overflow-hidden h-[35px] text-[12px] rounded-lg w-20 bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-700">
           {loading ? "Posting..." : "Post"}
         </button>
       </div>

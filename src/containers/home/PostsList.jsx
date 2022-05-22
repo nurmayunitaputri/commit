@@ -13,9 +13,13 @@ import {
   DotsVerticalIcon,
   TrashIcon,
   ShieldExclamationIcon,
+  BookmarkIcon as BookmarkIconOutline,
 } from "@heroicons/react/outline";
+import { BookmarkIcon as BookmarkIconSolid } from "@heroicons/react/solid";
 import { Menu, Transition } from "@headlessui/react";
 import { isCurrentUser } from "../../helpers/isCurrentUser";
+import { useBookmarkDispatcher } from "../../redux/reducers/bookmark/slice";
+import { ImagePost } from "../../components/imagespost/ImagePost";
 
 dayjs.extend(relativeTime);
 
@@ -25,9 +29,21 @@ function classNames(...classes) {
 
 export const PostsList = () => {
   const { push } = useRouter();
-  const { fetchPosts, home, likeAction, deletePost } = useHomeDispatcher();
+  const { fetchPosts, home, likeAction, deletePost, refreshPosts } =
+    useHomeDispatcher();
+  const { saveToBookmark, deleteFromBookmark } = useBookmarkDispatcher();
   const { posts } = home;
   const { loading, data } = posts;
+
+  const handleOnAddToBookmark = async (postId) => {
+    await saveToBookmark({ postId });
+    await refreshPosts();
+  };
+
+  const handleonRemoveFromBookmark = async (postId) => {
+    await deleteFromBookmark({ postId });
+    await refreshPosts();
+  };
 
   useEffect(() => {
     fetchPosts();
@@ -166,8 +182,8 @@ export const PostsList = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 ">
-            [Front-End Developer]
+          <div className="flex flex-cols gap-2 bg-white items-start pt-1 rounded-lg text-gray-700 text-[12px] ml-2 ">
+            {/* [Front-End Developer] */}
             <br /> {post.post_desc}
           </div>
           <p
@@ -176,15 +192,7 @@ export const PostsList = () => {
           >
             See more ...
           </p>
-          <div className="block h-[50%] w-[90%] ml-7 pt-5">
-            {post.filePosts.map(({ url }) =>
-              url.split(".").pop() == "mp4" ? (
-                <ReactPlayer url={url} controls={true} />
-              ) : (
-                <img className="h-full w-full object-cover" src={url} />
-              )
-            )}
-          </div>
+          <ImagePost files={post.filePosts} />
           <div className="flex flex-cols gap-[5%] bg-white items-start pt-[5%] rounded-lg ">
             <div className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[10px]">
               <div className="flex items-start text-sm">
@@ -232,12 +240,24 @@ export const PostsList = () => {
                 </p>
               </div>
             </div>
-            <a
-              href="#"
-              className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[65%]"
-            >
+            <div className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[65%]">
               <div className="flex items-start text-sm">
-                <svg
+                {post.bookmarked ? (
+                  <BookmarkIconSolid
+                    height={32}
+                    width={32}
+                    color="black"
+                    onClick={() => handleonRemoveFromBookmark(post.id_post)}
+                  />
+                ) : (
+                  <BookmarkIconOutline
+                    height={32}
+                    width={32}
+                    onClick={() => handleOnAddToBookmark(post.id_post)}
+                  />
+                )}
+
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
                   fill="none"
@@ -250,9 +270,9 @@ export const PostsList = () => {
                     stroke-linejoin="round"
                     d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
                   />
-                </svg>
+                </svg> */}
               </div>
-            </a>
+            </div>
           </div>
         </form>
       </div>
