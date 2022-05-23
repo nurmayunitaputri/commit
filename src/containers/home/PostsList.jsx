@@ -1,8 +1,6 @@
 import { useEffect, Fragment } from "react";
 import dayjs from "dayjs";
-
 import relativeTime from "dayjs/plugin/relativeTime";
-import ReactPlayer from "react-player";
 import { useHomeDispatcher } from "../../redux/reducers/home";
 import { useRouter } from "next/router";
 import LikeOutlineIcon from "@heroicons/react/outline/HeartIcon";
@@ -14,6 +12,7 @@ import {
   TrashIcon,
   ShieldExclamationIcon,
   BookmarkIcon as BookmarkIconOutline,
+  ShareIcon,
 } from "@heroicons/react/outline";
 import { BookmarkIcon as BookmarkIconSolid } from "@heroicons/react/solid";
 import { Menu, Transition } from "@headlessui/react";
@@ -54,16 +53,16 @@ export const PostsList = () => {
   }
 
   return data.map((post) => (
-    <div className="border-transparent  rounded-lg ">
-      <div className="min-h-[15rem] text-white rounded-lg p-2">
-        <form className="py-2 rounded-lg bg-white pl-2">
+    <div className="border-transparent rounded-lg">
+      <div className="text-white rounded-lg p-2">
+        <div className="py-2 rounded-lg bg-white pl-2 overflow-hidden">
           <div className="flex flex-cols ml-2 items-center pt-2">
-            <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 ">
+            <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2">
               <img
                 className="h-full w-full object-cover"
                 src="/no_profile.png"
                 alt="avatar"
-              ></img>
+              />
             </div>
             <h4 className="text-[15px] font-bold text-[#333333] ml-3 pt-1 flex justify-center">
               {" "}
@@ -157,6 +156,35 @@ export const PostsList = () => {
                           )}
                         </Menu.Item>
                       )}
+                      <Menu.Item>
+                        {({ active }) => (
+                          <div
+                            onClick={() => {
+                              if (navigator.share) {
+                                navigator.share({
+                                  url: "",
+                                  text: "test",
+                                  title: "title",
+                                });
+                              } else {
+                                alert("Your Browser does not support share");
+                              }
+                            }}
+                            className={
+                              "flex flex-row " +
+                              classNames(
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700",
+                                "block px-4 py-2 text-sm"
+                              )
+                            }
+                          >
+                            <ShareIcon width={18} height={18} />{" "}
+                            <div className="px-1" /> Share
+                          </div>
+                        )}
+                      </Menu.Item>
                     </div>
                   </Menu.Items>
                 </Transition>
@@ -182,16 +210,20 @@ export const PostsList = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-cols gap-2 bg-white items-start pt-1 rounded-lg text-gray-700 text-[12px] ml-2 ">
-            {/* [Front-End Developer] */}
-            <br /> {post.post_desc}
-          </div>
-          <p
-            onClick={() => push(`/detail/${post.id_post}`)}
-            className="text-gray-400 text-[12px] ml-2 pt-5"
-          >
-            See more ...
+
+          <p className="pt-2 ml-2 pr-10 text-gray-700 text-[12px]  text-left">
+            {post.post_desc.substring(0, 300)}
           </p>
+
+          {post.post_desc.length > 300 && (
+            <p
+              onClick={() => push(`/detail/${post.id_post}`)}
+              className="text-gray-400 text-[12px] ml-2 pt-5"
+            >
+              See more ...
+            </p>
+          )}
+
           <ImagePost files={post.filePosts} />
           <div className="flex flex-cols gap-[5%] bg-white items-start pt-[5%] rounded-lg ">
             <div className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[10px]">
@@ -256,25 +288,10 @@ export const PostsList = () => {
                     onClick={() => handleOnAddToBookmark(post.id_post)}
                   />
                 )}
-
-                {/* <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                  />
-                </svg> */}
               </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   ));

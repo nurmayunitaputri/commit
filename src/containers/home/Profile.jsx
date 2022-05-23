@@ -1,7 +1,9 @@
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useHomeDispatcher } from "../../redux/reducers/home";
 
 export const Profile = () => {
+  const { push } = useRouter();
   const { fetchProfile, home } = useHomeDispatcher();
   const { profile } = home;
   const {
@@ -16,12 +18,14 @@ export const Profile = () => {
 
   useEffect(() => {
     fetchProfile();
-    console.log({ profile });
   }, []);
 
   return (
     <div className="flex flex-col justify-between items-stretch py-2 rounded-lg">
-      <div className="py-2 rounded-tr-lg rounded-tl-lg bg-white">
+      <div
+        className="py-2 rounded-tr-lg rounded-tl-lg rounded-br-lg rounded-bl-lg bg-white"
+        onClick={() => push("/profile")}
+      >
         <button className=" h-20 w-20 rounded-full overflow-hidden border-2 text-center">
           <img
             className="h-full w-full object-cover"

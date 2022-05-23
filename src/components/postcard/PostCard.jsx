@@ -166,7 +166,6 @@ export const PostCard = ({
             </div>
           </div>
           <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 ">
-            [Front-End Developer]
             <br /> {desc}
           </div>
 
