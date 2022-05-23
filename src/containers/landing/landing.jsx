@@ -17,15 +17,13 @@ const Landing = () => {
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
-            <a href="./home" className="block mt-4 lg:inline-block lg:mt-0 text-black mr-11 ">
+            <a href="./login" className="block mt-4 lg:inline-block lg:mt-0 text-black mr-11 ">
               Home
             </a>
             <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-black mr-11">
               About Us
             </a>
-            <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-black mr-11">
-              Features
-            </a>
+            
             <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-black">
               Contact Us
             </a>
@@ -182,7 +180,7 @@ const Landing = () => {
         </div>
       </div>
 
-      <footer className="text-gray-600 bg-[#E2EFFF]  ">
+      <footer className="text-gray-600 bg-white  ">
         <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div></div>
           <div className="w-[389px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
@@ -195,7 +193,7 @@ const Landing = () => {
               <h2 className="title-font font-semibold tracking-widest text-[#00229B] text-xl mb-3">FEATURES</h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a href="../simpler" className=" text-[#00229B] text-lg ">
+                  <a href="../login" className=" text-[#00229B] text-lg ">
                     Simpler
                   </a>
                 </li>
@@ -228,7 +226,7 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[#E2EFFF] pt-10 pb-16  flex items-center text-center justify-center ">
+        <div className="bg-white pt-10 pb-16  flex items-center text-center justify-center ">
           <p className=" text-sm text-center sm:text-left">
             <a href="#" rel="noopener noreferrer" className=" text-xl font-bold ml-1 text-[#00229B]  text-center">
               © 2022 - Commit. All Rights Reserved
