@@ -15,7 +15,8 @@ import profile from "./reducers/profile";
 import simpler from "./reducers/simpler";
 import bookmark from "./reducers/bookmark";
 import suggestedPeople from "./reducers/suggestedPeople";
-
+import privacy from "./reducers/privacy";
+import contact from "./reducers/privacy copy";
 // rootReducer
 const rootReducer = combineReducers({
   login,
@@ -32,6 +33,8 @@ const rootReducer = combineReducers({
   simpler,
   bookmark,
   suggestedPeople,
+  privacy,
+  contact, 
 });
 // store (main storage)
 const store = configureStore({
