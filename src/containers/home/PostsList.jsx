@@ -54,8 +54,8 @@ export const PostsList = () => {
 
   return data.map((post) => (
     <div className="border-transparent rounded-lg">
-      <div className="text-white rounded-lg p-2">
-        <div className="py-2 rounded-lg bg-white pl-2 overflow-hidden">
+      <div className="text-white rounded-lg p-2 ">
+        <div className="py-2 rounded-lg bg-white pl-2 overflow-hidden hover:">
           <div className="flex flex-cols ml-2 items-center pt-2">
             <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2">
               <img
@@ -210,19 +210,17 @@ export const PostsList = () => {
               )}
             </div>
           </div>
-
-          <p className="pt-2 ml-2 pr-10 text-gray-700 text-[12px]  text-left">
-            {post.post_desc.substring(0, 300)}
-          </p>
-
-          {post.post_desc.length > 300 && (
-            <p
-              onClick={() => push(`/detail/${post.id_post}`)}
-              className="text-gray-400 text-[12px] ml-2 pt-5"
-            >
-              See more ...
+          <div onClick={() => push(`/detail/${post.id_post}`)}>
+            <p className="pt-2 ml-2 pr-10 text-gray-700 text-[12px]  text-left">
+              {post.post_desc.substring(0, 300)}
             </p>
-          )}
+
+            {post.post_desc.length > 300 && (
+              <p className="text-gray-400 text-[12px] ml-2 pt-5">
+                See more ...
+              </p>
+            )}
+          </div>
 
           <ImagePost files={post.filePosts} />
           <div className="flex flex-cols gap-[5%] bg-white items-start pt-[5%] rounded-lg ">

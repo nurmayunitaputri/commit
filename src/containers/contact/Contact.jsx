@@ -4,17 +4,12 @@ const ContactContainer = () => {
     <div>
       <NavBar />
       <div className="bg-white text-[#00229B] body-font overflow-hidden">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-col text-center w-full mb-2">
-            <div className=" pt-[50px] px-2 pb-10 w-8/12 max-w-fit mx-auto">
-              <img src="/Logo.png" layout="fill" />
-            </div>
-         
-          </div>
+        <div className="container px-5 pt-16  mx-auto">
+          
 
           {/* bagian satu */}
           <div class="text-gray-600 body-font overflow-hidden ">
-            <div class="container px-5 pt-24 pb-5 mx-auto">
+            <div class="container px-5 pt-16 pb-5 mx-auto">
               <div class="lg:w-4/5 mx-auto flex flex-wrap">
                 <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
                   <h1 class="text-[#00229B] text-5xl title-font font-bold  mb-4">Contact Us</h1>
@@ -29,7 +24,7 @@ const ContactContainer = () => {
         </div>
 
         <div class="text-gray-600 body-font overflow-hidden">
-          <div class="container px-5 pt-5 mx-auto">
+          <div class="container px-5 pt-20 pb-20 mx-auto pl-9 ">
             <div class="lg:w-4/5 mx-auto ">
               <div class="w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
                 <h1 class="text-[#00229B] text-5xl title-font font-bold  mb-4">FAQ</h1>

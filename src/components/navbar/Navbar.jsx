@@ -1,7 +1,15 @@
-import { useState, useEffect } from "react";
-import { MenuIcon } from "@heroicons/react/outline";
+import { useState, useEffect, Fragment } from "react";
+import {
+  MenuIcon,
+  SearchIcon,
+  CheckIcon,
+  SelectorIcon,
+} from "@heroicons/react/outline";
 import { useRouter } from "next/router";
+import { Combobox, Transition } from "@headlessui/react";
 import Link from "next/link";
+import { useSearchDispatcher } from "../../redux/reducers/search";
+SearchIcon;
 
 export const NavBar = () => {
   const { push } = useRouter();
@@ -35,30 +43,24 @@ export const NavBar = () => {
           </div>
           <div className="w-full block lg:flex ml-auto items-center ">
             <div className="input-group responsive text-black text-sm xl:w-80 flex items-center">
-              <input
+              <Example />
+              {/* <input
+                value={searchInput}
+                onChange={setSearchInput}
+                onSubmit={handleOnSearch}
                 type="search"
                 className="pr-3 pl-10 form-control relative min-w-0 items-center block w-full px-3 py-1.5 text-base font-normal  bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg p-[20] transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 placeholder="Search"
                 aria-label="Search"
                 aria-describedby="button-addon2"
               />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
+              <SearchIcon
                 className="h-5 w-5 absolute mb-0 ml-3 text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-              {/* <div className="border-l-4 mr-2">
-                            </div> */}
+                height="1.25rem"
+                width="1.25rem"
+              /> */}
             </div>
+
             <div className="text-sm flex items-center pt-2 pl-10">
               <Link href="/home">
                 <div
@@ -153,3 +155,65 @@ export const NavBar = () => {
     </nav>
   );
 };
+
+export default function Example() {
+  const [showResult, setShowResult] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const { search, searchUsers } = useSearchDispatcher();
+
+  const handleOnSearch = async () => {
+    setShowResult(true);
+    console.log("submited");
+    searchUsers({ query: searchInput });
+    setSearchInput("");
+  };
+
+  return (
+    <>
+      <input
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
+        onKeyDown={(e) => (e.key === "Enter" ? handleOnSearch() : null)}
+        type="search"
+        className="pr-3 pl-10 form-control relative min-w-0 items-center block w-full px-3 py-1.5 text-base font-normal  bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg p-[20] transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <SearchIcon
+        className="h-5 w-5 absolute mb-0 ml-3 text-gray-500"
+        height="1.25rem"
+        width="1.25rem"
+      />
+
+      <Transition
+        show={showResult}
+        as={Fragment}
+        leave="transition ease-in duration-100"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+        afterLeave={() => setSearchInput("")}
+      >
+        <div className="absolute top-20 p-5 bg-white w-80 rounded-lg border-gray-100">
+          {search.error && <p>Error...</p>}
+          {search.loading && <p>Loading...</p>}
+          {search.users.map((user) => (
+            <div className="flex flex-row  mb-3 align-middle justify-between">
+              <div className="flex flex-row space-x-3  align-middle">
+                <img src="/no_profile.png" className="h-10 w-10 rounded-full" />
+                <div className="space-y-1">
+                  <p className="font-bold">{user.fullname}</p>
+                  <p className="text-blue-900 font-medium text-[11px]">
+                    {user.passion}
+                  </p>
+                </div>
+              </div>
+              <button className="block overflow-hidden h-8 px-2 text-[12px] rounded-lg ml-[33px] bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-600">
+                {user.is_follow ? "Followed" : "Follow"}
+              </button>
+            </div>
+          ))}
+        </div>
+      </Transition>
+    </>
+  );
+}
