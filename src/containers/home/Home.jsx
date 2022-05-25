@@ -1,82 +1,42 @@
-import { useRouter } from "next/router";
 import { NavBar } from "../../components/navbar/Navbar";
 import { AuthProvider } from "../../providers/auth";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { MenuIcon } from "@heroicons/react/outline";
 import { useHomeDispatcher } from "../../redux/reducers/home";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { PostInput } from "./PostInput";
 import { PostsList } from "./PostsList";
 import { Profile } from "./Profile";
 import { SuggestedPeople } from "./SuggestedPeople";
 import { Footer } from "../../components/footer";
 
-const validationSchema = Yup.object({
-  email: Yup.string().required("diperlukan Email").email("Email tidak valid"),
-  password: Yup.string()
-    .required("diperlukan kata sandi")
-    .min(6, "minimal 6 karakter"),
-  // name: Yup.string().required(''),
-  // phone_number: Yup.number('diperlukan phone number').max(11, 'maximal 11'),
-  // domicile: Yup.string().required(''),
-  // gender: Yup.string().required(''),
-});
-
-const initialValues = {
-  email: "",
-  password: "",
-  // name: '',
-  // phone_number: '',
-  // domicile: '',
-  // gender: ''
-};
+const topicOption = [
+  {
+    label: "UI/UX",
+    value: "UI/UX",
+  },
+  {
+    label: "Front End",
+    value: "Front End",
+  },
+  {
+    label: "Android",
+    value: "Android",
+  },
+  {
+    label: "Back End",
+    value: "Back End",
+  },
+  {
+    label: "Quality Assurance",
+    value: "Quality Assurance",
+  },
+];
 
 const Home = () => {
-  const { push } = useRouter();
-  const {
-    home: { loading },
-    doHome,
-  } = useHomeDispatcher();
-  const [name, setName] = useState("");
-
-  const onSubmit = async (values) => {
-    console.log(values);
-    try {
-      const payload = {
-        email: values.email,
-        password: values.password,
-        // name: values.name,
-        // phone_number: values.phone_number,
-        // domicile: values.domicile,
-        // gender: values.gender,
-      };
-      await doHome(payload);
-      // push(``);
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  const handleOnLoggedOut = () => {
-    localStorage.removeItem("jwt");
-    localStorage.removeItem("user");
-    push("/");
-  };
-
-  const { handleChange, handleBlur, handleSubmit, errors, touched } = useFormik(
-    {
-      initialValues,
-      validationSchema,
-      onSubmit,
-    }
-  );
-  console.log(errors);
+  const { home, fetchPosts, onSetFilter } = useHomeDispatcher();
 
   useEffect(() => {
-    const { fullname } = JSON.parse(localStorage.getItem("user"));
-    setName(fullname);
-  }, []);
+    fetchPosts();
+  }, [home.posts.filter]);
 
   return (
     <AuthProvider>
@@ -94,35 +54,21 @@ const Home = () => {
                 <h4 className="text-1xl font-bold text-[#333333] pt-[7px] flex justify-start ml-[20px]">
                   Filter
                 </h4>
+
                 <p className="text-[12px] text-gray flex justify-start ml-[20px] pb-[7px]">
                   Filter Your Post by Tags
                 </p>
                 <div className="grid grid-cols-2 gap-2 items-center px-2 ">
-                  <div className="flex flex-col text-[10px] font-bold py-2 rounded-full bg-white border border-[#00229B] items-center">
-                    <a href="#" className="text-[#00229B]">
-                      UI/UX
-                    </a>
-                  </div>
-                  <div className="flex flex-col text-[10px] font-bold py-2 rounded-full bg-white  border border-[#00229B] items-center">
-                    <a href="#" className="text-[#00229B]">
-                      Android
-                    </a>
-                  </div>
-                  <div className="flex flex-col text-[10px] font-bold py-2 rounded-full bg-white  border border-[#00229B] items-center">
-                    <a href="#" className="text-[#00229B]">
-                      Frontend
-                    </a>
-                  </div>
-                  <div className="flex flex-col text-[10px] font-bold py-2 rounded-full bg-white  border border-[#00229B] items-center">
-                    <a href="#" className="text-[#00229B]">
-                      Backend
-                    </a>
-                  </div>
-                  <div className="flex flex-col text-[10px] font-bold py-2 col-span-2 rounded-full bg-white border border-[#00229B] items-center">
-                    <a href="#" className="text-[#00229B]">
-                      Quality Assurance
-                    </a>
-                  </div>
+                  {topicOption.map((topic) => (
+                    <div
+                      className="flex flex-col text-[10px] font-bold py-2 rounded-full bg-white border border-[#00229B] items-center"
+                      onClick={() => onSetFilter(topic.value)}
+                    >
+                      <a href="#" className="text-[#00229B]">
+                        {topic.label}
+                      </a>
+                    </div>
+                  ))}
                 </div>
               </form>
             </div>

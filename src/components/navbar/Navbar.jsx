@@ -4,11 +4,15 @@ import {
   SearchIcon,
   CheckIcon,
   SelectorIcon,
+  XCircleIcon,
+  XIcon,
 } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
 import { Combobox, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { useSearchDispatcher } from "../../redux/reducers/search";
+import { callAPI } from "../../helpers/network";
+import { useHomeDispatcher } from "../../redux/reducers/home";
 SearchIcon;
 
 export const NavBar = () => {
@@ -43,7 +47,7 @@ export const NavBar = () => {
           </div>
           <div className="w-full block lg:flex ml-auto items-center ">
             <div className="input-group responsive text-black text-sm xl:w-80 flex items-center">
-              <Example />
+              <SearchPeople />
               {/* <input
                 value={searchInput}
                 onChange={setSearchInput}
@@ -156,7 +160,7 @@ export const NavBar = () => {
   );
 };
 
-export default function Example() {
+export default function SearchPeople() {
   const [showResult, setShowResult] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const { search, searchUsers } = useSearchDispatcher();
@@ -193,27 +197,79 @@ export default function Example() {
         leaveTo="opacity-0"
         afterLeave={() => setSearchInput("")}
       >
-        <div className="absolute top-20 p-5 bg-white w-80 rounded-lg border-gray-100">
-          {search.error && <p>Error...</p>}
-          {search.loading && <p>Loading...</p>}
-          {search.users.map((user) => (
-            <div className="flex flex-row  mb-3 align-middle justify-between">
-              <div className="flex flex-row space-x-3  align-middle">
-                <img src="/no_profile.png" className="h-10 w-10 rounded-full" />
-                <div className="space-y-1">
-                  <p className="font-bold">{user.fullname}</p>
-                  <p className="text-blue-900 font-medium text-[11px]">
-                    {user.passion}
-                  </p>
-                </div>
-              </div>
-              <button className="block overflow-hidden h-8 px-2 text-[12px] rounded-lg ml-[33px] bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-600">
-                {user.is_follow ? "Followed" : "Follow"}
-              </button>
+        <div className="absolute top-0 w-screen h-[20vh]">
+          <div className="relative top-20 p-5 bg-white w-80 rounded-lg border-gray-100  max-h-80 overflow-auto">
+            <div
+              className="flex justify-end pb-4"
+              onClick={() => setShowResult(false)}
+            >
+              <XIcon height={32} width={32} />
             </div>
-          ))}
+
+            {search.error && <p>Error...</p>}
+            {search.loading && <p>Loading...</p>}
+            {search.users.map((user) => (
+              <UserItem key={`search-user-${user.id}`} user={user} />
+            ))}
+          </div>
         </div>
       </Transition>
     </>
   );
 }
+
+const UserItem = ({ user }) => {
+  const { fetchProfile } = useHomeDispatcher();
+  const [isFollowed, setIsFollowed] = useState(user.is_follow);
+  const [loading, setLoading] = useState(false);
+
+  const handleOnFollow = async () => {
+    setLoading(true);
+    await callAPI({
+      url: `/follow/${user.id}`,
+      method: "POST",
+    });
+    setIsFollowed(true);
+    fetchProfile();
+    setLoading(false);
+  };
+
+  const handleOnUnFollow = async () => {
+    setLoading(true);
+    await callAPI({
+      url: `/unfollow/${user.id}`,
+      method: "POST",
+    });
+    setIsFollowed(false);
+    fetchProfile();
+    setLoading(false);
+  };
+
+  const hanldeOnFollowOrUnfollow = () => {
+    if (isFollowed) {
+      handleOnUnFollow();
+    } else {
+      handleOnFollow();
+    }
+  };
+
+  return (
+    <div className="flex flex-row  mb-3 align-middle justify-between">
+      <div className="flex flex-row space-x-3  align-middle">
+        <img src="/no_profile.png" className="h-10 w-10 rounded-full" />
+        <div className="space-y-1">
+          <p className="font-bold">{user.fullname}</p>
+          <p className="text-blue-900 font-medium text-[11px]">
+            {user.passion}
+          </p>
+        </div>
+      </div>
+      <button
+        className="block overflow-hidden h-8 px-2 text-[12px] rounded-lg ml-[33px] bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-600"
+        onClick={hanldeOnFollowOrUnfollow}
+      >
+        {isFollowed ? "Followed" : "Follow"} {loading && "..."}
+      </button>
+    </div>
+  );
+};
