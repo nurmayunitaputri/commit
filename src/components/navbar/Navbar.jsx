@@ -69,7 +69,7 @@ export const NavBar = () => {
               <Link href="/home">
                 <div
                   href="/home"
-                  className="block mt-4 lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
+                  className="block cursor-pointer mt-4 lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@ export const NavBar = () => {
               <Link href="/simpler">
                 <div
                   href="/simpler"
-                  className="block mt-4 lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
+                  className="block mt-4 cursor-pointer lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
