@@ -8,33 +8,33 @@ const ContactContainer = () => {
           
 
           {/* bagian satu */}
-          <div class="text-gray-600 body-font overflow-hidden ">
-            <div class="container px-5 pt-16 pb-5 mx-auto">
-              <div class="lg:w-4/5 mx-auto flex flex-wrap">
-                <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
-                  <h1 class="text-[#00229B] text-5xl title-font font-bold  mb-4">Contact Us</h1>
+          <div className="text-gray-600 body-font overflow-hidden ">
+            <div className="container px-5 pt-16 pb-5 mx-auto">
+              <div className="lg:w-4/5 mx-auto flex flex-wrap">
+                <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                  <h1 className="text-[#00229B] text-5xl title-font font-bold  mb-4">Contact Us</h1>
 
-                  <p class="leading-relaxed mb-4">For customer service and business matter only. If you want to do Account Verification, please read the FAQ first before contacting us.</p>
-                  <p class="leading-relaxed mb-4 text-[#2F69FF] font-bold ">tech.commitapp@gmail.com</p>
+                  <p className="leading-relaxed mb-4">For customer service and business matter only. If you want to do Account Verification, please read the FAQ first before contacting us.</p>
+                  <p className="leading-relaxed mb-4 text-[#2F69FF] font-bold ">tech.commitapp@gmail.com</p>
                 </div>
-                <img alt="Contact" class="ml-20 lg:w-1/4 w-1/4 lg:h-auto h-auto object-cover object-center rounded" src="contact.png"></img>
+                <img alt="Contact" className="ml-20 lg:w-1/4 w-1/4 lg:h-auto h-auto object-cover object-center rounded" src="contact.png"></img>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="text-gray-600 body-font overflow-hidden">
-          <div class="container px-5 pt-20 pb-20 mx-auto pl-9 ">
-            <div class="lg:w-4/5 mx-auto ">
-              <div class="w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
-                <h1 class="text-[#00229B] text-5xl title-font font-bold  mb-4">FAQ</h1>
+        <div className="text-gray-600 body-font overflow-hidden">
+          <div className="container px-5 pt-20 pb-20 mx-auto pl-9 ">
+            <div className="lg:w-4/5 mx-auto ">
+              <div className="w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                <h1 className="text-[#00229B] text-5xl title-font font-bold  mb-4">FAQ</h1>
 
-                <p class="leading-relaxed mb-4 text-[#7A97FF] text-2xl font-bold ">Frequently Asked Questions</p>
-                <p class="leading-relaxed mb-1 text-[#333333] text-2xl font-bold ">What do I get as a Verified user ?</p>
-                <p class="leading-relaxed mb-4">As soon as you are registered as a Verified user, you will be able to post Premium contents on SImpler Community and you will get paid for each post you made.</p>
+                <p className="leading-relaxed mb-4 text-[#7A97FF] text-2xl font-bold ">Frequently Asked Questions</p>
+                <p className="leading-relaxed mb-1 text-[#333333] text-2xl font-bold ">What do I get as a Verified user ?</p>
+                <p className="leading-relaxed mb-4">As soon as you are registered as a Verified user, you will be able to post Premium contents on SImpler Community and you will get paid for each post you made.</p>
 
-                <p class="leading-relaxed mb-1 text-[#333333] text-2xl font-bold ">How do I make my account verified ?</p>
-                <p class="leading-relaxed mb-4">
+                <p className="leading-relaxed mb-1 text-[#333333] text-2xl font-bold ">How do I make my account verified ?</p>
+                <p className="leading-relaxed mb-4">
                   1. Make sure your followers count has reached or exceeded 20 followers.
                   <br />
                   2. Prepare a scan of your ID card.

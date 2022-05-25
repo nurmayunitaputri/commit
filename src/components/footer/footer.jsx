@@ -1,3 +1,4 @@
+import Link from "next/link";
 export const Footer = () => {
   return (
     <div className="fixed bg-blue-200 bottom-0 right-0 h-30 w-[20%] mr-[3.2rem] border-transparent mb-7 invisible lg:visible">
@@ -11,15 +12,21 @@ export const Footer = () => {
         >
           Play Store
         </a>
-        <a href="#" className="text-blue-800 text-left text-semibold">
+        <Link href="/about">
+        <a href="/about" className="text-blue-800 text-left text-semibold">
           About Us
         </a>
-        <a href="#" className="text-blue-800 text-left text-semibold">
+        </Link>
+        <Link href="/contact">
+        <a href="/contact" className="text-blue-800 text-left text-semibold">
           Contact Us
         </a>
-        <a href="#" className="text-blue-800 text-left text-semibold">
+        </Link>
+        <Link href="/privacy">
+        <a href="/privacy" className="text-blue-800 text-left text-semibold">
           Privacy Policy
         </a>
+        </Link>
       </div>
     </div>
   );

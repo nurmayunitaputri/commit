@@ -3,9 +3,34 @@ import { Menu, Transition } from "@headlessui/react";
 
 import { callAPI } from "../../helpers/network";
 import { useHomeDispatcher } from "../../redux/reducers/home";
+import { CheckCircleIcon, HashtagIcon } from "@heroicons/react/outline";
+
+const topicOption = [
+  {
+    label: "UI/UX",
+    value: "UI/UX",
+  },
+  {
+    label: "Front End",
+    value: "Front End",
+  },
+  {
+    label: "Android",
+    value: "Android",
+  },
+  {
+    label: "Back End",
+    value: "Back End",
+  },
+  {
+    label: "Quality Assurance",
+    value: "Quality Assurance",
+  },
+];
 
 export const PostInput = () => {
   const { fetchPosts } = useHomeDispatcher();
+  const [topics, setTopic] = useState([]);
   const [status, setStatus] = useState("Public Post");
   const [desc, setDesc] = useState("");
   const [media, setMedia] = useState({});
@@ -52,7 +77,9 @@ export const PostInput = () => {
     /// inisialiasi form data untuk di post ke API
     const formData = new FormData();
     const statusValue = status === "Public Post" ? false : true;
-    formData.append("tags", "");
+    let topicsData = topics.map(({ value }) => value).join(",");
+
+    formData.append("tags", topicsData);
     formData.append("status", statusValue);
     formData.append("desc", desc);
     Object.keys(media).forEach((value) => {
@@ -73,8 +100,10 @@ export const PostInput = () => {
       setDesc("");
       setMedia({});
       setMediaPreview([]);
+      setTopic([]);
       fetchPosts();
       setLoading(false);
+
       // setMediaPreview(null);
     } catch (error) {
       setLoading(false);
@@ -167,6 +196,7 @@ export const PostInput = () => {
             </div>
           </div>
           <PublicPost status={status} onChanged={setStatus} />
+          <TopicPost topics={topics} onChanged={setTopic} />
         </div>
         <button className="block overflow-hidden h-[35px] text-[12px] rounded-lg w-20 bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-700">
           {loading ? "Posting..." : "Post"}
@@ -251,6 +281,75 @@ export default function PublicPost({ status, onChanged }) {
                 </a>
               )}
             </Menu.Item>
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
+  );
+}
+
+export function TopicPost({ topics, onChanged }) {
+  const handleOnClick = (topic) => {
+    if (topics.includes(topic)) {
+      const newTopics = topics.filter((value) => value != topic);
+      onChanged(newTopics);
+    } else {
+      const newTopics = [...topics, topic];
+      onChanged(newTopics);
+    }
+  };
+
+  return (
+    <Menu as="div" className="relative">
+      <div>
+        <Menu.Button className="inline-flex justify-center w-full rounded-md">
+          <a
+            href="#"
+            className="block focus:text-blue-700 text-[#a8b8f1] focus:outline-none ml-[15px]"
+          >
+            <div className="flex items-start text-sm">
+              <HashtagIcon width={30} height={30} />
+              <p className=" mx-1.5 text-[12px] font-semibold text-[#a8b8f1] py-2">
+                Topic
+              </p>
+            </div>
+          </a>
+        </Menu.Button>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-1">
+            {topicOption.map((topic) => (
+              <Menu.Item>
+                {({ active }) => (
+                  <div
+                    className="flex flex-row justify-between p-2"
+                    onClick={() => handleOnClick(topic)}
+                  >
+                    <p
+                      className={classNames(
+                        active ? "bg-blue-100 text-gray-900" : "text-gray-700",
+                        "block px-4 py-2 text-sm"
+                      )}
+                    >
+                      {topic.label}
+                    </p>
+                    {topics.includes(topic) && (
+                      <CheckCircleIcon width={20} height={20} />
+                    )}
+                  </div>
+                )}
+              </Menu.Item>
+            ))}
           </div>
         </Menu.Items>
       </Transition>

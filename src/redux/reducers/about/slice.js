@@ -6,7 +6,7 @@ const initialState = {
 };
 const slices = createSlice({
   initialState,
-  name: 'privacy',
+  name: 'about',
   reducers: {
     toggleLoading(state, action) {
       Object.assign(state, {
@@ -17,10 +17,10 @@ const slices = createSlice({
   },
 });
 const { toggleLoading } = slices.actions;
-export const usePrivacyDispatcher = () => {
-  const { privacy } = useSelector((state) => state);
+export const useAboutDispatcher = () => {
+  const { about } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const doPrivacy = async (values) => {
+  const doAbout = async (values) => {
     dispatch(toggleLoading(true));
     const response = await callAPI({
       url: '#',
@@ -29,13 +29,13 @@ export const usePrivacyDispatcher = () => {
     });
     const { data } = response;
     console.log(data);
-    
+
     // localStorage.setItem('user', JSON.stringify(data.user));
     dispatch(toggleLoading(false));
   };
   return {
-    privacy,
-    doPrivacy,
+    about,
+    doAbout,
   };
 };
 export default slices.reducer;

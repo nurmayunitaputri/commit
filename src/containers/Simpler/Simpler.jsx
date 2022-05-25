@@ -22,6 +22,8 @@ const SimplerContainer = () => {
             </div>
           </div>
 
+
+
           {/* 3 kotak div */}
           {/* kotak 1 */}
           <div className="flex flex-wrap -m-4 pt-10 justify-center">
