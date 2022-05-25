@@ -19,6 +19,9 @@ import privacy from "./reducers/privacy";
 import contact from "./reducers/about";
 import search from "./reducers/search";
 import about from "./reducers/about";
+import contact from "./reducers/privacy copy";
+import search from "./reducers/search";
+
 // rootReducer
 const rootReducer = combineReducers({
   login,
