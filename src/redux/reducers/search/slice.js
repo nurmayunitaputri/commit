@@ -43,6 +43,8 @@ export const useSearchDispatcher = () => {
 
   const searchUsers = async ({ query }) => {
     try {
+      dispatch(toggleError(false));
+      dispatch(setDataUsers([]));
       dispatch(toggleLoading(true));
 
       const response = await callAPI({
@@ -59,6 +61,7 @@ export const useSearchDispatcher = () => {
       dispatch(toggleLoading(false));
     } catch (error) {
       console.log({ error });
+      dispatch(toggleLoading(false));
       dispatch(toggleError(true));
     }
   };

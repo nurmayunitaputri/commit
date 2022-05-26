@@ -23,6 +23,7 @@ function classNames(...classes) {
 export const PostCard = ({
   userId,
   avatar,
+  interest,
   name,
   tags,
   createdDate,
@@ -147,7 +148,7 @@ export const PostCard = ({
           </div>
           <div className="flex justify-start">
             <p className="text-gray-400 text-[12px] ml-[60px] ">
-              {tags.join(", ")}
+              {interest.join(", ")}
             </p>
             <p className="text-gray-400 text-[12px] ml-[10px]">
               {" "}
@@ -171,6 +172,12 @@ export const PostCard = ({
 
           <div className="block h-[50%] w-[90%] ml-7 pt-5">
             <ImagePost files={filePosts} />
+          </div>
+          <div className="flex flex-row text-white">
+            {tags.length > 0 &&
+              tags.map((tag) => (
+                <p className="px-2 py-1 bg-[#7a97ff] rounded-md mx-1">{tag}</p>
+              ))}
           </div>
           <div className="flex flex-cols gap-[5%] bg-white items-start pt-[5%] rounded-lg ">
             <div className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[10px]">

@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { callAPI } from "../../../helpers/network";
 
 const initialStatePosts = {
+  filter: null,
   loading: false,
   data: [],
 };
@@ -91,6 +92,15 @@ const slices = createSlice({
         })),
       });
     },
+    setFilter(state, action) {
+      Object.assign(state, {
+        ...state,
+        posts: {
+          ...state.posts,
+          filter: action.payload,
+        },
+      });
+    },
   },
 });
 
@@ -101,6 +111,7 @@ const {
   setProfile,
   toggleLoadingProfile,
   toggleLike,
+  setFilter,
 } = slices.actions;
 export const useHomeDispatcher = () => {
   const { home } = useSelector((state) => state);
@@ -119,11 +130,17 @@ export const useHomeDispatcher = () => {
   };
 
   const fetchPosts = async () => {
+    const params = {};
+    if (home.posts.filter) {
+      params.tags = home.posts.filter;
+    }
+
     try {
       toggleLoadingPosts(true);
       const response = await callAPI({
         url: "/post/list",
         method: "GET",
+        params: params,
       });
 
       const { data } = response;
@@ -138,9 +155,14 @@ export const useHomeDispatcher = () => {
 
   const refreshPosts = async () => {
     try {
+      const params = {};
+      if (home.posts.filter) {
+        params.tags = home.posts.filter;
+      }
       const response = await callAPI({
         url: "/post/list",
         method: "GET",
+        params: params,
       });
 
       const { data } = response;
@@ -206,6 +228,10 @@ export const useHomeDispatcher = () => {
     }
   };
 
+  const onSetFilter = (filter) => {
+    dispatch(setFilter(filter));
+  };
+
   return {
     home,
     doHome,
@@ -214,6 +240,7 @@ export const useHomeDispatcher = () => {
     likeAction,
     deletePost,
     refreshPosts,
+    onSetFilter,
   };
 };
 export default slices.reducer;

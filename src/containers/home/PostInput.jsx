@@ -60,11 +60,20 @@ export const PostInput = () => {
     // validasi desc
     if (desc.length === 0) {
       alert("Status is cannot be empty");
+      setLoading(false);
       return;
     }
 
     if (desc.length >= 1000) {
       alert("Status cannot be more than 1000 character");
+      setLoading(false);
+      return;
+    }
+
+    // validasi tags / topics
+    if (topics.length === 0) {
+      alert("Please select a topic");
+      setLoading(false);
       return;
     }
 

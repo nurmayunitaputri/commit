@@ -56,7 +56,8 @@ const DetailContainer = () => {
                 desc={data.detail_post.post_desc}
                 createdDate={data.detail_post.created_date}
                 filePosts={data.detail_post.filePosts}
-                tags={[data.detail_post.user.passion]}
+                interest={[data.detail_post.user.passion]}
+                tags={data.detail_post.post_tags}
                 totalComment={data.detail_post.total_komentar}
                 totalLike={data.detail_post.total_like}
                 avatar="/no_profile.png"

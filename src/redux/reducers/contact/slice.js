@@ -18,7 +18,7 @@ const slices = createSlice({
 });
 const { toggleLoading } = slices.actions;
 export const useContactDispatcher = () => {
-  const { simpler } = useSelector((state) => state);
+  const { contact } = useSelector((state) => state);
   const dispatch = useDispatch();
   const doContact = async (values) => {
     dispatch(toggleLoading(true));

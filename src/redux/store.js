@@ -16,8 +16,9 @@ import simpler from "./reducers/simpler";
 import bookmark from "./reducers/bookmark";
 import suggestedPeople from "./reducers/suggestedPeople";
 import privacy from "./reducers/privacy";
-import contact from "./reducers/privacy copy";
+import contact from "./reducers/about";
 import search from "./reducers/search";
+import about from "./reducers/about";
 
 // rootReducer
 const rootReducer = combineReducers({
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
   privacy,
   contact,
   search,
+  about,
 });
 // store (main storage)
 const store = configureStore({
