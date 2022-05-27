@@ -85,7 +85,7 @@ const Home = () => {
               <form className="w-full mx-auto bg-blue-200 pb-[10px] rounded-lg items-center">
                 <div className=" flex justify-center items-center py-16 ">
                   <a
-                    href="../signup"
+                    href="../simpler"
                     className="inline-block border-1 border-[#00229B] text-sm px-6 py-2 leading-none border rounded-lg bg-[#00229B] w-[225px] font-semibold text-center h-[55px] pt-4 text-white mt-4 lg:mt-0 "
                   >
                     Upgrade Now
