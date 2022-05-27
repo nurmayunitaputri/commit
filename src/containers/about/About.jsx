@@ -124,10 +124,10 @@ const AboutContainer = () => {
                         </div>
                         <div className="p-4 lg:w-1/2">
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="no_profile.png"></img>
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="sheilla.jpg"></img>
                             <div className="flex-grow sm:pl-8">
                               <p className="title-font font-medium text-base text-gray-900">Sheilla Yasmine</p>
-                              <a href='#' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <a href='https://www.instagram.com/sheilayasmine/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
                               <a href='#' className="mb-4 text-base ">Linkedlin</a>
                             </div>
