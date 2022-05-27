@@ -1,6 +1,5 @@
 import { NavBar } from '../../components/navbar';
 
-import Image from 'next/image';
 import { AuthProvider } from '../../providers/auth';
 
 const SimplerContainer = () => {
