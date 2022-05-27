@@ -9,7 +9,7 @@ const ContactContainer = () => {
       {user === null ? <NavbarGuest /> : <NavBar />}
 
       <div className="bg-white text-[#00229B] body-font overflow-hidden">
-        <div className="container px-5 pt-16  mx-auto">
+        <div className="container px-5 py-12  mx-auto">
           {/* bagian satu */}
           <div className="text-gray-600 body-font overflow-hidden ">
             <div className="container px-5 pt-16 pb-5 mx-auto">
@@ -19,12 +19,12 @@ const ContactContainer = () => {
                     Contact Us
                   </h1>
 
-                  <p className="leading-relaxed mb-4">
+                  <p className="leading-relaxed mb-4 text-base">
                     For customer service and business matter only. If you want
                     to do Account Verification, please read the FAQ first before
                     contacting us.
                   </p>
-                  <p className="leading-relaxed mb-4 text-[#2F69FF] font-bold ">
+                  <p className="leading-relaxed mb-4 text-[#2F69FF] font-bold text-base">
                     tech.commitapp@gmail.com
                   </p>
                 </div>
@@ -39,7 +39,7 @@ const ContactContainer = () => {
         </div>
 
         <div className="text-gray-600 body-font overflow-hidden">
-          <div className="container px-5 pt-20 pb-20 mx-auto pl-9 ">
+          <div className="container px-5 pt-10 pb-20 mx-auto pl-9 ">
             <div className="lg:w-4/5 mx-auto ">
               <div className="w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
                 <h1 className="text-[#00229B] text-5xl title-font font-bold  mb-4">
@@ -52,7 +52,7 @@ const ContactContainer = () => {
                 <p className="leading-relaxed mb-1 text-[#333333] text-2xl font-bold ">
                   What do I get as a Verified user ?
                 </p>
-                <p className="leading-relaxed mb-4">
+                <p className="leading-relaxed mb-4 text-base">
                   As soon as you are registered as a Verified user, you will be
                   able to post Premium contents on SImpler Community and you
                   will get paid for each post you made.
@@ -61,7 +61,7 @@ const ContactContainer = () => {
                 <p className="leading-relaxed mb-1 text-[#333333] text-2xl font-bold ">
                   How do I make my account verified ?
                 </p>
-                <p className="leading-relaxed mb-4">
+                <p className="leading-relaxed mb-4 text-base">
                   1. Make sure your followers count has reached or exceeded 20
                   followers.
                   <br />

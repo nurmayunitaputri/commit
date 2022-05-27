@@ -48,21 +48,7 @@ export const NavBar = () => {
           <div className="w-full block lg:flex ml-auto items-center ">
             <div className="input-group responsive text-black text-sm xl:w-80 flex items-center">
               <SearchPeople />
-              {/* <input
-                value={searchInput}
-                onChange={setSearchInput}
-                onSubmit={handleOnSearch}
-                type="search"
-                className="pr-3 pl-10 form-control relative min-w-0 items-center block w-full px-3 py-1.5 text-base font-normal  bg-white bg-clip-padding border border-solid border-gray-300 rounded-lg p-[20] transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="button-addon2"
-              />
-              <SearchIcon
-                className="h-5 w-5 absolute mb-0 ml-3 text-gray-500"
-                height="1.25rem"
-                width="1.25rem"
-              /> */}
+            
             </div>
 
             <div className="text-sm flex items-center pt-2 pl-10">

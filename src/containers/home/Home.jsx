@@ -1,4 +1,5 @@
-import { NavBar } from "../../components/navbar/Navbar";
+import clsx from "clsx";
+
 import { AuthProvider } from "../../providers/auth";
 import { useHomeDispatcher } from "../../redux/reducers/home";
 import { useEffect } from "react";
@@ -7,6 +8,7 @@ import { PostsList } from "./PostsList";
 import { Profile } from "./Profile";
 import { SuggestedPeople } from "./SuggestedPeople";
 import { Footer } from "../../components/footer";
+import { NavBar } from "../../components/navbar/Navbar";
 
 const topicOption = [
   {
@@ -58,13 +60,27 @@ const Home = () => {
                 <p className="text-[12px] text-gray flex justify-start ml-[20px] pb-[7px]">
                   Filter Your Post by Tags
                 </p>
-                <div className="grid grid-cols-2 gap-2 items-center px-2 ">
-                  {topicOption.map((topic) => (
+                <div className="grid grid-cols-2  gap-2 items-center px-2 ">
+                  {topicOption.map((topic, index) => (
                     <div
-                      className="flex flex-col text-[10px] font-bold py-2 rounded-full bg-white border border-[#00229B] items-center"
+                      key={topic.value}
+                      className={clsx(
+                        home.posts.filter == topic.label
+                          ? "bg-blue-600"
+                          : "bg-white",
+                        "flex flex-col text-[10px] font-bold py-2 rounded-full  border border-[#00229B] items-center",
+                        index === topicOption.length - 1 && "col-span-2"
+                      )}
                       onClick={() => onSetFilter(topic.value)}
                     >
-                      <a href="#" className="text-[#00229B]">
+                      <a
+                        href="#"
+                        className={
+                          home.posts.filter == topic.label
+                            ? "text-white"
+                            : "text-[#00229B]"
+                        }
+                      >
                         {topic.label}
                       </a>
                     </div>

@@ -2,28 +2,28 @@ import Link from "next/link";
 export const Footer = () => {
   return (
     <div className="fixed bg-blue-200 bottom-0 right-0 h-30 w-[20%] mr-[3.2rem] border-transparent mb-7 invisible lg:visible">
-      <div className="grid grid-cols-2 gap-2 px-2 text-[15px]">
-        <a href="simpler" className="text-blue-800 text-left text-semibold">
+      <div className="grid grid-cols-2 gap-2 pr-1 text-[15px]">
+        <a href="simpler" className="text-blue-800 text-left text-sm text-semibold">
           Simpler
         </a>
         <a
           href="https://g.co/kgs/sqLcsn"
-          className="text-blue-800 text-left text-semibold"
+          className="text-blue-800 text-left text-sm text-semibold"
         >
           Play Store
         </a>
         <Link href="/about">
-        <a href="/about" className="text-blue-800 text-left text-semibold">
+        <a href="" className="text-blue-800 text-left text-sm text-semibold">
           About Us
         </a>
         </Link>
         <Link href="/contact">
-        <a href="/contact" className="text-blue-800 text-left text-semibold">
-          Contact Us
+        <a href="" className="text-blue-800 text-left text-sm text-semibold">
+          Contact Us & FAQ
         </a>
         </Link>
         <Link href="/privacy">
-        <a href="/privacy" className="text-blue-800 text-left text-semibold">
+        <a href="" className="text-blue-800 text-left text-sm text-semibold">
           Privacy Policy
         </a>
         </Link>

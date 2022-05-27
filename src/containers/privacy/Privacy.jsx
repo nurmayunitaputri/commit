@@ -9,7 +9,7 @@ const PrivacyContainer = () => {
     <div>
       {user === null ? <NavbarGuest /> : <NavBar />}
       <div className="bg-white text-[#00229B] body-font overflow-hidden">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 py-12 mx-auto">
           <div className="flex flex-col text-center w-full mb-2">
             <div className=" pt-[50px] px-2 pb-10 w-8/12 max-w-fit mx-auto">
               <img src="/Logo.png" layout="fill" />
@@ -19,7 +19,7 @@ const PrivacyContainer = () => {
             </h1>
           </div>
           <div className="flex flex-col w-full justify-center ">
-            <p className="lg:w-2/3 mx-auto  leading-relaxed text-sm text-center text-[#333333] pt-5">
+            <p className="lg:w-2/3 mx-auto  leading-relaxed text-base text-center text-[#333333] pt-5">
               This policy explains what information we collect when you use our
               sites, services, mobile applications, products, and content
               (“Services”). It also has information about how we store, use,
@@ -29,7 +29,7 @@ const PrivacyContainer = () => {
             <p className="lg:w-2/3 text-2xl font-bold mx-auto text-left leading-relaxed text-[#333333] pt-10">
               Information We Collect & How We Use It
             </p>
-            <p className="lg:w-2/3 mx-auto  leading-relaxed text-sm text-left text-[#333333] pt-5">
+            <p className="lg:w-2/3 mx-auto  leading-relaxed text-base text-left text-[#333333] pt-5">
               Commit doesn’t make money from ads. So we don’t collect data in
               order to advertise to you. The tracking we do at Commit is to make
               our product work as well as possible. This includes basic product
@@ -62,7 +62,7 @@ const PrivacyContainer = () => {
             <p className="lg:w-2/3 text-2xl font-bold mx-auto text-left leading-relaxed text-[#333333] pt-10">
               Data Storage
             </p>
-            <p className="lg:w-2/3 mx-auto  leading-relaxed text-sm text-left text-[#333333] pt-5">
+            <p className="lg:w-2/3 mx-auto  leading-relaxed text-base text-left text-[#333333] pt-5">
               Commit uses third-party vendors and hosting partners for hardware,
               software, networking, storage, and related technology we need to
               run Commit. We maintain two types of logs: server logs and event
@@ -73,7 +73,7 @@ const PrivacyContainer = () => {
             <p className="lg:w-2/3 text-2xl font-bold mx-auto text-left leading-relaxed text-[#333333] pt-10">
               Data Security
             </p>
-            <p className="lg:w-2/3 mx-auto  leading-relaxed text-sm text-left text-[#333333] pt-5">
+            <p className="lg:w-2/3 mx-auto  leading-relaxed text-base text-left text-[#333333] pt-5">
               We use encryption (HTTPS/TLS) to protect data transmitted to and
               from our site. However, no data transmission over the Internet is
               100% secure, so we can’t guarantee security. You use the Service
@@ -84,7 +84,7 @@ const PrivacyContainer = () => {
             <p className="lg:w-2/3 text-2xl font-bold mx-auto text-left leading-relaxed text-[#333333] pt-10">
               Email from Commit
             </p>
-            <p className="lg:w-2/3 mx-auto  leading-relaxed text-sm text-left text-[#333333] pt-5">
+            <p className="lg:w-2/3 mx-auto  leading-relaxed text-base text-left text-[#333333] pt-5">
               Sometimes we’ll send you emails about your account, service
               changes or new policies. You can’t opt out of this type of
               “transactional” email (unless you delete your account). But, you
