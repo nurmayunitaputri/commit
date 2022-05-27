@@ -27,6 +27,12 @@ const slices = createSlice({
         data: action.payload,
       });
     },
+    toggleError(state, action) {
+      Object.assign(state, {
+        ...state,
+        error: true,
+      });
+    },
   },
 });
 
@@ -48,7 +54,7 @@ export const useProfileDispatcher = () => {
       if (data.data) {
         dispatch(
           setData({
-            postsUser: data.data.post_user,
+            postsUser: data.data.post_user.reverse(),
             detailProfile: data.data.detail_profile,
           })
         );
@@ -70,7 +76,7 @@ export const useProfileDispatcher = () => {
     if (data.data) {
       dispatch(
         setData({
-          postsUser: data.data.post_user,
+          postsUser: data.data.post_user.reverse(),
           detailProfile: data.data.detail_profile,
         })
       );

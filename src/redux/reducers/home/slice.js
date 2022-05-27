@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { callAPI } from "../../../helpers/network";
 
 const initialStatePosts = {
-  filter: null,
+  filter: "Quality Assurance",
   loading: false,
   data: [],
 };

@@ -19,20 +19,20 @@ export const ImagePost = ({ files }) => {
       {index >= 1 && (
         <div className="absolute top-1/2 left-10 transform -translate-x-1/2 -translate-y-1/2">
           <ChevronDoubleLeftIcon
-            height={50}
-            width={50}
+            height={20}
+            width={20}
             onClick={() => setIndex(index - 1)}
-            color="#73716c"
+            color="black"
           />
         </div>
       )}
       {index < files.length - 1 && (
         <div className="absolute top-1/2 right-0 transform -translate-x-1/2 -translate-y-1/2">
           <ChevronDoubleRightIcon
-            height={50}
-            width={50}
+            height={20}
+            width={20}
             onClick={() => setIndex(index + 1)}
-            color="#73716c"
+            color="black"
           />
         </div>
       )}

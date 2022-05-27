@@ -48,7 +48,7 @@ const DetailContainer = () => {
       <div className="bg-blue-200 min-h-screen">
         <NavBar />
         <div className="w-full h-[30%] lg:w-[50%] mx-auto space-y-3 pt-20 bg-white">
-          <div className="border-transparent  rounded-lg ">
+          <div className="border-transparent rounded-lg ">
             {data && (
               <PostCard
                 userId={data.detail_post.user.id}
@@ -63,6 +63,7 @@ const DetailContainer = () => {
                 avatar="/no_profile.png"
                 isLiked={data.detail_post.liked}
                 status={data.detail_post.status}
+                showVerifiedStatus={data.detail_post.user.total_follower >= 20}
                 onLikePress={() => handleOnLike(data.detail_post.id_post)}
                 onUnlikePress={() => handleOnUnlike(data.detail_post.id_post)}
                 onDeletePress={() => handleOnDelete(data.detail_post.id_post)}
@@ -74,6 +75,7 @@ const DetailContainer = () => {
               data.komentar_post &&
               data.komentar_post.map((comment) => (
                 <CommentCard
+                  key={comment.id}
                   name={comment.id_user.fullname}
                   avatar="/no_profile.png"
                   interest={[comment.id_user.passion]}

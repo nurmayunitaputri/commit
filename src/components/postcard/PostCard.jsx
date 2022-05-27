@@ -33,6 +33,7 @@ export const PostCard = ({
   totalComment,
   isLiked,
   status,
+  showVerifiedStatus,
   onDeletePress,
   onLikePress,
   onUnlikePress,
@@ -47,24 +48,26 @@ export const PostCard = ({
                 className="h-full w-full object-cover"
                 src="/no_profile.png"
                 alt="avatar"
-              ></img>
+              />
             </div>
             <h4 className="text-[15px] font-bold text-[#333333]  pb-2 flex justify-center">
               {name}
             </h4>
             <div className="pb-3 ml-[5px]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-blue-600"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+              {showVerifiedStatus && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 text-blue-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              )}
             </div>
 
             <div className="pt-1 ml-96 ">
@@ -176,7 +179,9 @@ export const PostCard = ({
           <div className="flex flex-row text-white">
             {tags.length > 0 &&
               tags.map((tag) => (
-                <p className="px-2 py-1 bg-[#7a97ff] rounded-md mx-1">{tag}</p>
+                <p key={tag} className="px-2 py-1 bg-[#7a97ff] rounded-md mx-1">
+                  {tag}
+                </p>
               ))}
           </div>
           <div className="flex flex-cols gap-[5%] bg-white items-start pt-[5%] rounded-lg ">
