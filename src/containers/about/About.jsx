@@ -60,7 +60,7 @@ const AboutContainer = () => {
                         </div>
                         <div className="p-4 lg:w-1/2">
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="no_profile.png"></img>
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Shinta.jpg"></img>
                             <div className="flex-grow sm:pl-8">
                               <p className="title-font font-medium text-base text-gray-900">Shinta Dewi</p>
                               <a href='https://www.instagram.com/shinndp/' className="text-gray-500 text-base mb-3">Instagram</a>
@@ -92,7 +92,7 @@ const AboutContainer = () => {
                       <div className="flex flex-wrap -m-4">
                         <div className="p-4 lg:w-1/2">
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="no_profile.png"></img>
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Indra.jpg"></img>
                             <div className="flex-grow sm:pl-8">
                               <p className="title-font font-medium text-base text-gray-900">Indra Hasan</p>
                               <a href='https://www.instagram.com/indrahsan/' className="text-gray-500 text-base mb-3">Instagram</a>
@@ -148,7 +148,7 @@ const AboutContainer = () => {
                             <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="no_profile.png"></img>
                             <div className="flex-grow sm:pl-8">
                               <p className="title-font font-medium text-base text-gray-900">Ma'ruf</p>
-                              <a href='#' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <a href='https://www.instagram.com/maruf.rahmann/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
                               <a href='#' className="mb-4 text-base ">Linkedlin</a>
                             </div>
@@ -188,7 +188,7 @@ const AboutContainer = () => {
                         </div>
                         <div className="p-4 lg:w-1/2">
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="no_profile.png"></img>
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Christopher.JPG"></img>
                             <div className="flex-grow sm:pl-8">
                               <p className="title-font font-medium text-base text-gray-900">Christopher</p>
                               <a href='https://www.instagram.com/c_ekptr/' className="text-gray-500 text-base mb-3">Instagram</a>
