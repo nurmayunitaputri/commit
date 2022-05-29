@@ -220,11 +220,6 @@ const AboutContainer = () => {
                         </div>
                       </div>
                     </div>
-                  <p className="px-10 pb-4 text-lg font-bold mx-auto leading-relaxed text-[#7A97FF] text-center pt-5">
-                    UI UX Division
-                  </p>
-                  <div className="ml-10 border-1 border-[#767777] text-sm px-6 py-2 leading-none border rounded-lg bg-[#3e3f3f] w-[70px] 
-                      font-semibold text-center h-[70px] pt-4 text-black">
                   </div>
                 </div>
               </div>
