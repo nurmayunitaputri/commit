@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import SimplerContainer from '../containers/simpler';
+import SimplerContainer from '../containers/Simpler';
 const SimplerPage = () => {
   return (
     <>
