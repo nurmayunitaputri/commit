@@ -64,6 +64,162 @@ const AboutContainer = () => {
                   Who are Team D?
                 </p>
                 <div className="mx-7 text-2xl rounded-lg bg-white pb-8  text-left leading-relaxed mb-10">
+                  <p className="px-10  text-lg font-bold mx-auto leading-relaxed text-[#7A97FF] text-center pt-5">UI UX Division</p>
+                  <div className="text-gray-600 body-font">
+                    <div className="container px-5 py-10 mx-auto">
+                      <div className="flex flex-wrap -m-4">
+                        <div className="p-4 lg:w-1/2">
+                          <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Vanessa.jpg"></img>
+                            <div className="flex-grow sm:pl-8">
+                              <p className="title-font font-medium text-base text-gray-900">Vanessa Alexandra</p>
+                              <a href='https://www.instagram.com/vanessaalxndra/' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <br />
+                              <a href='https://www.linkedin.com/in/vanessa-alexandra-175a4522a/' className="mb-4 text-base ">Linkedlin</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-4 lg:w-1/2">
+                          <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Shinta.jpg"></img>
+                            <div className="flex-grow sm:pl-8">
+                              <p className="title-font font-medium text-base text-gray-900">Shinta Dewi</p>
+                              <a href='https://www.instagram.com/shinndp/' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <br />
+                              <a href='#' className="mb-4 text-base ">Linkedlin</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-4 lg:w-1/2">
+                          <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Rafli.jpeg"></img>
+                            <div className="flex-grow sm:pl-8">
+                              <p className="title-font font-medium text-base text-gray-900">Rafli Adiansyah</p>
+                              <a href='https://www.instagram.com/desinta.dr/' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <br />
+                              <a href='https://www.linkedin.com/in/rafliadiansyah/' className="mb-4 text-base ">Linkedlin</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* DIvisi Backend */}
+                <div className="mx-7 text-2xl rounded-lg bg-white pb-8  text-left leading-relaxed mb-10">
+                  <p className="px-10  text-lg font-bold mx-auto leading-relaxed text-[#7A97FF] text-center pt-5">Back-End Division</p>
+                  <div className="text-gray-600 body-font">
+                    <div className="container px-5 py-10 mx-auto">
+                      <div className="flex flex-wrap -m-4">
+                        <div className="p-4 lg:w-1/2">
+                          <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Indra.jpg"></img>
+                            <div className="flex-grow sm:pl-8">
+                              <p className="title-font font-medium text-base text-gray-900">Indra Hasan</p>
+                              <a href='https://www.instagram.com/indrahsan/' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <br />
+                              <a href='https://www.linkedin.com/in/indra-hasan-3b534a19b/' className="mb-4 text-base ">Linkedlin</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Divisi Front-End */}
+                <div className="mx-7 text-2xl rounded-lg bg-white pb-8  text-left leading-relaxed mb-10">
+                  <p className="px-10  text-lg font-bold mx-auto leading-relaxed text-[#7A97FF] text-center pt-5">Front-End Division</p>
+                  <div className="text-gray-600 body-font">
+                    <div className="container px-5 py-10 mx-auto">
+                      <div className="flex flex-wrap -m-4">
+                        <div className="p-4 lg:w-1/2">
+                          <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Nurma.jpg"></img>
+                            <div className="flex-grow sm:pl-8">
+                              <p className="title-font font-medium text-base text-gray-900">Nurma Putri</p>
+                              <a href='https://www.instagram.com/putri.nyp/' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <br />
+                              <a href='https://www.linkedin.com/in/nurma-yunita-putri-a682b2226/' className="mb-4 text-base ">Linkedlin</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-4 lg:w-1/2">
+                          <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="sheilla.jpg"></img>
+                            <div className="flex-grow sm:pl-8">
+                              <p className="title-font font-medium text-base text-gray-900">Sheilla Yasmine</p>
+                              <a href='https://www.instagram.com/sheilayasmine/' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <br />
+                              <a href='https://www.linkedin.com/in/sheila-yasmine-3552b1226/' className="mb-4 text-base ">Linkedlin</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Divisi Android */}
+                <div className="mx-7 text-2xl rounded-lg bg-white pb-8  text-left leading-relaxed mb-10">
+                  <p className="px-10  text-lg font-bold mx-auto leading-relaxed text-[#7A97FF] text-center pt-5">Android Division</p>
+                  <div className="text-gray-600 body-font">
+                    <div className="container px-5 py-10 mx-auto">
+                      <div className="flex flex-wrap -m-4">
+                        <div className="p-4 lg:w-1/2">
+                          <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="no_profile.png"></img>
+                            <div className="flex-grow sm:pl-8">
+                              <p className="title-font font-medium text-base text-gray-900">Ma'ruf</p>
+                              <a href='https://www.instagram.com/maruf.rahmann/' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <br />
+                              <a href='#' className="mb-4 text-base ">Linkedlin</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-4 lg:w-1/2">
+                          <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Desinta.jpg"></img>
+                            <div className="flex-grow sm:pl-8">
+                              <p className="title-font font-medium text-base text-gray-900">Desinta</p>
+                              <a href='https://www.instagram.com/desinta.dr/' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <br />
+                              <a href='https://www.linkedin.com/in/desintadewir/' className="mb-4 text-base ">Linkedlin</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Divisi QA */}
+                <div className="mx-7 text-2xl rounded-lg bg-white pb-8  text-left leading-relaxed mb-10">
+                  <p className="px-10  text-lg font-bold mx-auto leading-relaxed text-[#7A97FF] text-center pt-5">Quality Assurance Division</p>
+                  <div className="text-gray-600 body-font">
+                    <div className="container px-5 py-10 mx-auto">
+                      <div className="flex flex-wrap -m-4">
+                        <div className="p-4 lg:w-1/2">
+                          <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Aul.jpg"></img>
+                            <div className="flex-grow sm:pl-8">
+                              <p className="title-font font-medium text-base text-gray-900">Zahrotul</p>
+                              <a href='https://instagram.com/zahrotulaulia_' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <br />
+                              <a href='#' className="mb-4 text-base ">Linkedlin</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-4 lg:w-1/2">
+                          <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                            <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Christopher.JPG"></img>
+                            <div className="flex-grow sm:pl-8">
+                              <p className="title-font font-medium text-base text-gray-900">Christopher</p>
+                              <a href='https://www.instagram.com/c_ekptr/' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <br />
+                              <a href='https://www.linkedin.com/in/christopher-ekaputra-88645b1b6/' className="mb-4 text-base ">Linkedlin</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   <p className="px-10 pb-4 text-lg font-bold mx-auto leading-relaxed text-[#7A97FF] text-center pt-5">
                     UI UX Division
                   </p>
