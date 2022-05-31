@@ -52,6 +52,10 @@ export const PostsList = () => {
     return <p> Loading</p>;
   }
 
+  if (data.length === 0) {
+    return <img className="w-full" src="/Frame 14.png" />;
+  }
+
   return data.map((post) => (
     <div key={post.id_post} className="border-transparent rounded-lg">
       <div className="text-white rounded-lg p-2 ">

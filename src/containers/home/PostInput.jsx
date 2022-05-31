@@ -46,10 +46,21 @@ export const PostInput = () => {
     const { files } = e.target;
 
     if (files) {
+      console.log(files);
       setMedia(files);
       setMediaPreview(
-        Object.keys(files).map((key) => URL.createObjectURL(files[key]))
+        Object.keys(files).map((key) => ({
+          type: files[key].type,
+          objectURL: URL.createObjectURL(files[key]),
+        }))
       );
+
+      // setMediaPreview({
+      //   type: files.type,
+      //   objectUrl: Object.keys(files).map((key) =>
+      //     URL.createObjectURL(files[key])
+      //   ),
+      // });
     }
   };
 
@@ -140,35 +151,44 @@ export const PostInput = () => {
             aria-label="Write something"
             aria-describedby="button-addon2"
           />
-          {/* {mediaPreview && (
-            <div>
-              <img
-                src={mediaPreview}
-                className="object-fill h-20 w-17"
-                onClick={() => {
-                  setMedia(undefined);
-                  setMediaPreview(undefined);
-                  inputFile.current.files = null;
-                }}
-              />
-            </div>
-          )} */}
+
           <div className="flex space-x-3">
-            {mediaPreview.map((preview, index) => (
-              <img
-                alt="post"
-                key={"post " + index}
-                src={preview}
-                className="object-fill h-20 w-17"
-                onClick={() => {
-                  let newMedia = Array.from(media);
-                  newMedia = newMedia.filter((file) => file != newMedia[index]);
-                  setMedia(Object.assign({}, newMedia));
-                  setMediaPreview(mediaPreview.filter((p) => p != preview));
-                  inputFile.current.files = null;
-                }}
-              />
-            ))}
+            {mediaPreview.map((preview, index) =>
+              preview.type.includes("image") ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  alt="post"
+                  key={"post " + index}
+                  src={preview.objectURL}
+                  className="object-fill h-20 w-17"
+                  onClick={() => {
+                    let newMedia = Array.from(media);
+                    newMedia = newMedia.filter(
+                      (file) => file != newMedia[index]
+                    );
+                    setMedia(Object.assign({}, newMedia));
+                    setMediaPreview(mediaPreview.filter((p) => p != preview));
+                    inputFile.current.files = null;
+                  }}
+                />
+              ) : (
+                <video
+                  width="100"
+                  height="100"
+                  onClick={() => {
+                    let newMedia = Array.from(media);
+                    newMedia = newMedia.filter(
+                      (file) => file != newMedia[index]
+                    );
+                    setMedia(Object.assign({}, newMedia));
+                    setMediaPreview(mediaPreview.filter((p) => p != preview));
+                    inputFile.current.files = null;
+                  }}
+                >
+                  <source src={preview.objectURL} />
+                </video>
+              )
+            )}
           </div>
           <input
             type="file"
@@ -337,7 +357,7 @@ export function TopicPost({ topics, onChanged }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
           <div className="py-1">
             {topicOption.map((topic) => (
               <Menu.Item>

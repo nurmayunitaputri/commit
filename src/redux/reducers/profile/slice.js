@@ -54,13 +54,16 @@ export const useProfileDispatcher = () => {
       if (data.data) {
         dispatch(
           setData({
-            postsUser: data.data.post_user.reverse(),
+            postsUser: data.data.post_user
+              ? data.data.post_user.reverse()
+              : data.data.post_user,
             detailProfile: data.data.detail_profile,
           })
         );
       }
       dispatch(toggleLoading(false));
     } catch (error) {
+      console.log({ error });
       dispatch(toggleError(false));
     }
   };

@@ -38,8 +38,10 @@ export const ImagePost = ({ files }) => {
       )}
 
       {file.url.split(".").pop() == "mp4" ? (
-        <ReactPlayer url={file.url} controls={true} />
+        <div className="w-30">
+        <ReactPlayer width={600} url={file.url} controls={true} /></div>
       ) : (
+        
         <img className="h-full w-full object-cover" src={file.url} />
       )}
     </div>

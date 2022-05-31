@@ -72,29 +72,29 @@ const LoginContainer = () => {
 
   return (
     <NoAuthProvider>
-      <main className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full ">
+      <main className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full sm:pr-32 md:pr-32 xl:pr-32 2xl:pr-64">
         {/* section kiri */}
         <div
-          className="w-full h-full bg-blue-200 flex flex-col justify-center bg-cover bg-left "
+          className="w-full h-full bg-blue-200 flex flex-col pt-5 bg-cover bg-left "
           style={{
             backgroundImage: `url('Background Login Sign Up.svg')`,
           }}
         >
           <img
             src="Logo Header.svg"
-            className=" px-20 py-20 w-12/12 max-w-fit flex justify-items-end "
+            className=" px-20 pt-10 pb-5 w-12/12 max-w-fit flex justify-items-end "
           ></img>
-          <div className="px-20 text-5xl font-bold w-4/5 text-[#333333] items-center justify-center ">
+          <div className="px-20 text-4xl font-bold w-4/5 text-[#333333] items-center justify-center ">
             Welcome to your next growth opportunity.
           </div>
-          <div className="px-20 text-sm w-3/4 mt-9 pb-9">
+          <div className="px-20 text-xs w-3/4 mt-9 pb-9">
             Get connected with expert, freelance and professional jobs that are
             suited just for you and meet your prerequisite.
           </div>
-          <div className="flex justify-end items-end pr-40">
+          <div className="absolute bottom-8 left-56">
             <img
               src="png_signup login.png"
-              className=" w-8/12 max-w-fit "
+              className=" w-8/13 sm:w-48 max-w-fit "
             ></img>
           </div>
         </div>

@@ -70,7 +70,7 @@ export const PostCard = ({
               )}
             </div>
 
-            <div className="pt-1 ml-96 ">
+            <div className="w-full pt-1 flex justify-end pr-5">
               <Menu as="div" className="relative">
                 <div>
                   <Menu.Button className="inline-flex justify-center w-full rounded-md">
@@ -173,7 +173,7 @@ export const PostCard = ({
             <br /> {desc}
           </div>
 
-          <div className="block h-[50%] w-[90%] ml-7 pt-5">
+          <div className="h-[50%] w-[90%] pt-5 flex justify-start">
             <ImagePost files={filePosts} />
           </div>
           <div className="flex flex-row text-white">
