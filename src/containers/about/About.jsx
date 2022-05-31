@@ -7,10 +7,10 @@ const AboutContainer = () => {
     <div>
       {user === null ? <NavbarGuest /> : <NavBar />}
       <div className="bg-white text-[#00229B] body-font overflow-hidden">
-        <div className="container px-5 pt-12 mx-auto">
+        <div className="container px-5 pt-1 mx-auto">
           <div className="flex flex-col text-center w-full mx-auto mb-2">
-            <div className=" pt-[50px] px-2 pb-10 w-8/12 max-w-fit mx-auto"></div>
-            <p className="lg:w-2/3 text-5xl font-bold mx-auto text-left leading-relaxed text-[#00229B] pt-10 pb-7">
+            <div className=" px-2 pb-10 w-8/12 max-w-fit mx-auto"></div>
+            <p className="lg:w-2/3 text-5xl font-bold mx-auto text-left leading-relaxed text-[#00229B] pt-1 pb-7">
               About Commit
             </p>
           </div>
@@ -83,10 +83,9 @@ const AboutContainer = () => {
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                             <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Shinta.jpg"></img>
                             <div className="flex-grow sm:pl-8">
-                              <p className="title-font font-medium text-base text-gray-900">Shinta Dewi</p>
+                              <p className="title-font font-medium text-base text-gray-900">Shinta Dewi Pramesti</p>
                               <a href='https://www.instagram.com/shinndp/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href='#' className="mb-4 text-base ">Linkedlin</a>
                             </div>
                           </div>
                         </div>
@@ -95,7 +94,7 @@ const AboutContainer = () => {
                             <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Rafli.jpeg"></img>
                             <div className="flex-grow sm:pl-8">
                               <p className="title-font font-medium text-base text-gray-900">Rafli Adiansyah</p>
-                              <a href='https://www.instagram.com/desinta.dr/' className="text-gray-500 text-base mb-3">Instagram</a>
+                              <a href='https://instagram.com/rafliadiansyh ' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
                               <a href='https://www.linkedin.com/in/rafliadiansyah/' className="mb-4 text-base ">Linkedlin</a>
                             </div>
@@ -136,7 +135,7 @@ const AboutContainer = () => {
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                             <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Nurma.jpg"></img>
                             <div className="flex-grow sm:pl-8">
-                              <p className="title-font font-medium text-base text-gray-900">Nurma Putri</p>
+                              <p className="title-font font-medium text-base text-gray-900">Nurma Yunita Putri</p>
                               <a href='https://www.instagram.com/putri.nyp/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
                               <a href='https://www.linkedin.com/in/nurma-yunita-putri-a682b2226/' className="mb-4 text-base ">Linkedlin</a>
@@ -147,7 +146,7 @@ const AboutContainer = () => {
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                             <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="sheilla.jpg"></img>
                             <div className="flex-grow sm:pl-8">
-                              <p className="title-font font-medium text-base text-gray-900">Sheilla Yasmine</p>
+                              <p className="title-font font-medium text-base text-gray-900">Sheilla Sara Yasmine</p>
                               <a href='https://www.instagram.com/sheilayasmine/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
                               <a href='https://www.linkedin.com/in/sheila-yasmine-3552b1226/' className="mb-4 text-base ">Linkedlin</a>
@@ -168,10 +167,10 @@ const AboutContainer = () => {
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                             <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="no_profile.png"></img>
                             <div className="flex-grow sm:pl-8">
-                              <p className="title-font font-medium text-base text-gray-900">Ma'ruf</p>
+                              <p className="title-font font-medium text-base text-gray-900">Ma'ruf Rahman</p>
                               <a href='https://www.instagram.com/maruf.rahmann/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href='#' className="mb-4 text-base ">Linkedlin</a>
+                              <a href=' https://www.linkedin.com/in/marufrahmanofficial/' className="mb-4 text-base ">Linkedlin</a>
                             </div>
                           </div>
                         </div>
@@ -179,7 +178,7 @@ const AboutContainer = () => {
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                             <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Desinta.jpg"></img>
                             <div className="flex-grow sm:pl-8">
-                              <p className="title-font font-medium text-base text-gray-900">Desinta</p>
+                              <p className="title-font font-medium text-base text-gray-900">Desinta Dewi Ramadani</p>
                               <a href='https://www.instagram.com/desinta.dr/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
                               <a href='https://www.linkedin.com/in/desintadewir/' className="mb-4 text-base ">Linkedlin</a>
@@ -200,10 +199,9 @@ const AboutContainer = () => {
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                             <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Aul.jpg"></img>
                             <div className="flex-grow sm:pl-8">
-                              <p className="title-font font-medium text-base text-gray-900">Zahrotul</p>
+                              <p className="title-font font-medium text-base text-gray-900">Zahrotul Aulia</p>
                               <a href='https://instagram.com/zahrotulaulia_' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href='#' className="mb-4 text-base ">Linkedlin</a>
                             </div>
                           </div>
                         </div>
@@ -211,7 +209,7 @@ const AboutContainer = () => {
                           <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                             <img alt="team" className="flex-shrink-0 rounded-lg w-24 h-24 object-cover object-center sm:mb-0 mb-4" src="Christopher.JPG"></img>
                             <div className="flex-grow sm:pl-8">
-                              <p className="title-font font-medium text-base text-gray-900">Christopher</p>
+                              <p className="title-font font-medium text-base text-gray-900">Christopher Ekaputra</p>
                               <a href='https://www.instagram.com/c_ekptr/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
                               <a href='https://www.linkedin.com/in/christopher-ekaputra-88645b1b6/' className="mb-4 text-base ">Linkedlin</a>

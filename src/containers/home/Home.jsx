@@ -58,7 +58,7 @@ const Home = () => {
                 </h4>
 
                 <p className="text-[12px] text-gray flex justify-start ml-[20px] pb-[7px]">
-                  Filter Your Post by Tags
+                  Filter  Post by Topics
                 </p>
                 <div className="grid grid-cols-2  gap-2 items-center px-2 ">
                   {topicOption.map((topic, index) => (
@@ -104,7 +104,7 @@ const Home = () => {
                     href="../simpler"
                     className="inline-block border-1 border-[#00229B] text-sm px-6 py-2 leading-none border rounded-lg bg-[#00229B] w-[225px] font-semibold text-center h-[55px] pt-4 text-white mt-4 lg:mt-0 "
                   >
-                    Upgrade Now
+                    Subscribe
                   </a>
                 </div>
               </form>

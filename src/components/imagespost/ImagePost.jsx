@@ -15,7 +15,7 @@ export const ImagePost = ({ files }) => {
   }
 
   return (
-    <div className="block h-[50%] w-[90%] ml-7 pt-5 relative">
+    <div className="block h-[50%] w-[90%] ml-7 pt-5 relative pb-7">
       {index >= 1 && (
         <div className="absolute top-1/2 left-10 transform -translate-x-1/2 -translate-y-1/2">
           <ChevronDoubleLeftIcon
