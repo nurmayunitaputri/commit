@@ -68,7 +68,7 @@ const Home = () => {
                         home.posts.filter == topic.label
                           ? "bg-blue-600"
                           : "bg-white",
-                        "flex flex-col text-[10px] font-bold py-2 rounded-full  border border-[#00229B] items-center",
+                        "flex flex-col text-[10px] font-bold py-2 rounded-full  border-2 border-[#00229B] items-center",
                         index === topicOption.length - 1 && "col-span-2"
                       )}
                       onClick={() => onSetFilter(topic.value)}
