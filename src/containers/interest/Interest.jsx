@@ -97,7 +97,7 @@ const InterestContainer = () => {
             <div className="grid grid-cols-3 gap-4 text-[#4E4D4F] items-center ">
               <label
                 className={`text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${
-                  values.interests.includes("frontend")
+                  values.interests.includes("Front End")
                     ? "bg-blue-700 text-white"
                     : "bg-transparent"
                 }`}
@@ -108,13 +108,13 @@ const InterestContainer = () => {
                   type="checkbox"
                   name="interests"
                   className="hidden"
-                  value="frontend"
+                  value="Front End"
                 />
                 Frontend +
               </label>
               <label
                 className={`text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${
-                  values.interests.includes("ui-ux")
+                  values.interests.includes("UI/UX")
                     ? "bg-blue-700 text-white"
                     : "bg-transparent"
                 }`}
@@ -125,13 +125,13 @@ const InterestContainer = () => {
                   type="checkbox"
                   name="interests"
                   className="hidden"
-                  value="ui-ux"
+                  value="UI/UX"
                 />
                 UI/UX +
               </label>
               <label
                 className={`text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${
-                  values.interests.includes("backend")
+                  values.interests.includes("Back End")
                     ? "bg-blue-700 text-white"
                     : "bg-transparent"
                 }`}
@@ -142,7 +142,7 @@ const InterestContainer = () => {
                   type="checkbox"
                   name="interests"
                   className="hidden"
-                  value="backend"
+                  value="Back End"
                 />
                 Backend +
               </label>
@@ -165,7 +165,7 @@ const InterestContainer = () => {
               </label>
               <label
                 className={`col-span-2 text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${
-                  values.interests.includes("Quality-Assurance")
+                  values.interests.includes("Quality Assurance")
                     ? "bg-blue-700 text-white"
                     : "bg-transparent"
                 }`}
@@ -176,7 +176,7 @@ const InterestContainer = () => {
                   type="checkbox"
                   name="interests"
                   className="hidden"
-                  value="Quality-Assurance"
+                  value="Quality Assurance"
                 />
                 Quality Assurance +
               </label>
