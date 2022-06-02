@@ -68,7 +68,7 @@ const ForgotContainer = () => {
           <img src="png_signup login.png" className=" w-8/12 max-w-fit "></img>
         </div>
       </div>
-
+      
       {/* section kanan */}
       <div className="w-full h-full bg-white flex flex-col justify-center ">
         <div className="border border-gray-300 w-4/5 h-fit flex flex-col justify-center rounded-xl shadow-lg mx-auto ">
@@ -81,7 +81,7 @@ const ForgotContainer = () => {
               className=" px-2 pb-4 w-8/12 max-w-fit mx-auto"
             ></img>
             <h2 className="text-2xl text-[#27272E] font-bold text-center">
-              Forgot Password
+              Reset Password
             </h2>
             <div className="flex flex-col text-black text-sm mt-7 py-2  font-semibold">
               <label>Email</label>

@@ -11,9 +11,17 @@ const FinishOtpContainer = () => {
           backgroundImage: `url('Background Login Sign Up.svg')`,
         }}
       >
-        <img src="Logo Header.svg" className=" px-20 py-20 w-12/12 max-w-fit flex justify-items-end "></img>
-        <div className="px-20 text-5xl font-bold w-4/5 text-[#333333] items-center justify-center ">Welcome to your next growth opportunity.</div>
-        <div className="px-20 text-sm w-3/4 mt-9 pb-9">Get connected with expert, freelance and professional jobs that are suited just for you and meet your prerequisite.</div>
+        <img
+          src="Logo Header.svg"
+          className=" px-20 py-20 w-12/12 max-w-fit flex justify-items-end "
+        ></img>
+        <div className="px-20 text-5xl font-bold w-4/5 text-[#333333] items-center justify-center ">
+          Welcome to your next growth opportunity.
+        </div>
+        <div className="px-20 text-sm w-3/4 mt-9 pb-9">
+          Get connected with expert, freelance and professional jobs that are
+          suited just for you and meet your prerequisite.
+        </div>
         <div className="flex justify-end items-end pr-40">
           <img src="png_signup login.png" className=" w-8/12 max-w-fit "></img>
         </div>

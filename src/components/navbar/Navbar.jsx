@@ -171,7 +171,7 @@ const UserItem = ({ user }) => {
   return (
     <div className="flex flex-row  mb-3 align-middle justify-between">
       <div className="flex flex-row space-x-3  align-middle">
-        <img src="/no_profile.png" className="h-10 w-10 rounded-full" />
+        <img src="/no_profile.png" className="h-10 w-10 object-cover rounded-full" />
         <div className="space-y-1">
           <p className="font-bold">{user.fullname}</p>
           <p className="text-blue-900 font-medium text-[11px]">{user.passion}</p>
