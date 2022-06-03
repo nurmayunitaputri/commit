@@ -76,6 +76,7 @@ const DetailContainer = () => {
               data.komentar_post.map((comment) => (
                 <CommentCard
                   key={comment.id}
+                  userId={comment.id_user.id}
                   name={comment.id_user.fullname}
                   avatar="/no_profile.png"
                   interest={[comment.id_user.passion]}

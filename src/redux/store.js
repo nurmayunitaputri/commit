@@ -19,6 +19,7 @@ import privacy from "./reducers/privacy";
 import contact from "./reducers/about";
 import search from "./reducers/search";
 import about from "./reducers/about";
+import profileuser from "./reducers/profileuser";
 
 // rootReducer
 const rootReducer = combineReducers({
@@ -40,6 +41,7 @@ const rootReducer = combineReducers({
   contact,
   search,
   about,
+  profileuser,
 });
 // store (main storage)
 const store = configureStore({

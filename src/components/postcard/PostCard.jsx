@@ -14,6 +14,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { isCurrentUser } from "../../helpers/isCurrentUser";
 import { ImagePost } from "../imagespost/ImagePost";
+import { useRouter } from "next/router";
 dayjs.extend(relativeTime);
 
 function classNames(...classes) {
@@ -38,12 +39,16 @@ export const PostCard = ({
   onLikePress,
   onUnlikePress,
 }) => {
+  const { push } = useRouter();
   return (
     <div className="border-transparent rounded-lg ">
       <div className="min-h-[15rem] text-white rounded-lg p-2">
         <form className="py-2 rounded-lg bg-white pl-2">
           <div className="flex flex-cols ml-2 items-center pt-2">
-            <div className="block h-10 w-10 rounded-full overflow-hidden border-2 mr-2 ">
+            <div
+              className="block h-10 w-10 rounded-full overflow-hidden border-2 mr-2 "
+              onClick={() => push(`/profile/${userId}`)}
+            >
               <img
                 className="h-full w-full object-cover"
                 src="/no_profile.png"

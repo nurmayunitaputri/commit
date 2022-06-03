@@ -61,7 +61,10 @@ export const PostsList = () => {
       <div className="text-white rounded-lg p-2 ">
         <div className="py-2 rounded-lg bg-white pl-2 overflow-hidden hover:">
           <div className="flex flex-cols ml-2 items-center pt-2">
-            <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2">
+            <div
+              className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2"
+              onClick={() => push(`/profile/${post.user.id}`)}
+            >
               <img
                 className="h-full w-full object-cover"
                 src="/no_profile.png"

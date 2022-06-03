@@ -183,7 +183,7 @@ const Landing = () => {
                 </li>
                 <li>
                   <a href="../contact" className="text-[#00229B] text-lg ">
-                    Contact Us
+                    Contact Us & FAQ
                   </a>
                 </li>
               </nav>

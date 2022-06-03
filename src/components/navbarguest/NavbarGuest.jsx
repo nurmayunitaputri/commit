@@ -24,7 +24,7 @@ export const NavbarGuest = () => {
             About Us
           </a>
           <a href="./contact" className="block mt-4 lg:inline-block lg:mt-0 text-black mr-11">
-            Contact Us
+            Contact Us & FAQ
           </a>
           
         </div>

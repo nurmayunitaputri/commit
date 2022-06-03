@@ -250,8 +250,8 @@ const SignupContainer = () => {
                 <option value="gender" hidden>
                   Gender
                 </option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
               </select>
               {getIn(touched, "gender") && getIn(errors, "gender") && (
                 <div

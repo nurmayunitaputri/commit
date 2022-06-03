@@ -21,24 +21,25 @@ export const useInterestDispatcher = () => {
   const { interest } = useSelector((state) => state);
   const dispatch = useDispatch();
   const doInterest = async (values) => {
-    dispatch(toggleLoading(true));
+    console.log(values);
+    // dispatch(toggleLoading(true));
 
-    try {
-      const response = await callAPI({
-        url: "/register",
-        method: "POST",
-        data: values,
-      });
+    // try {
+    //   const response = await callAPI({
+    //     url: "/register",
+    //     method: "POST",
+    //     data: values,
+    //   });
 
-      if (response.data.status >= 400) {
-        throw response.data.message;
-      }
+    //   if (response.data.status >= 400) {
+    //     throw response.data.message;
+    //   }
 
-      dispatch(toggleLoading(false));
-    } catch (e) {
-      dispatch(toggleLoading(false));
-      throw e;
-    }
+    //   dispatch(toggleLoading(false));
+    // } catch (e) {
+    //   dispatch(toggleLoading(false));
+    //   throw e;
+    // }
   };
   return {
     interest,

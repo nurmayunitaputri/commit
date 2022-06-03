@@ -149,6 +149,9 @@ export const useHomeDispatcher = () => {
       }
       dispatch(toggleLoadingPosts(false));
     } catch (error) {
+      if (error?.response?.status === 404) {
+        dispatch(setPosts([]));
+      }
       dispatch(toggleLoadingPosts(false));
     }
   };
@@ -169,7 +172,11 @@ export const useHomeDispatcher = () => {
       if (data.data) {
         dispatch(setPosts(data.data.reverse()));
       }
-    } catch (error) {}
+    } catch (error) {
+      if (error?.response?.status === 404) {
+        dispatch(setPosts([]));
+      }
+    }
   };
 
   const fetchProfile = async () => {
