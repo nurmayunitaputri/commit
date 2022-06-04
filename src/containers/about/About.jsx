@@ -75,7 +75,7 @@ const AboutContainer = () => {
                               <p className="title-font font-medium text-base text-gray-900">Vanessa Alexandra</p>
                               <a href='https://www.instagram.com/vanessaalxndra/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href='https://www.linkedin.com/in/vanessa-alexandra-175a4522a/' className="mb-4 text-base ">Linkedlin</a>
+                              <a href='https://www.linkedin.com/in/vanessa-alexandra-175a4522a/' className="mb-4 text-base ">LinkedIn</a>
                             </div>
                           </div>
                         </div>
@@ -96,7 +96,7 @@ const AboutContainer = () => {
                               <p className="title-font font-medium text-base text-gray-900">Rafli Adiansyah</p>
                               <a href='https://instagram.com/rafliadiansyh ' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href='https://www.linkedin.com/in/rafliadiansyah/' className="mb-4 text-base ">Linkedlin</a>
+                              <a href='https://www.linkedin.com/in/rafliadiansyah/' className="mb-4 text-base ">LinkedIn</a>
                             </div>
                           </div>
                         </div>
@@ -117,7 +117,7 @@ const AboutContainer = () => {
                               <p className="title-font font-medium text-base text-gray-900">Indra Hasan</p>
                               <a href='https://www.instagram.com/indrahsan/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href='https://www.linkedin.com/in/indra-hasan-3b534a19b/' className="mb-4 text-base ">Linkedlin</a>
+                              <a href='https://www.linkedin.com/in/indra-hasan-3b534a19b/' className="mb-4 text-base ">LinkedIn</a>
                             </div>
                           </div>
                         </div>
@@ -138,7 +138,7 @@ const AboutContainer = () => {
                               <p className="title-font font-medium text-base text-gray-900">Nurma Yunita Putri</p>
                               <a href='https://www.instagram.com/putri.nyp/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href='https://www.linkedin.com/in/nurma-yunita-putri-a682b2226/' className="mb-4 text-base ">Linkedlin</a>
+                              <a href='https://www.linkedin.com/in/nurma-yunita-putri-a682b2226/' className="mb-4 text-base ">LinkedIn</a>
                             </div>
                           </div>
                         </div>
@@ -149,7 +149,7 @@ const AboutContainer = () => {
                               <p className="title-font font-medium text-base text-gray-900">Sheilla Sara Yasmine</p>
                               <a href='https://www.instagram.com/sheilayasmine/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href='https://www.linkedin.com/in/sheila-yasmine-3552b1226/' className="mb-4 text-base ">Linkedlin</a>
+                              <a href='https://www.linkedin.com/in/sheila-yasmine-3552b1226/' className="mb-4 text-base ">LinkedIn</a>
                             </div>
                           </div>
                         </div>
@@ -170,7 +170,7 @@ const AboutContainer = () => {
                               <p className="title-font font-medium text-base text-gray-900">Ma'ruf Rahman</p>
                               <a href='https://www.instagram.com/maruf.rahmann/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href=' https://www.linkedin.com/in/marufrahmanofficial/' className="mb-4 text-base ">Linkedlin</a>
+                              <a href=' https://www.linkedin.com/in/marufrahmanofficial/' className="mb-4 text-base ">LinkedIn</a>
                             </div>
                           </div>
                         </div>
@@ -181,7 +181,7 @@ const AboutContainer = () => {
                               <p className="title-font font-medium text-base text-gray-900">Desinta Dewi Ramadani</p>
                               <a href='https://www.instagram.com/desinta.dr/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href='https://www.linkedin.com/in/desintadewir/' className="mb-4 text-base ">Linkedlin</a>
+                              <a href='https://www.linkedin.com/in/desintadewir/' className="mb-4 text-base ">LinkedIn</a>
                             </div>
                           </div>
                         </div>
@@ -212,7 +212,7 @@ const AboutContainer = () => {
                               <p className="title-font font-medium text-base text-gray-900">Christopher Ekaputra</p>
                               <a href='https://www.instagram.com/c_ekptr/' className="text-gray-500 text-base mb-3">Instagram</a>
                               <br />
-                              <a href='https://www.linkedin.com/in/christopher-ekaputra-88645b1b6/' className="mb-4 text-base ">Linkedlin</a>
+                              <a href='https://www.linkedin.com/in/christopher-ekaputra-88645b1b6/' className="mb-4 text-base ">LinkedIn</a>
                             </div>
                           </div>
                         </div>

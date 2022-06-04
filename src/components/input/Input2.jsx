@@ -18,7 +18,7 @@ const Input2 = ({ label, name, type, onChange, onBlur, placeholder, dataTestId }
           data-testid={dataTestId}
         />
         <button type="button" className="px-2" onClick={() => setPasswordShown(!passwordShown)}>
-          {passwordShown ? <EyeIcon className="h-5 w-5 text-black" /> : <EyeOffIcon className="h-5 w-5 text-black" />}
+          {passwordShown ? <EyeOffIcon className="h-5 w-5 text-black" /> : <EyeIcon className="h-5 w-5 text-black" />}
         </button>
       </div>
       {/* <input  

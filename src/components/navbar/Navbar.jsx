@@ -194,7 +194,7 @@ export default function SearchPeople() {
               <XIcon height={32} width={32} />
             </div>
 
-            {search.error && <p>Error...</p>}
+            {search.error && <p>User Not Found...</p>}
             {search.loading && <p>Loading...</p>}
             {search.users.map((user) => (
               <UserItem key={`search-user-${user.id}`} user={user} />
