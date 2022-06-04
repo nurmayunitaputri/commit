@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { callAPI } from "../../helpers/network";
 import { useHomeDispatcher } from "../../redux/reducers/home";
@@ -36,6 +37,7 @@ export const SuggestedPeople = () => {
 };
 
 const PeopleItem = ({ people }) => {
+  const { push } = useRouter();
   const { fetchProfile } = useHomeDispatcher();
   const { refreshSuggestedPeople } = useSuggestedPeopleDispatcher();
   const [loading, setLoading] = useState(false);
@@ -73,7 +75,10 @@ const PeopleItem = ({ people }) => {
   return (
     <div className="flex items-start ml-3 pt-3 px-2 text-sm justify-between">
       <div className="flex">
-        <div className="block h-10 w-10 rounded-full overflow-hidden border-2 focus:outline-none focus:border-white">
+        <div
+          className="block h-10 w-10 rounded-full overflow-hidden border-2 focus:outline-none focus:border-white"
+          onClick={() => push(`/profile/${people.id}`)}
+        >
           <img
             className="h-full w-full object-cover"
             src="no_profile.png"
