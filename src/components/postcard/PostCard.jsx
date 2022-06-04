@@ -8,13 +8,19 @@ import {
   ShieldExclamationIcon,
   GlobeIcon,
   LightBulbIcon,
+  BookmarkIcon as BookmarkIconOutline,
 } from "@heroicons/react/outline";
-import { HeartIcon as HeartIconSolid } from "@heroicons/react/solid";
+import {
+  HeartIcon as HeartIconSolid,
+  BookmarkIcon as BookmarkIconSolid,
+} from "@heroicons/react/solid";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { isCurrentUser } from "../../helpers/isCurrentUser";
 import { ImagePost } from "../imagespost/ImagePost";
 import { useRouter } from "next/router";
+import { useBookmarkDispatcher } from "../../redux/reducers/bookmark/slice";
+
 dayjs.extend(relativeTime);
 
 function classNames(...classes) {
@@ -22,6 +28,7 @@ function classNames(...classes) {
 }
 
 export const PostCard = ({
+  postId,
   userId,
   avatar,
   interest,
@@ -38,15 +45,30 @@ export const PostCard = ({
   onDeletePress,
   onLikePress,
   onUnlikePress,
+  clickStatusToDetail,
+  bookmarked,
+  onRefresh,
 }) => {
   const { push } = useRouter();
+  const { saveToBookmark, deleteFromBookmark } = useBookmarkDispatcher();
+
+  const handleSaveToBookmark = async () => {
+    await saveToBookmark({ postId });
+    onRefresh();
+  };
+
+  const handleDeleteFromBookmark = async () => {
+    await deleteFromBookmark({ postId });
+    onRefresh();
+  };
+
   return (
     <div className="border-transparent rounded-lg ">
-      <div className="min-h-[15rem] text-white rounded-lg p-2">
-        <form className="py-2 rounded-lg bg-white pl-2">
+      <div className="text-white rounded-lg p-2 ">
+        <div className="py-2 rounded-lg bg-white pl-2 overflow-hidden">
           <div className="flex flex-cols ml-2 items-center pt-2">
             <div
-              className="block h-10 w-10 rounded-full overflow-hidden border-2 mr-2 "
+              className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 mr-2"
               onClick={() => push(`/profile/${userId}`)}
             >
               <img
@@ -55,7 +77,7 @@ export const PostCard = ({
                 alt="avatar"
               />
             </div>
-            <h4 className="text-[15px] font-bold text-[#333333]  pb-2 flex justify-center">
+            <h4 className="text-[15px] font-bold text-[#333333] ml-3 pt-1 flex justify-center">
               {name}
             </h4>
             <div className="pb-3 ml-[5px]">
@@ -174,7 +196,12 @@ export const PostCard = ({
               )}
             </div>
           </div>
-          <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 ">
+          <div
+            className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 "
+            onClick={() =>
+              clickStatusToDetail ? push(`/detail/${postId}`) : null
+            }
+          >
             <br /> {desc}
           </div>
 
@@ -228,29 +255,26 @@ export const PostCard = ({
                 </p>
               </div>
             </a>
-            <a
-              href="#"
-              className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[65%]"
-            >
+            <div className="block focus:text-blue-700 text-gray-500 focus:outline-none ml-[65%]">
               <div className="flex items-start text-sm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                {bookmarked ? (
+                  <BookmarkIconSolid
+                    height={32}
+                    width={32}
+                    color="black"
+                    onClick={handleDeleteFromBookmark}
                   />
-                </svg>
+                ) : (
+                  <BookmarkIconOutline
+                    height={32}
+                    width={32}
+                    onClick={handleSaveToBookmark}
+                  />
+                )}
               </div>
-            </a>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

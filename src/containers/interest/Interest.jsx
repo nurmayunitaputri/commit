@@ -6,6 +6,7 @@ import { useFormik, getIn } from "formik";
 import * as Yup from "yup";
 import { useInterestDispatcher } from "../../redux/reducers/interest";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const validationSchema = Yup.object({
   interests: Yup.array().max(2, "Pilihan Interest maksimal 2"),
@@ -18,12 +19,22 @@ const validationSchema = Yup.object({
 // };
 
 const InterestContainer = () => {
+  const { push } = useRouter();
   const {
     interest: { loading },
     doInterest,
   } = useInterestDispatcher();
 
-  const onSubmit = async (values) => {
+  const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik({
+    initialValues: {
+      // checkboxItem: [],
+      interests: [],
+    },
+    validationSchema,
+  });
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
     try {
       const payload = {
         email: localStorage.getItem("email"),
@@ -36,20 +47,11 @@ const InterestContainer = () => {
       };
 
       await doInterest(payload);
-      // window.location.href = "/login";
+      push("/login");
     } catch (error) {
       alert(error);
     }
   };
-
-  const { handleSubmit, handleBlur, handleChange, values, errors } = useFormik({
-    initialValues: {
-      // checkboxItem: [],
-      interests: [],
-    },
-    validationSchema,
-    onSubmit,
-  });
 
   return (
     <NoAuthProvider>
@@ -80,7 +82,7 @@ const InterestContainer = () => {
         <div className="w-full h-full bg-white flex flex-col justify-center">
           <form
             className="max-w-[480px] w-full mx-auto border bg-white rounded-2xl p-[20px]"
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
           >
             <h2 className="text-2xl text-[#27272E] font-bold text-center">
               Choose your interest

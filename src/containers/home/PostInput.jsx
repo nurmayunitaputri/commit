@@ -241,7 +241,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function PublicPost({ status, onChanged }) {
+export default function PublicPost({ onChanged }) {
+  const { home } = useHomeDispatcher();
+  const { profile } = home;
   return (
     <Menu as="div" className="relative">
       <div>
@@ -266,7 +268,7 @@ export default function PublicPost({ status, onChanged }) {
                 />
               </svg>
               <p className=" mx-1.5 text-[12px] font-semibold text-[#a8b8f1] py-2 hover:text-blue-700">
-                {status}
+                Post Type
               </p>
             </div>
           </a>
@@ -298,20 +300,22 @@ export default function PublicPost({ status, onChanged }) {
                 </a>
               )}
             </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  onClick={() => onChanged("Simpler Post")}
-                  className={classNames(
-                    active ? "bg-blue-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  Simpler Post
-                </a>
-              )}
-            </Menu.Item>
+            {profile?.data?.status?.toLowerCase() === "verified" && (
+              <Menu.Item>
+                {({ active }) => (
+                  <a
+                    href="#"
+                    onClick={() => onChanged("Simpler Post")}
+                    className={classNames(
+                      active ? "bg-blue-100 text-gray-900" : "text-gray-700",
+                      "block px-4 py-2 text-sm"
+                    )}
+                  >
+                    Simpler Post
+                  </a>
+                )}
+              </Menu.Item>
+            )}
           </div>
         </Menu.Items>
       </Transition>

@@ -59,10 +59,10 @@ export const PostsList = () => {
   return data.map((post) => (
     <div key={post.id_post} className="border-transparent rounded-lg">
       <div className="text-white rounded-lg p-2 ">
-        <div className="py-2 rounded-lg bg-white pl-2 overflow-hidden hover:">
+        <div className="py-2 rounded-lg bg-white pl-2 overflow-hidden">
           <div className="flex flex-cols ml-2 items-center pt-2">
             <div
-              className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2"
+              className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 mr-1"
               onClick={() => push(`/profile/${post.user.id}`)}
             >
               <img
@@ -76,7 +76,7 @@ export const PostsList = () => {
               {post.user.fullname}{" "}
             </h4>
             <div className="pb-1 ml-[5px]">
-              {post.user.total_follower >= 20 && (
+              {post.user.status.toLowerCase() == "verified" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5 text-blue-600"

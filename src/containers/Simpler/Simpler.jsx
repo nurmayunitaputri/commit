@@ -1,8 +1,143 @@
+import clsx from "clsx";
+import { useEffect, useState } from "react";
+import { Footer } from "../../components/footer";
 import { NavBar } from "../../components/navbar";
 
 import { AuthProvider } from "../../providers/auth";
+import { useHomeDispatcher } from "../../redux/reducers/home";
+import { useSimplerDispatcher } from "../../redux/reducers/simpler/slice";
+import { Profile } from "../home/Profile";
+import { SuggestedPeople } from "../home/SuggestedPeople";
+import { OfficialContainer } from "./official/OfficialContainer";
+import { VerifiedContainer } from "./verified/VerifiedContainer";
+
+const topicOption = [
+  {
+    label: "UI/UX",
+    value: "UI/UX",
+  },
+  {
+    label: "Front End",
+    value: "Front End",
+  },
+  {
+    label: "Android",
+    value: "Android",
+  },
+  {
+    label: "Back End",
+    value: "Back End",
+  },
+  {
+    label: "Quality Assurance",
+    value: "Quality Assurance",
+  },
+];
 
 const SimplerContainer = () => {
+  const { home, fetchProfile } = useHomeDispatcher();
+  const { simpler, handleSetFilter } = useSimplerDispatcher();
+  const { profile } = home;
+  const [tab, setTab] = useState("official");
+
+  const onSetFilter = (value) => {
+    handleSetFilter(value);
+  };
+
+  useEffect(() => {
+    if (!profile) {
+      fetchProfile();
+    }
+  }, []);
+
+  if (profile?.data?.status?.toLowerCase() === "verified") {
+    return (
+      <AuthProvider>
+        <NavBar />
+        {/* Container atas kiri */}
+        <div className="fixed rounded-lg left-0 h-max w-[20%] ml-[3.2rem] border-transparent text-center invisible lg:visible pt-[80px]">
+          <Profile />
+
+          {/* Container bawah kiri  */}
+          <div className="fixed rounded-lg left-0 w-[20%] ml-[3.2rem] border-transparent text-center invisible lg:visible pt-7">
+            <div className="flex flex-col rounded-lg justify-between">
+              <form className="w-full mx-auto bg-white pb-[10px] rounded-lg items-center">
+                <h4 className="text-1xl font-bold text-[#333333] pt-[7px] flex justify-start ml-[20px]">
+                  Filter
+                </h4>
+
+                <p className="text-[12px] text-gray flex justify-start ml-[20px] pb-[7px]">
+                  Filter Post by Topics
+                </p>
+                <div className="grid grid-cols-2  gap-2 items-center px-2 ">
+                  {topicOption.map((topic, index) => (
+                    <div
+                      key={topic.value}
+                      className={clsx(
+                        simpler.filter == topic.label
+                          ? "bg-blue-600"
+                          : "bg-white",
+                        "flex flex-col text-[10px] font-bold py-2 rounded-full  border-2 border-[#00229B] items-center",
+                        index === topicOption.length - 1 && "col-span-2"
+                      )}
+                      onClick={() => onSetFilter(topic.value)}
+                    >
+                      <a
+                        href="#"
+                        className={
+                          home.posts.filter == topic.label
+                            ? "text-white"
+                            : "text-[#00229B]"
+                        }
+                      >
+                        {topic.label}
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div className="fixed rounded-lg right-0 h-max w-[20%] mr-[3.2rem] border-transparent text-center invisible lg:visible pt-[90px]">
+          <div className="flex flex-row text-black bg-white rounded-lg mb-5">
+            <p
+              className={clsx(
+                "p-2 rounded-lg text-2xl pr-1",
+                tab === "official" && "bg-blue-500 text-white"
+              )}
+              onClick={() => {
+                handleSetFilter("");
+                setTab("official");
+              }}
+            >
+              Official Account
+            </p>
+            <p
+              className={clsx(
+                "p-2 rounded-lg text-2xl",
+                tab === "verified" && "bg-blue-500 text-white"
+              )}
+              onClick={() => {
+                handleSetFilter("");
+                setTab("verified");
+              }}
+            >
+              Verified Account
+            </p>
+          </div>
+          <SuggestedPeople />
+        </div>
+        <div className="bg-blue-200 text-[#00229B] body-font overflow-hidden h-screen">
+          <div className="container px-5 py-3 mx-auto">
+            <Footer />
+            {tab === "official" ? <OfficialContainer /> : <VerifiedContainer />}
+          </div>
+        </div>
+      </AuthProvider>
+    );
+  }
+
   return (
     <AuthProvider>
       <div>

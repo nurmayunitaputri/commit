@@ -9,6 +9,7 @@ import { useDetailDispatcher } from "../../redux/reducers/detail/slice";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useHomeDispatcher } from "../../redux/reducers/home";
+import { LoadingState } from "../../components/loadingstate/LoadingState";
 dayjs.extend(relativeTime);
 
 const DetailContainer = () => {
@@ -40,17 +41,18 @@ const DetailContainer = () => {
   }
 
   if (loading) {
-    <p>Loading...</p>;
+    <LoadingState />;
   }
 
   return (
     <AuthProvider>
       <div className="bg-blue-200 min-h-screen">
         <NavBar />
-        <div className="w-full h-[30%] lg:w-[50%] mx-auto space-y-3 pt-20 bg-white">
+        <div className="w-full h-[30%] lg:w-[50%] mx-auto space-y-2 pt-20 bg-white">
           <div className="border-transparent rounded-lg ">
             {data && (
               <PostCard
+                postId={data.detail_post.id_post}
                 userId={data.detail_post.user.id}
                 name={data.detail_post.user.fullname}
                 desc={data.detail_post.post_desc}
@@ -63,10 +65,14 @@ const DetailContainer = () => {
                 avatar="/no_profile.png"
                 isLiked={data.detail_post.liked}
                 status={data.detail_post.status}
-                showVerifiedStatus={data.detail_post.user.total_follower >= 20}
+                showVerifiedStatus={
+                  data.detail_post.user.status.toLowerCase() === "verified"
+                }
                 onLikePress={() => handleOnLike(data.detail_post.id_post)}
                 onUnlikePress={() => handleOnUnlike(data.detail_post.id_post)}
                 onDeletePress={() => handleOnDelete(data.detail_post.id_post)}
+                bookmarked={data.detail_post.bookmarked}
+                onRefresh={() => fetchDetail(data.detail_post.id_post)}
               />
             )}
 
