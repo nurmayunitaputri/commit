@@ -114,7 +114,7 @@ const ProfileContainer = () => {
                 <div className="flex flex-row w-full px-12">
                   <img
                     class="w-28 h-28 rounded-full mr-2 object-cover"
-                    src={data.detailProfile.profile_pic || "/no_profile.png"}
+                    src={data?.detailProfile?.profile_pic || "/no_profile.png"}
                     alt="Rounded avatar"
                   />
                   <div className="text-black ml-3 w-full">
