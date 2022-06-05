@@ -13,6 +13,7 @@ import {
 import {
   HeartIcon as HeartIconSolid,
   BookmarkIcon as BookmarkIconSolid,
+  CheckCircleIcon,
 } from "@heroicons/react/solid";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -68,32 +69,17 @@ export const PostCard = ({
         <div className="py-2 rounded-lg bg-white pl-2 overflow-hidden">
           <div className="flex flex-cols ml-2 items-center pt-2">
             <div
-              className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2 mr-2"
+              className="block w-20 h-16 rounded-full overflow-hidden border-2 mr-2"
               onClick={() => push(`/profile/${userId}`)}
             >
-              <img
-                className="h-full w-full object-cover"
-                src="/no_profile.png"
-                alt="avatar"
-              />
+              <img className="object-cover" src={avatar} alt="avatar" />
             </div>
             <h4 className="text-[15px] font-bold text-[#333333] ml-3 pt-1 flex justify-center">
               {name}
             </h4>
-            <div className="pb-3 ml-[5px]">
+            <div className="ml-[5px]">
               {showVerifiedStatus && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 text-blue-600"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
+                <CheckCircleIcon width={20} color="blue" />
               )}
             </div>
 

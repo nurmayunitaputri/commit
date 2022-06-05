@@ -2,8 +2,11 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import Button from "../../components/button/Button1";
 import { useDetailDispatcher } from "../../redux/reducers/detail/slice";
+import { useHomeDispatcher } from "../../redux/reducers/home";
 
 export const CommentInput = ({ postId }) => {
+  const { home } = useHomeDispatcher();
+  const { profile } = home;
   const [comment, setComment] = useState("");
   const { postComment, detail, refreshDetail } = useDetailDispatcher();
   const { commentAction } = detail;
@@ -26,8 +29,8 @@ export const CommentInput = ({ postId }) => {
   return (
     <div className="flex flex-row py-3 px-3 space-x-3">
       <img
-        src="/no_profile.png"
-        className="w-10 h-10 rounded-full object-cover"
+        src={profile.data.profile_pic || "/no_profile.png"}
+        className="w-10 h-8 rounded-full object-cover"
       />
       <input
         value={comment}

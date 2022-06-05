@@ -18,6 +18,8 @@ SearchIcon;
 export const NavBar = () => {
   const { push } = useRouter();
   const [name, setName] = useState("");
+  const { home } = useHomeDispatcher();
+  const { profile } = home;
 
   useEffect(() => {
     const { fullname } = JSON.parse(localStorage.getItem("user"));
@@ -114,7 +116,7 @@ export const NavBar = () => {
                 >
                   <img
                     className="h-full w-full object-cover "
-                    src="/no_profile.png"
+                    src={profile.data.profile_pic || "/no_profile.png"}
                     alt="avatar"
                   ></img>
                 </button>
@@ -246,7 +248,7 @@ const UserItem = ({ user }) => {
     <div className="flex flex-row  mb-3 align-middle justify-between">
       <div className="flex flex-row space-x-3  align-middle">
         <img
-          src="/no_profile.png"
+          src={user.profile_pic || "/no_profile.png"}
           className="h-10 w-10 object-cover rounded-full"
           onClick={() => push(`/profile/${user.id}`)}
         />

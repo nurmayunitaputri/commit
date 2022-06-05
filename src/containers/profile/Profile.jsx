@@ -113,8 +113,8 @@ const ProfileContainer = () => {
               <div className="min-h-[5rem] text-black rounded-lg pt-10  pb-12 bg-white  ">
                 <div className="flex flex-row w-full px-12">
                   <img
-                    class="w-60 h-25 rounded-full mr-2 object-cover"
-                    src="/no_profile.png"
+                    class="w-28 h-28 rounded-full mr-2 object-cover"
+                    src={data.detailProfile.profile_pic || "/no_profile.png"}
                     alt="Rounded avatar"
                   />
                   <div className="text-black ml-3 w-full">
@@ -190,7 +190,7 @@ const ProfileContainer = () => {
                       <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2">
                         <img
                           className="h-full w-full object-cover"
-                          src="/no_profile.png"
+                          src={post.user.profile_pic || "/no_profile.png"}
                           alt="avatar"
                         />
                       </div>

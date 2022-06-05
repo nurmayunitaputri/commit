@@ -46,10 +46,10 @@ export const VerifiedContainer = () => {
           createdDate={post.created_date}
           filePosts={post.filePosts}
           interest={[post.user.passion]}
-          tags={post.post_tags}
+          tags={[]}
           totalComment={post.total_komentar}
           totalLike={post.total_like}
-          avatar="/no_profile.png"
+          avatar={post.user.profile_pic || "/no_profile.png"}
           isLiked={post.liked}
           status={post.status}
           showVerifiedStatus={post.user.status.toLowerCase() === "verified"}

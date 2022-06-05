@@ -67,7 +67,7 @@ export const PostsList = () => {
             >
               <img
                 className="h-full w-full object-cover"
-                src="/no_profile.png"
+                src={post.user.profile_pic || "/no_profile.png"}
                 alt="avatar"
               />
             </div>

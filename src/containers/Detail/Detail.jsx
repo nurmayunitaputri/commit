@@ -62,11 +62,12 @@ const DetailContainer = () => {
                 tags={data.detail_post.post_tags}
                 totalComment={data.detail_post.total_komentar}
                 totalLike={data.detail_post.total_like}
-                avatar="/no_profile.png"
+                avatar={data.detail_post.user.profile_pic || "/no_profile.png"}
                 isLiked={data.detail_post.liked}
                 status={data.detail_post.status}
                 showVerifiedStatus={
-                  data.detail_post.user.status.toLowerCase() === "verified"
+                  data.detail_post.user.status.toLowerCase() === "verified" ||
+                  data.detail_post.user.status.toLowerCase() === "official"
                 }
                 onLikePress={() => handleOnLike(data.detail_post.id_post)}
                 onUnlikePress={() => handleOnUnlike(data.detail_post.id_post)}
@@ -84,7 +85,7 @@ const DetailContainer = () => {
                   key={comment.id}
                   userId={comment.id_user.id}
                   name={comment.id_user.fullname}
-                  avatar="/no_profile.png"
+                  avatar={comment.id_user.profile_pic || "/no_profile.png"}
                   interest={[comment.id_user.passion]}
                   createdDate={comment.created_date}
                   desc={comment.isiKomentar}

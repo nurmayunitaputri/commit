@@ -81,7 +81,7 @@ const PeopleItem = ({ people }) => {
         >
           <img
             className="h-full w-full object-cover"
-            src="no_profile.png"
+            src={people.profile_pic || "no_profile.png"}
             alt="avatar"
           />
         </div>

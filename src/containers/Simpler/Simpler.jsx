@@ -55,7 +55,7 @@ const SimplerContainer = () => {
       <AuthProvider>
         <NavBar />
         {/* Container atas kiri */}
-        <div className="fixed rounded-lg left-0 h-max w-[20%] ml-[3.2rem] border-transparent text-center invisible lg:visible pt-[80px]">
+        <div className="fixed rounded-lg left-0 w-[20%] ml-[3.2rem] border-transparent text-center invisible lg:visible pt-[80px]">
           <Profile />
 
           {/* Container bawah kiri  */}
@@ -128,7 +128,7 @@ const SimplerContainer = () => {
           </div>
           <SuggestedPeople />
         </div>
-        <div className="bg-blue-200 text-[#00229B] body-font overflow-hidden h-screen">
+        <div className="bg-blue-200 text-[#00229B] body-font overflow-hidden min-h-screen">
           <div className="container px-5 py-3 mx-auto">
             <Footer />
             {tab === "official" ? <OfficialContainer /> : <VerifiedContainer />}
