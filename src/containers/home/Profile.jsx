@@ -37,7 +37,7 @@ export const Profile = () => {
         </button>
         <div className="text-1xl font-bold text-[#333333] p-[10px] flex justify-center space-x-1">
           <h4>{fullname}</h4>
-          <CheckCircleIcon width={20} color="blue" />
+          {status === "Verified" && <CheckCircleIcon width={20} color="blue"/> }
         </div>
         <div className="flex justify-center text-sm">
           <p className="px-[2%] py-[2%] text-[10px] rounded  bg-[#708beb] text-white">
