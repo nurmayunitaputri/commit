@@ -125,7 +125,7 @@ const ProfileUserContainer = () => {
                   src={profile?.profile_pic ?? "/no_profile.png"}
                   alt="Rounded avatar"
                 />
-                <div className="text-black ml-3 w-full">
+                <div className="text-black ml-5 flex-grow">
                   <div className="flex flex-row justify-between">
                     <div className="flex space-x-2">
                       <p className="font-bold">{profile?.fullname}</p>
@@ -174,10 +174,10 @@ const ProfileUserContainer = () => {
                       <p>Following</p>
                     </div>
                   </div>
-                  <div className="w-full flex justify-start my-5">
+                  <div className="w-full flex justify-center my-5">
                     {profile?.is_follow ? (
                       <button
-                        className="block overflow-hidden h-8 px-2 text-[12px] rounded-lg ml-[33px] bg-blue-500 text-white focus:outline-none focus:bg-blue-600 w-[50%]"
+                        className="block overflow-hidden h-8 px-2 text-[12px] rounded-lg  bg-blue-500 text-white focus:outline-none focus:bg-blue-600 w-[50%]"
                         onClick={hanldeOnFollowOrUnfollow}
                       >
                         Followed
@@ -210,7 +210,7 @@ const ProfileUserContainer = () => {
                         alt="avatar"
                       />
                     </div>
-                    <h4 className="text-[15px] font-bold text-[#333333] ml-3 pt-1 flex justify-center">
+                    <h4 className="text-[15px] font-bold text-[#333333] ml-5 pt-1 flex justify-center">
                       {" "}
                       {post.user.fullname}{" "}
                     </h4>
@@ -230,7 +230,24 @@ const ProfileUserContainer = () => {
                         </svg>
                       )}
                     </div>
-                    <div className="pb-7 ml-96 pl-20 mt-2  ">
+                    <div className="ml-2 pb-7">
+                      <p className="font-bold">{profile?.fullname}</p>
+                      {profile?.status?.toLowerCase() === "verified" && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 text-blue-600"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                    <div className="pb-4 ml-20 pt-2 pl-20 mt-2  ">
                       <Menu as="div" className="relative">
                         <div>
                           <Menu.Button className="inline-flex justify-center w-full rounded-md">
@@ -345,7 +362,7 @@ const ProfileUserContainer = () => {
                     </div>
                   </div>
                   <div className="flex justify-start align-middle">
-                    <p className="text-gray-400 text-[12px] ml-[60px] ">
+                    <p className="text-gray-400 text-[12px] ml-20">
                       {post.user.passion}
                     </p>
                     <p className="text-gray-400 text-[12px] ml-[5px]">
@@ -368,7 +385,7 @@ const ProfileUserContainer = () => {
                     </div>
                   </div>
                   <div onClick={() => push(`/detail/${post.id_post}`)}>
-                    <p className="pt-2 ml-2 pr-10 text-gray-700 text-[12px]  text-left">
+                    <p className="pt-8 ml-6 pr-10 text-gray-700 text-[12px] text-left">
                       {post.post_desc.substring(0, 300)}
                     </p>
 

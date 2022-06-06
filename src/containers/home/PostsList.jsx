@@ -71,7 +71,7 @@ export const PostsList = () => {
                 alt="avatar"
               />
             </div>
-            <h4 className="text-[15px] font-bold text-[#333333] ml-3 pt-1 flex justify-center">
+            <h4 className="text-[15px] font-bold text-[#333333] ml-4 pt-1 flex justify-center">
               {" "}
               {post.user.fullname}{" "}
             </h4>
@@ -91,7 +91,7 @@ export const PostsList = () => {
                 </svg>
               )}
             </div>
-            <div className="pb-7 ml-96 pl-20 mt-2  ">
+            <div className="pb-3 ml-56 pl-20 mt-2 pt-3  ">
               <Menu as="div" className="relative">
                 <div>
                   <Menu.Button className="inline-flex justify-center w-full rounded-md">
@@ -201,7 +201,7 @@ export const PostsList = () => {
             </div>
           </div>
           <div className="flex justify-start align-middle">
-            <p className="text-gray-400 text-[12px] ml-[60px] ">
+            <p className="text-gray-400 text-[12px] ml-20 ">
               {post.user.passion}
             </p>
             <p className="text-gray-400 text-[12px] ml-[5px]">

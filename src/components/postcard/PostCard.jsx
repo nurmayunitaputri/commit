@@ -69,21 +69,21 @@ export const PostCard = ({
         <div className="py-2 rounded-lg bg-white pl-2 overflow-hidden">
           <div className="flex flex-cols ml-2 items-center pt-2">
             <div
-              className="block w-20 h-16 rounded-full overflow-hidden border-2 mr-2"
+              className="block w-16 h-16 rounded-full overflow-hidden border-2 mr-2"
               onClick={() => push(`/profile/${userId}`)}
             >
               <img className="object-cover" src={avatar} alt="avatar" />
             </div>
-            <h4 className="text-[15px] font-bold text-[#333333] ml-3 pt-1 flex justify-center">
+            <h4 className="text-[15px] font-bold text-[#333333] ml-3 pt-1 flex-grow justify-center">
               {name}
             </h4>
-            <div className="ml-[5px]">
+            <div className="mr-80">
               {showVerifiedStatus && (
                 <CheckCircleIcon width={20} color="blue" />
               )}
             </div>
 
-            <div className="w-full pt-1 flex justify-end pr-5">
+            <div className=" pt-1 flex justify-end pr-5">
               <Menu as="div" className="relative">
                 <div>
                   <Menu.Button className="inline-flex justify-center w-full rounded-md">
@@ -163,7 +163,7 @@ export const PostCard = ({
             </div>
           </div>
           <div className="flex justify-start">
-            <p className="text-gray-400 text-[12px] ml-[60px] ">
+            <p className="text-gray-400 text-[12px] ml-24 ">
               {interest.join(", ")}
             </p>
             <p className="text-gray-400 text-[12px] ml-[10px]">
@@ -183,7 +183,7 @@ export const PostCard = ({
             </div>
           </div>
           <div
-            className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-2 "
+            className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-6"
             onClick={() =>
               clickStatusToDetail ? push(`/detail/${postId}`) : null
             }
@@ -191,7 +191,7 @@ export const PostCard = ({
             <br /> {desc}
           </div>
 
-          <div className="h-[50%] w-[90%] pt-5 flex justify-start">
+          <div className="h-[50%] w-[90%]  flex justify-start">
             <ImagePost files={filePosts} />
           </div>
           <div className="flex flex-row text-white">
