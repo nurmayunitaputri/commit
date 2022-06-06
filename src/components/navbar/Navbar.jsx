@@ -52,7 +52,7 @@ export const NavBar = () => {
               <SearchPeople />
             </div>
 
-            <div className="text-sm flex items-center  pl-5">
+            <div className="text-sm flex items-center px-5">
               <Link href="/home">
                 <div
                   href="/home"
