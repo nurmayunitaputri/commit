@@ -322,7 +322,7 @@ const SignupContainer = () => {
             <div className="text-xs text-[#27272E]">
               <p>
                 {" "}
-                Password must be at leat 6 characters and must contain number &
+                Password must be at least 6 characters and must contain number &
                 letter.
               </p>
               {/* <a href="../registration" className="text-[#00229B]"> 
