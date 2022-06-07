@@ -7,7 +7,7 @@ export const Footer = () => {
           Simpler
         </a>
         <a
-          href="https://g.co/kgs/sqLcsn"
+          href="https://play.google.com/store/apps/details?id=com.commit.app"
           className="text-[#00229B]  text-left text-sm font-semibold"
         >
           Play Store
