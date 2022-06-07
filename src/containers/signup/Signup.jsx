@@ -12,20 +12,20 @@ const validationSchema = Yup.object({
     .required(
       "There is something wrong with your email please check your email again"
     )
-    .email("Email tidak valid"),
+    .email("There is something wrong with your email please check your email again"),
   password: Yup.string()
     .required(
-      "password must be at least 6 character and must contain number & letter "
+      "Password must be at least 6 character and must contain number & letter "
     )
     .min(
       6,
-      "password must be at least 6 character and must contain number & letter"
+      "Password must be at least 6 character and must contain number & letter"
     ),
   name: Yup.string().required("Something is wrong. please check your name"),
-  domicile: Yup.string().required("please choose a domicile"),
-  gender: Yup.string().required("please choose a gender"),
+  domicile: Yup.string().required("Please choose a domicile"),
+  gender: Yup.string().required("Please choose a gender"),
   phone_number: Yup.number().required(
-    "there is something wrong with your number, please make sure your numbers starts with 0  "
+    "There is something wrong with your number, please make sure your numbers starts with 0  "
   ),
   privacyPolicy: Yup.bool().oneOf(
     [true],

@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
 const validationSchema = Yup.object({
-  interests: Yup.array().max(2, "Pilihan Interest maksimal 2"),
+  interests: Yup.array().max(2, "Sorry, maximum 2 interest"),
 });
 
 // const initialValues = {
@@ -112,7 +112,7 @@ const InterestContainer = () => {
                   className="hidden"
                   value="Front End"
                 />
-                Frontend +
+                Front End +
               </label>
               <label
                 className={`text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${
@@ -146,7 +146,7 @@ const InterestContainer = () => {
                   className="hidden"
                   value="Back End"
                 />
-                Backend +
+                Back End +
               </label>
               <label
                 className={`text-center cursor-pointer border border-zinc-200 p-3 rounded-lg text-[#00229B] items-center ${
