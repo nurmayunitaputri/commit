@@ -11,7 +11,7 @@ const Input2 = ({ label, name, type, onChange, onBlur, placeholder, dataTestId }
         <input
           type={passwordShown ? 'text' : 'password'}
           name={name}
-          className="py-2 focus:ring-0 text-sm border-b text-black focus:outline-none w-full  bg-white rounded-lg"
+          className="py-2 focus:ring-0 text-sm border-b text-black focus:outline-none w-full p-2 bg-white rounded-lg"
           placeholder={placeholder}
           onChange={onChange}
           onBlur={onBlur}
