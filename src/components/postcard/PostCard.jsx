@@ -72,9 +72,9 @@ export const PostCard = ({
               className="block w-16 h-16 rounded-full overflow-hidden border-2 mr-2"
               onClick={() => push(`/profile/${userId}`)}
             >
-              <img className="object-cover " src={avatar} alt="avatar" />
+              <img className="w-16 h-16 rounded-full object-cover" src={avatar} alt="avatar" />
             </div>
-            <h4 className="text-[15px] font-bold text-[#333333] ml-4 pt-1 flex-grow justify-center">
+            <h4 className="text-[15px] font-bold text-[#333333] ml-4 pt-1 justify-center">
               {name}
             </h4>
             <div className="mr-80">

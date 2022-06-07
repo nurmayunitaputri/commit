@@ -30,7 +30,7 @@ export const CommentInput = ({ postId }) => {
     <div className="flex flex-row py-3 px-3 space-x-3">
       <img
         src={profile.data.profile_pic || "/no_profile.png"}
-        className="w-10 h-8 rounded-full object-cover"
+        className="w-10 h-10 rounded-full object-cover"
       />
       <input
         value={comment}
