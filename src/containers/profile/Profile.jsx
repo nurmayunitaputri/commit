@@ -105,7 +105,7 @@ const ProfileContainer = () => {
               <div className="min-h-[5rem] text-black rounded-lg pt-10  pb-12 bg-white  ">
                 <div className="flex flex-row w-full px-12">
                   <img class="w-28 h-28 rounded-full mr-2 object-cover" src={data?.detailProfile?.profile_pic || '/no_profile.png'} alt="Rounded avatar" />
-                  <div className="text-black ml-3 w-full">
+                  <div className="text-black ml-3 flex-grow">
                     <div className="flex flex-row justify-between">
                       <div className="flex space-x-2">
                         <p className="font-bold">{data?.detailProfile?.fullname}</p>
@@ -160,7 +160,7 @@ const ProfileContainer = () => {
                       <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2">
                         <img className="h-full w-full object-cover" src={post.user.profile_pic || '/no_profile.png'} alt="avatar" />
                       </div>
-                      <h4 className="text-[15px] font-bold text-[#333333] ml-6 pt-1 flex justify-center"> {post.user.fullname} </h4>
+                      <h4 className="text-[15px] font-bold text-[#333333] ml-5 pt-1 flex justify-center"> {post.user.fullname} </h4>
                       <div className="ml-2 pb-7">
                         <p className="font-bold">{data?.detailProfile?.fullname}</p>
                         {data?.detailProfile?.status?.toLowerCase() === 'verified' && (
@@ -185,7 +185,7 @@ const ProfileContainer = () => {
                         )}
                       </div>
 
-                      <div className="pb-7 ml-60 pl-20 mt-2  ">
+                      <div className="pb-7 ml-20 pl-20 mt-2  ">
                         <Menu as="div" className="relative">
                           <div>
                             <Menu.Button className="inline-flex justify-center w-full rounded-md">
@@ -258,7 +258,7 @@ const ProfileContainer = () => {
                       <div className="ml-2">{post.post_status ? <LightBulbIcon color="rgb(179,179,179)" height={18} width={18} /> : <GlobeIcon color="rgb(179,179,179)" height={18} width={18} />}</div>
                     </div>
                     <div onClick={() => push(`/detail/${post.id_post}`)}>
-                      <p className="pt-5 ml-4  pr-10 text-gray-700 text-[12px]  text-left">{post.post_desc.substring(0, 300)}</p>
+                      <p className="pt-5 ml-7  pr-10 text-gray-700 text-[12px]  text-left">{post.post_desc.substring(0, 300)}</p>
 
                       {post.post_desc.length > 300 && <p className="text-gray-400 text-[12px] ml-2 pt-5">See more ...</p>}
                     </div>

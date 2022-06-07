@@ -29,7 +29,7 @@ const topicOption = [
 ];
 
 export const PostInput = () => {
-  const { fetchPosts } = useHomeDispatcher();
+  const { fetchPosts, home } = useHomeDispatcher();
   const [topics, setTopic] = useState([]);
   const [status, setStatus] = useState("Public Post");
   const [desc, setDesc] = useState("");
@@ -137,7 +137,7 @@ export const PostInput = () => {
         <div className="block h-11 w-11 rounded-full overflow-hidden border-2 ">
           <img
             className="h-full w-full object-cover"
-            src="/no_profile.png"
+            src={home?.profile?.data?.profile_pic || '/no_profile.png'} 
             alt="avatar"
           ></img>
         </div>
