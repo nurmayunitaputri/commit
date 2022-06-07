@@ -9,7 +9,7 @@ import { CogIcon } from '@heroicons/react/solid';
 import { Footer } from '../../components/footer';
 import { useProfileDispatcher } from '../../redux/reducers/profile/slice';
 import { Menu, Transition } from '@headlessui/react';
-import { DotsVerticalIcon, GlobeIcon, BookmarkIcon as BookmarkIconOutline, LightBulbIcon, TrashIcon, ShareIcon, ShieldExclamationIcon } from '@heroicons/react/outline';
+import { DotsVerticalIcon, GlobeIcon, BookmarkIcon as BookmarkIconOutline, LightBulbIcon, TrashIcon, ShareIcon, FlagIcon } from '@heroicons/react/outline';
 import { isCurrentUser } from '../../helpers/isCurrentUser';
 import dayjs from 'dayjs';
 import { ImagePost } from '../../components/imagespost/ImagePost';
@@ -154,7 +154,7 @@ const ProfileContainer = () => {
 
             {data?.postsUser?.map((post) => (
               <div key={post.id_post} className="border-transparent rounded-lg">
-                <div className="text-white rounded-lg p-2 ">
+                <div className="text-white rounded-lg w-full ">
                   <div className="py-2 rounded-lg bg-white pl-2 overflow-hidden hover:">
                     <div className="flex flex-cols ml-2 items-center pt-2">
                       <div className="block h-[50px] w-[50px] rounded-full overflow-hidden border-2">
@@ -221,7 +221,7 @@ const ProfileContainer = () => {
                                   <Menu.Item>
                                     {({ active }) => (
                                       <div onClick={() => {}} className={'flex flex-row ' + classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}>
-                                        <ShieldExclamationIcon width={18} height={18} /> <div className="px-1" /> Report
+                                        <FlagIcon width={18} height={18} /> <div className="px-1" /> Report
                                       </div>
                                     )}
                                   </Menu.Item>

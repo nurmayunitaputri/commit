@@ -5,7 +5,7 @@ import { useHomeDispatcher } from '../../redux/reducers/home';
 import { useRouter } from 'next/router';
 import LikeOutlineIcon from '@heroicons/react/outline/HeartIcon';
 import LikeSolidIcon from '@heroicons/react/solid/HeartIcon';
-import { GlobeIcon, LightBulbIcon, DotsVerticalIcon, TrashIcon, ShieldExclamationIcon, BookmarkIcon as BookmarkIconOutline, ShareIcon } from '@heroicons/react/outline';
+import { GlobeIcon, LightBulbIcon, DotsVerticalIcon, TrashIcon, FlagIcon, BookmarkIcon as BookmarkIconOutline, ShareIcon } from '@heroicons/react/outline';
 import { BookmarkIcon as BookmarkIconSolid } from '@heroicons/react/solid';
 import { Menu, Transition } from '@headlessui/react';
 import { isCurrentUser } from '../../helpers/isCurrentUser';
@@ -44,7 +44,7 @@ export const PostsList = () => {
   }
 
   if (data.length === 0) {
-    return <img className="w-full" src="/Frame 14.png" />;
+    return <img className="w-full px-2" src="/Frame 14.png" />;
   }
 
   return data.map((post) => (
@@ -103,7 +103,7 @@ export const PostsList = () => {
                         <Menu.Item>
                           {({ active }) => (
                             <div onClick={() => {}} className={'flex flex-row ' + classNames(active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm')}>
-                              <ShieldExclamationIcon width={18} height={18} /> <div className="px-1" /> Report
+                              <FlagIcon width={18} height={18} /> <div className="px-1" /> Report
                             </div>
                           )}
                         </Menu.Item>

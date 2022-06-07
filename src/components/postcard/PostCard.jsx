@@ -5,7 +5,7 @@ import {
   HeartIcon as HeartIconOutline,
   DotsVerticalIcon,
   TrashIcon,
-  ShieldExclamationIcon,
+  FlagIcon,
   GlobeIcon,
   LightBulbIcon,
   BookmarkIcon as BookmarkIconOutline,
@@ -150,7 +150,7 @@ export const PostCard = ({
                                 )
                               }
                             >
-                              <ShieldExclamationIcon width={18} height={18} />{" "}
+                              <FlagIcon width={18} height={18} />{" "}
                               <div className="px-1" /> Report
                             </div>
                           )}

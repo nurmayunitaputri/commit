@@ -34,7 +34,7 @@ export const VerifiedContainer = () => {
       </div>
 
       {verified.data.length === 0 && (
-        <img className="w-full" src="/Frame 14.png" />
+        <img className="w-full px-2" src="/Frame 14.png" />
       )}
       {verified.data.map((post) => (
         <PostCard
