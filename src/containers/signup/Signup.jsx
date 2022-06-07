@@ -337,10 +337,8 @@ const SignupContainer = () => {
                   onChange={handleChange("privacyPolicy")}
                   value={values.privacyPolicy}
                 />
-                <span className="text-xs text-[#00229B]">
-                  {" "}
-                  By Creating an account means you agree to the our Privacy
-                  Policy
+                <span className="ml-2 text-xs text-black">
+                  By creating an account means you agree to the <span className="text-xs text-[#00229B]"> <a href="https://www.privacypolicyonline.com/live.php?token=Y8dyi8DM2r5fiIiErvfqOMZno3LuzVuz">Terms and Conditions</a> </span>  &  <span className="text-xs text-[#00229B]"> <a href="./privacy">our Privacy Policy</a> </span>
                 </span>
               </label>
               {getIn(touched, "privacyPolicy") &&
