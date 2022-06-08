@@ -68,7 +68,7 @@ const ForgotContainer = () => {
           <img src="png_signup login.png" className=" w-8/12 max-w-fit "></img>
         </div>
       </div>
-      
+
       {/* section kanan */}
       <div className="w-full h-full bg-white flex flex-col justify-center ">
         <div className="border border-gray-300 w-4/5 h-fit flex flex-col justify-center rounded-xl shadow-lg mx-auto ">
@@ -93,6 +93,7 @@ const ForgotContainer = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
+              <p className="text-red-600 text-sm">{errors.email}</p>
             </div>
             <Button1
               type="submit"

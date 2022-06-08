@@ -9,6 +9,7 @@ import { Profile } from "./Profile";
 import { SuggestedPeople } from "./SuggestedPeople";
 import { Footer } from "../../components/footer";
 import { NavBar } from "../../components/navbar/Navbar";
+import { useRouter } from "next/router";
 
 const topicOption = [
   {
@@ -34,6 +35,7 @@ const topicOption = [
 ];
 
 const Home = () => {
+  const { push } = useRouter();
   const { home, fetchPosts, onSetFilter } = useHomeDispatcher();
 
   useEffect(() => {
@@ -43,7 +45,7 @@ const Home = () => {
   return (
     <AuthProvider>
       <div className="bg-blue-200 min-h-screen">
-        <NavBar />
+        <NavBar currentPage={"home"} />
 
         {/* Container atas kiri */}
         <div className="fixed rounded-lg left-0 h-max w-[20%] ml-[3.2rem] border-transparent text-center invisible lg:visible pt-[80px]">
@@ -58,7 +60,7 @@ const Home = () => {
                 </h4>
 
                 <p className="text-[12px] text-gray flex justify-start ml-[20px] pb-[7px]">
-                  Filter  Post by Topics
+                  Filter Post by Topics
                 </p>
                 <div className="grid grid-cols-2  gap-2 items-center px-2 ">
                   {topicOption.map((topic, index) => (
@@ -98,16 +100,16 @@ const Home = () => {
           {/* container tengah kanan */}
           <div className="fixed rounded-lg right-0 h-max w-[20%] mr-[3.2rem] border-transparent text-center invisible lg:visible pt-2">
             <div className="flex flex-col rounded-lg justify-between">
-              <form className="w-full mx-auto bg-blue-200 pb-[10px] rounded-lg items-center">
+              <div className="w-full mx-auto bg-blue-200 pb-[10px] rounded-lg items-center">
                 <div className=" flex justify-center items-center py-16 ">
-                  <a
-                    href="../simpler"
+                  <p
+                    onClick={() => push("/simpler")}
                     className="inline-block border-1 border-[#00229B] text-sm px-6 py-2 leading-none border rounded-lg bg-[#00229B] w-[225px] font-semibold text-center h-[55px] pt-4 text-white mt-4 lg:mt-0 "
                   >
                     Subscribe
-                  </a>
+                  </p>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
 

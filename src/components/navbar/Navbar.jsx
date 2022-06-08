@@ -2,20 +2,25 @@ import { useState, useEffect, Fragment } from "react";
 import {
   MenuIcon,
   SearchIcon,
-  CheckIcon,
-  SelectorIcon,
-  XCircleIcon,
   XIcon,
+  HomeIcon as HomeIconOutline,
+  LightBulbIcon as LightBulbIconOutline,
 } from "@heroicons/react/outline";
+import {
+  CheckCircleIcon,
+  HomeIcon as HomeIconSolid,
+  LightBulbIcon as LightBulbIconSolid,
+} from "@heroicons/react/solid";
 import { useRouter } from "next/router";
-import { Combobox, Transition } from "@headlessui/react";
+import { Transition } from "@headlessui/react";
 import Link from "next/link";
 import { useSearchDispatcher } from "../../redux/reducers/search";
 import { callAPI } from "../../helpers/network";
 import { useHomeDispatcher } from "../../redux/reducers/home";
+import clsx from "clsx";
 SearchIcon;
 
-export const NavBar = () => {
+export const NavBar = ({ currentPage }) => {
   const { push } = useRouter();
   const [name, setName] = useState("");
   const { home } = useHomeDispatcher();
@@ -58,43 +63,46 @@ export const NavBar = () => {
                   href="/home"
                   className="block cursor-pointer mt-4 lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 ml-3 "
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
+                  <div className="flex justify-center">
+                    {currentPage == "home" ? (
+                      <HomeIconSolid height={18} color="blue" />
+                    ) : (
+                      <HomeIconOutline height={18} color="gray" />
+                    )}
+                  </div>
+                  <p
+                    className={clsx(
+                      "flex items-center ml-1 ",
+                      currentPage == "home" ? "text-blue-700" : "text-grey-700"
+                    )}
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                    />
-                  </svg>
-                  <p className="text-grey-700 flex items-center ml-1"> Home </p>
+                    {" "}
+                    Home{" "}
+                  </p>
                 </div>
               </Link>
               <Link href="/simpler">
                 <div
                   href="/simpler"
-                  className="block mt-4 cursor-pointer lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 "
+                  className=" mt-4 cursor-pointer lg:inline-block lg:mt-0 focus:text-blue-700 focus:outline-none text-gray-400 mr-11 justify-center items-center align-middle flex flex-col"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 ml-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
+                  <div className="flex justify-center">
+                    {currentPage == "simpler" ? (
+                      <LightBulbIconSolid color="blue" height={20} />
+                    ) : (
+                      <LightBulbIconOutline color="gray" height={20} />
+                    )}
+                  </div>
+                  <p
+                    className={clsx(
+                      "flex items-center ml-1 ",
+                      currentPage == "simpler"
+                        ? "text-blue-700"
+                        : "text-grey-700"
+                    )}
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
-                  <p className="text-grey-700 flex items-center "> Simpler </p>
+                    Simpler
+                  </p>
                 </div>
               </Link>
               <div className="w-[2px] h-10 bg-gray-400 mr-10"></div>
@@ -107,7 +115,7 @@ export const NavBar = () => {
                 aria-expanded="false"
               >
                 {" "}
-                Halo, {name}
+                Halo, {name.substring(0, 8)} {name.length > 8 && "..."}{" "}
               </div>
               <div className="relative pl-3">
                 <button
@@ -157,9 +165,7 @@ export default function SearchPeople() {
 
   const handleOnSearch = async () => {
     setShowResult(true);
-    console.log("submited");
     searchUsers({ query: searchInput });
-    setSearchInput("");
   };
 
   return (
@@ -188,7 +194,7 @@ export default function SearchPeople() {
         afterLeave={() => setSearchInput("")}
       >
         <div className="absolute top-0 w-screen h-[20vh]">
-          <div className="relative top-20 p-5 bg-white w-80 rounded-lg border-gray-100  max-h-80 overflow-auto">
+          <div className="relative top-20 p-5 bg-white w-96 rounded-lg border-gray-100  max-h-80 overflow-auto">
             <div
               className="flex justify-end pb-4"
               onClick={() => setShowResult(false)}
@@ -253,14 +259,24 @@ const UserItem = ({ user }) => {
           onClick={() => push(`/profile/${user.id}`)}
         />
         <div className="space-y-1">
-          <p className="font-bold">{user.fullname}</p>
+          <div className="flex justify-start items-start align-top">
+            <p className="font-bold mr-1">{user.fullname}</p>
+            {user.status === "Verified" && (
+              <CheckCircleIcon color="blue" height={18} />
+            )}
+          </div>
           <p className="text-blue-900 font-medium text-[11px]">
             {user.passion}
           </p>
         </div>
       </div>
       <button
-        className="block overflow-hidden h-8 px-2 text-[12px] rounded-lg ml-[33px] bg-[#00229B] text-white focus:outline-none focus:bg-blue-600"
+        className={clsx(
+          "block overflow-hidden h-8 px-2 text-[12px] rounded-lg ml-[33px]  focus:outline-none ",
+          isFollowed ? "bg-white" : "bg-[#00229B]",
+          isFollowed ? "text-blue-900" : "text-white",
+          isFollowed && "border border-solid border-blue-600"
+        )}
         onClick={hanldeOnFollowOrUnfollow}
       >
         {isFollowed ? "Followed" : "Follow"} {loading && "..."}

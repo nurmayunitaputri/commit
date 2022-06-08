@@ -1,3 +1,4 @@
+import { CheckCircleIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { callAPI } from "../../helpers/network";
@@ -74,7 +75,7 @@ const PeopleItem = ({ people }) => {
 
   return (
     <div className="flex items-start ml-3 pt-3 px-2 text-sm justify-between">
-      <div className="flex">
+      <div className="flex justify-start items-start align-top">
         <div
           className="block h-10 w-10 rounded-full overflow-hidden border-2 focus:outline-none focus:border-white"
           onClick={() => push(`/profile/${people.id}`)}
@@ -90,6 +91,9 @@ const PeopleItem = ({ people }) => {
             ? `${people.fullname.substring(0, 12)}...`
             : people.fullname}
         </p>
+        {people.status === "Verified" && (
+          <CheckCircleIcon width={20} color="blue" />
+        )}
       </div>
       <button
         className="block overflow-hidden px-[3%] py-[2%] text-[12px] rounded-lg ml-[33px] bg-[#7A97FF] text-white focus:outline-none focus:bg-[#7A97FF] "

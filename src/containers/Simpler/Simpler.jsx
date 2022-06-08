@@ -53,7 +53,7 @@ const SimplerContainer = () => {
   if (profile?.data?.status?.toLowerCase() === "verified") {
     return (
       <AuthProvider>
-        <NavBar />
+        <NavBar currentPage="simpler" />
         {/* Container atas kiri */}
         <div className="fixed rounded-lg left-0 w-[20%] ml-[3.2rem] border-transparent text-center invisible lg:visible pt-[80px]">
           <Profile />
@@ -276,11 +276,13 @@ const SimplerContainer = () => {
                     </span>
                     IT contents with Non - Technical Language
                   </p>
-<div>
-                  <a href="https://play.google.com/store/apps/details?id=com.commit.app" className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white border-[#00229B] bg-[#00229B] text-center  mt-8 lg:mt-0 ">
-                    Choose Plan 
-                  
-                  </a>
+                  <div>
+                    <a
+                      href="https://play.google.com/store/apps/details?id=com.commit.app"
+                      className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white border-[#00229B] bg-[#00229B] text-center  mt-8 lg:mt-0 "
+                    >
+                      Choose Plan
+                    </a>
                   </div>
                   <p className="text-xs text-gray-500 mt-3"></p>
                 </div>
@@ -336,7 +338,10 @@ const SimplerContainer = () => {
                     IT contents with Non - Technical Language
                   </p>
 
-                  <a href="https://play.google.com/store/apps/details?id=com.commit.app" className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white  bg-[#7A97FF] text-center  mt-8 lg:mt-0 border-[#7A97FF]  ">
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.commit.app"
+                    className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white  bg-[#7A97FF] text-center  mt-8 lg:mt-0 border-[#7A97FF]  "
+                  >
                     Choose Plan
                   </a>
                   <p className="text-xs text-gray-500 mt-3"></p>
@@ -391,7 +396,10 @@ const SimplerContainer = () => {
                     IT contents with Non - Technical Language
                   </p>
 
-                  <a href="https://play.google.com/store/apps/details?id=com.commit.app" className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white border-[#00229B] bg-[#00229B] text-center  mt-8 lg:mt-0 ">
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.commit.app"
+                    className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white border-[#00229B] bg-[#00229B] text-center  mt-8 lg:mt-0 "
+                  >
                     Choose Plan
                   </a>
                   <p className="text-xs text-gray-500 mt-3"></p>

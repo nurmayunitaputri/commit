@@ -137,7 +137,7 @@ export const PostInput = () => {
         <div className="block h-11 w-11 rounded-full overflow-hidden border-2 ">
           <img
             className="h-full w-full object-cover"
-            src={home?.profile?.data?.profile_pic || '/no_profile.png'} 
+            src={home?.profile?.data?.profile_pic || "/no_profile.png"}
             alt="avatar"
           ></img>
         </div>
@@ -241,7 +241,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function PublicPost({ onChanged }) {
+export default function PublicPost({ onChanged, status }) {
   const { home } = useHomeDispatcher();
   const { profile } = home;
   return (
@@ -268,7 +268,7 @@ export default function PublicPost({ onChanged }) {
                 />
               </svg>
               <p className=" mx-1.5 text-[12px] font-semibold text-[#a8b8f1] py-2 hover:text-blue-700">
-                Post Type
+                {status ? status : "Post Type"}
               </p>
             </div>
           </a>
