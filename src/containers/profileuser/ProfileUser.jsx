@@ -390,8 +390,8 @@ const ProfileUserContainer = () => {
                     </p>
 
                     {post.post_desc.length > 300 && (
-                      <p className="text-gray-400 text-[12px] ml-2 pt-5">
-                        See more ...
+                      <p className="text-gray-400 text-[12px] ml-2 pl-5 pt-5">
+                        See more
                       </p>
                     )}
                   </div>

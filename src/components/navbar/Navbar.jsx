@@ -107,7 +107,7 @@ export const NavBar = () => {
                 aria-expanded="false"
               >
                 {" "}
-                Hallo, {name}
+                Halo, {name}
               </div>
               <div className="relative pl-3">
                 <button

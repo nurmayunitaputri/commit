@@ -244,7 +244,7 @@ const SimplerContainer = () => {
                     For most community that want to optimize knowledge
                   </div>
                   <p className="flex items-center  mb-2 text-[#7A97FF]">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-blue-200 text-white rounded-full flex-shrink-0">
                       <svg
                         fill="none"
                         stroke="currentColor"
@@ -261,7 +261,7 @@ const SimplerContainer = () => {
                   </p>
 
                   <p className="flex items-center text-[#7A97FF] mb-10 ">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-blue-200 text-white rounded-full flex-shrink-0">
                       <svg
                         fill="none"
                         stroke="currentColor"
@@ -276,9 +276,11 @@ const SimplerContainer = () => {
                     </span>
                     IT contents with Non - Technical Language
                   </p>
-
-                  <div className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white border-[#00229B] bg-[#00229B] text-center  mt-8 lg:mt-0 ">
-                    Choose Plan
+<div>
+                  <a href="https://play.google.com/store/apps/details?id=com.commit.app" className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white border-[#00229B] bg-[#00229B] text-center  mt-8 lg:mt-0 ">
+                    Choose Plan 
+                  
+                  </a>
                   </div>
                   <p className="text-xs text-gray-500 mt-3"></p>
                 </div>
@@ -302,7 +304,7 @@ const SimplerContainer = () => {
                     For most community that want to optimize knowledge
                   </div>
                   <p className="flex items-center mb-2 text-white">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-blue-700 text-white rounded-full flex-shrink-0">
                       <svg
                         fill="none"
                         stroke="currentColor"
@@ -318,7 +320,7 @@ const SimplerContainer = () => {
                     Premium contents
                   </p>
                   <p className="flex items-center mb-10 text-white ">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-blue-700 text-white rounded-full flex-shrink-0">
                       <svg
                         fill="none"
                         stroke="currentColor"
@@ -334,9 +336,9 @@ const SimplerContainer = () => {
                     IT contents with Non - Technical Language
                   </p>
 
-                  <div className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white  bg-[#7A97FF] text-center  mt-8 lg:mt-0 border-[#7A97FF]  ">
+                  <a href="https://play.google.com/store/apps/details?id=com.commit.app" className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white  bg-[#7A97FF] text-center  mt-8 lg:mt-0 border-[#7A97FF]  ">
                     Choose Plan
-                  </div>
+                  </a>
                   <p className="text-xs text-gray-500 mt-3"></p>
                 </div>
               </div>
@@ -357,7 +359,7 @@ const SimplerContainer = () => {
                     For most community that want to optimize knowledge
                   </div>
                   <p className="flex items-center mb-2 text-[#7A97FF]">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-blue-200 text-white rounded-full flex-shrink-0">
                       <svg
                         fill="none"
                         stroke="currentColor"
@@ -373,7 +375,7 @@ const SimplerContainer = () => {
                     Premium contents
                   </p>
                   <p className="flex items-center text-[#7A97FF] mb-10 ">
-                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                    <span className="w-4 h-4 mr-2 inline-flex items-center justify-center bg-blue-200 text-white rounded-full flex-shrink-0">
                       <svg
                         fill="none"
                         stroke="currentColor"
@@ -389,9 +391,9 @@ const SimplerContainer = () => {
                     IT contents with Non - Technical Language
                   </p>
 
-                  <div className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white border-[#00229B] bg-[#00229B] text-center  mt-8 lg:mt-0 ">
+                  <a href="https://play.google.com/store/apps/details?id=com.commit.app" className="w-full h-9 inline-block text-base px-6 py-2 leading-none border rounded-full text-white border-[#00229B] bg-[#00229B] text-center  mt-8 lg:mt-0 ">
                     Choose Plan
-                  </div>
+                  </a>
                   <p className="text-xs text-gray-500 mt-3"></p>
                 </div>
               </div>

@@ -22,7 +22,7 @@ export const ImagePost = ({ files }) => {
             height={20}
             width={20}
             onClick={() => setIndex(index - 1)}
-            color="black"
+            color="#7c7d7c"
           />
         </div>
       )}
@@ -32,7 +32,8 @@ export const ImagePost = ({ files }) => {
             height={20}
             width={20}
             onClick={() => setIndex(index + 1)}
-            color="black"
+            color="#7c7d7c"
+           
           />
         </div>
       )}

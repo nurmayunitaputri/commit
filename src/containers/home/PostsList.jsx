@@ -142,7 +142,7 @@ export const PostsList = () => {
           <div onClick={() => push(`/detail/${post.id_post}`)}>
             <p className="pt-8 ml-7 pr-10 text-gray-700 text-[12px]  text-left">{post.post_desc.substring(0, 300)}</p>
 
-            {post.post_desc.length > 300 && <p className="text-gray-400 text-[12px] ml-2 pt-5">See more ...</p>}
+            {post.post_desc.length > 300 && <p className="text-gray-400 text-[12px] ml-2 pl-5 pt-5">See more </p>}
           </div>
 
           <ImagePost files={post.filePosts} />

@@ -86,8 +86,8 @@ const PeopleItem = ({ people }) => {
           />
         </div>
         <p className="ml-[5px] text-[12px] font-bold pr-[3px] text-left text-ellipsis">
-          {people.fullname.length > 15
-            ? `${people.fullname.substring(0, 15)}...`
+          {people.fullname.length > 12
+            ? `${people.fullname.substring(0, 12)}...`
             : people.fullname}
         </p>
       </div>
