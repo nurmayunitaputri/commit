@@ -115,7 +115,7 @@ export const NavBar = ({ currentPage }) => {
                 aria-expanded="false"
               >
                 {" "}
-                Halo, {name.substring(0, 8)} {name.length > 8 && "..."}{" "}
+                Halo, {name.substring(0, 7)} {name.length > 7 && "..."}{" "}
               </div>
               <div className="relative pl-3">
                 <button
