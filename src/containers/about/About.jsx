@@ -8,7 +8,7 @@ const AboutContainer = () => {
       {user === null ? <NavbarGuest /> : <NavBar />}
       <div className="bg-white text-[#00229B] body-font overflow-hidden">
         <div className="container px-5 pt-1 mx-auto">
-          <div className="flex flex-col text-center w-full mx-auto mb-2">
+          <div className="flex flex-col text-center w-full mx-auto pt-10 mb-2">
             <div className=" px-2 pb-10 w-8/12 max-w-fit mx-auto"></div>
             <p className="lg:w-2/3 text-5xl font-bold mx-auto text-left leading-relaxed text-[#00229B] pt-1 pb-7">
               About Commit
