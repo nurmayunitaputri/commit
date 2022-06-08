@@ -40,7 +40,7 @@ export const Profile = () => {
           {status === "Verified" && <CheckCircleIcon width={20} color="blue"/> }
         </div>
         <div className="flex justify-center text-sm">
-          <p className="px-[2%] py-[2%] text-[10px] rounded  bg-[#708beb] text-white">
+          <p className="px-[2%] py-[2%] text-[10px] rounded  bg-[#7A97FF] text-white">
             {passion}
           </p>
           <p className="text-gray-400 pl-3 px-[5px] py-[5px]">{region}</p>

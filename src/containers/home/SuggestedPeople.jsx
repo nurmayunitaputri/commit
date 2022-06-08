@@ -92,7 +92,7 @@ const PeopleItem = ({ people }) => {
         </p>
       </div>
       <button
-        className="block overflow-hidden px-[3%] py-[2%] text-[12px] rounded-lg ml-[33px] bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-600 "
+        className="block overflow-hidden px-[3%] py-[2%] text-[12px] rounded-lg ml-[33px] bg-[#7A97FF] text-white focus:outline-none focus:bg-[#7A97FF] "
         onClick={hanldeOnFollowOrUnfollow}
         disabled={loading}
       >

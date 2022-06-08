@@ -177,7 +177,7 @@ const ProfileUserContainer = () => {
                   <div className="w-full flex justify-center my-5">
                     {profile?.is_follow ? (
                       <button
-                        className="block overflow-hidden h-8 px-2 text-[12px] rounded-lg  bg-blue-500 text-white focus:outline-none focus:bg-blue-600 w-[50%]"
+                        className="block overflow-hidden h-8 px-2 text-[12px] rounded-lg  bg-[#00229B] text-white focus:outline-none w-[50%]"
                         onClick={hanldeOnFollowOrUnfollow}
                       >
                         Followed
@@ -185,7 +185,7 @@ const ProfileUserContainer = () => {
                       </button>
                     ) : (
                       <button
-                        className="block overflow-hidden h-8 px-2 text-[12px] rounded-lg ml-[33px] bg-[#a8b8f1] text-white focus:outline-none focus:bg-blue-600 w-[50%]"
+                        className="block overflow-hidden h-8 px-2 text-[12px] rounded-lg ml-[33px] bg-[#00229B] text-white w-[50%]"
                         onClick={hanldeOnFollowOrUnfollow}
                       >
                         Follow

@@ -103,8 +103,8 @@ const SimplerContainer = () => {
           <div className="flex flex-row text-black bg-white rounded-lg mb-5">
             <p
               className={clsx(
-                "p-2 rounded-lg text-2xl pr-1",
-                tab === "official" && "bg-blue-500 text-white"
+                "p-2 rounded-lg text-xl pr-1",
+                tab === "official" && "bg-[#00229B] text-white"
               )}
               onClick={() => {
                 handleSetFilter("");
@@ -115,8 +115,8 @@ const SimplerContainer = () => {
             </p>
             <p
               className={clsx(
-                "p-2 rounded-lg text-2xl",
-                tab === "verified" && "bg-blue-500 text-white"
+                "p-2 rounded-lg text-xl",
+                tab === "verified" && "bg-[#00229B] text-white"
               )}
               onClick={() => {
                 handleSetFilter("");

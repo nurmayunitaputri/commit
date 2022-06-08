@@ -115,11 +115,11 @@ export const PostCard = ({
             <p className="text-gray-400 text-[12px] ml-[10px]"> {dayjs(createdDate).fromNow()} </p>
             <div className="ml-2 pb-[12px]">{status ? <LightBulbIcon color="rgb(179,179,179)" height={18} width={18} /> : <GlobeIcon color="rgb(179,179,179)" height={18} width={18} />}</div>
           </div>
-          <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-6" onClick={() => (clickStatusToDetail ? push(`/detail/${postId}`) : null)}>
+          <div className="flex flex-cols gap-2 bg-white items-start pt-5 rounded-lg text-gray-700 text-[12px] ml-6 mr-10" onClick={() => (clickStatusToDetail ? push(`/detail/${postId}`) : null)}>
             <br /> {desc}
           </div>
 
-          <div className="h-[50%] w-[90%]  flex justify-start">
+          <div className="h-[50%] w-[100%]  flex justify-start">
             <ImagePost files={filePosts} />
           </div>
           <div className="flex flex-row pl-5 pt-3 text-white">
