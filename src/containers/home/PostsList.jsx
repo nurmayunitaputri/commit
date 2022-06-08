@@ -87,7 +87,7 @@ export const PostsList = () => {
                     )}
                   </div>
                   <div className="flex space-x-1">
-                    <p className="text-gray-400 text-[12px] ">
+                    <p className="text-gray-400 text-[11px] ">
                       {post.user.passion} • {dayjs(post.created_date).fromNow()}{" "}
                     </p>
                     {post.post_status ? (
